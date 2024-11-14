@@ -1,0 +1,24 @@
+/project-folder
+    /css
+        shop-styles.css
+    /js
+        script.js
+    /images
+        rose-bouquet.jpg
+        tulip-mix.jpg
+        sunflower.jpg
+        daisy-arrangement.jpg
+        lily-bouquet.jpg
+        orchid-pot.jpg
+        peony-bouquet.jpg
+        carnation-mix.jpg
+        shop-hero.jpg
+        customer1.jpg
+        customer2.jpg
+        customer3.jpg
+        customer4.jpg
+        facebook-icon.png
+        twitter-icon.png
+        instagram-icon.png
+    shop.html
+    index.html

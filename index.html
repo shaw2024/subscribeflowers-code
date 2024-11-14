@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe Flowers - Fresh Blooms Delivered</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Subscribe Flowers</div>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="viewflowerssshop.html">View Flowers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to Subscribe Flowers</h1>
+            <p>Fresh blooms delivered to your doorstep, all year round</p>
+            <a href="viewflowers.html" class="cta-button">View Flowers</a>
+        </section>
+
+        <section id="about" class="about-us container">
+            <h2>About Us</h2>
+            <p>At Subscribe Flowers, we believe in bringing the beauty of nature into your home. Choose a subscription plan that suits you, and we'll deliver handpicked, fresh flowers right to your doorstep.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="plans" class="container">
+            <h2>Our Subscription Plans</h2>
+            <div class="subscription-plans">
+                <div class="plan">
+                    <h3>Blossom Starter</h3>
+                    <div class="price">$299/year</div>
+                    <ul>
+                        <li>50 flowers per quarter</li>
+                        <li>Seasonal variety</li>
+                        <li>Free delivery</li>
+                    </ul>
+                    <a href="#" class="cta-button">Subscribe Now</a>
+                </div>
+                <div class="plan">
+                    <h3>Floral Enthusiast</h3>
+                    <div class="price">$599/year</div>
+                    <ul>
+                        <li>100 flowers per quarter</li>
+                        <li>Wide selection of blooms</li>
+                        <li>Free delivery</li>
+                    </ul>
+                    <a href="#" class="cta-button">Subscribe Now</a>
+                </div>
+                <div class="plan">
+                    <h3>Botanical Bliss</h3>
+                    <div class="price">$999/year</div>
+                    <ul>
+                        <li>200 flowers per quarter</li>
+                        <li>Premium and rare varieties</li>
+                        <li>Free delivery</li>
+                    </ul>
+                    <a href="#" class="cta-button">Subscribe Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <img src="images/customer1.jpg" alt="Customer photo">
+                    <p>"Subscribe Flowers has brought so much joy to my home. The flowers are always fresh and beautiful!"</p>
+                    <h3>Jane Doe</h3>
+                    <h4>Floral Enthusiast</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="images/customer2.jpg" alt="Customer photo">
+                    <p>"I love the variety and quality of flowers I receive every quarter. Highly recommend Subscribe Flowers!"</p>
+                    <h3>John Smith</h3>
+                    <h4>Blossom Starter</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="images/customer3.jpg" alt="Customer photo">
+                    <p>"The subscription is worth every penny. Beautiful flowers delivered right to my door."</p>
+                    <h3>Mary Johnson</h3>
+                    <h4>Botanical Bliss</h4>
+                </div>
+                <div class="testimonial">
+                    <img src="images/customer4.jpg" alt="Customer photo">
+                    <p>"Exceptional service and stunning flowers. Subscribe Flowers has exceeded my expectations."</p>
+                    <h3>James Brown</h3>
+                    <h4>Floral Enthusiast</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="plans.html">Plans</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#terms">Terms and Conditions</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="#twitter"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                    <a href="#instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
