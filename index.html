@@ -3,50 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Website</title>
+    <title>My Awesome Website - Modern Design</title>
     <style>
-        body { font-family: sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
-        header { background-color: #333; color: white; padding: 1rem 0; text-align: center; }
-        #hero { padding: 2rem; }
-        #hero h1 { font-size: 2.5rem; }
-        #hero .scroller { height: 100px; background-color: #555; margin-top: 1rem; overflow: hidden; position: relative; }
-        #hero .scroller-content { position: absolute; white-space: nowrap; animation: scroll 20s linear infinite; }
-        #hero .scroller-content span { display: inline-block; padding: 0 20px; font-size: 1.2rem; }
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            background-color: #f8f9fa; /* Lighter gray background */
+            color: #343a40; /* Darker gray for text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header and Hero Section */
+        header#page-header { /* Changed ID to avoid conflict if there are other headers */
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        #hero .scroller {
+            height: 60px; /* Adjusted height */
+            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+            margin-top: 2rem;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        #hero .scroller-content {
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform; /* Performance hint for animation */
+            animation: scroll 25s linear infinite;
+            display: flex; /* Use flex for vertical alignment if needed */
+            align-items: center; /* Vertically center text */
+            height: 100%;
+        }
+
+        #hero .scroller-content span {
+            display: inline-block;
+            padding: 0 30px; /* Increased padding */
+            font-size: 1.1rem; /* Adjusted font size */
+            font-weight: 500;
+        }
+
         @keyframes scroll {
             0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            100% { transform: translateX(-120%); } /* Adjusted for smoother looping with more items */
         }
-        main { padding: 1rem; }
-        #pricing { display: flex; justify-content: space-around; flex-wrap: wrap; padding: 2rem 0; }
-        .price-box { background-color: white; border: 1px solid #ddd; border-radius: 5px; padding: 1.5rem; margin: 1rem; text-align: center; width: 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .price-box h3 { margin-top: 0; color: #333; }
-        .price-box .price { font-size: 2rem; font-weight: bold; color: #007bff; margin: 0.5rem 0; }
-        .price-box button { background-color: #007bff; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease; }
-        .price-box button:hover { background-color: #0056b3; }
-        #testimonials { padding: 2rem 0; background-color: #e9e9e9; }
-        #testimonials h2 { text-align: center; margin-bottom: 1.5rem; }
-        .testimonial { background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 1rem; margin: 1rem auto; width: 80%; max-width: 600px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .testimonial cite { display: block; text-align: right; margin-top: 0.5rem; font-style: italic; }
-        footer { background-color: #333; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
-        footer nav a { color: white; margin: 0 10px; text-decoration: none; }
-        footer nav a:hover { text-decoration: underline; }
+
+        /* Main Content Area */
+        main {
+            flex-grow: 1;
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto; /* Center main content */
+        }
+
+        /* Section Styling */
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #e9ecef; /* Subtle separator */
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            color: #0056b3; /* Accent color for headings */
+        }
+
+        /* Pricing Section */
+        #pricing {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem; /* Gap between boxes */
+        }
+
+        .price-box {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px; /* Softer corners */
+            padding: 2rem;
+            text-align: center;
+            flex-basis: 300px; /* Base width */
+            flex-grow: 1; /* Allow growing */
+            max-width: 350px; /* Max width */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .price-box h3 {
+            margin-top: 0;
+            font-size: 1.75rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .price-box .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #28a745; /* Green for price */
+            margin: 1rem 0;
+        }
+
+        .price-box .plan-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            min-height: 50px; /* Ensure consistent height */
+        }
+
+        .price-box button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px; /* Pill shape button */
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .price-box button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.4);
+        }
+
+        /* Featured Price Box (e.g., Pro Plan) */
+        .price-box.featured {
+            border-color: #007bff;
+            transform: scale(1.05); /* Slightly larger */
+            box-shadow: 0 8px 30px rgba(0, 123, 255, 0.15);
+        }
+        .price-box.featured h3 {
+             color: #0056b3;
+        }
+        .price-box.featured button {
+            background-color: #28a745; /* Different color for featured plan button */
+            box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+        }
+        .price-box.featured button:hover {
+            background-color: #218838;
+            box-shadow: 0 4px 10px rgba(33, 136, 56, 0.4);
+        }
+
+
+        /* Testimonials Section */
+        #testimonials .testimonial-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-left: 5px solid #007bff; /* Accent border */
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex-basis: 45%; /* Two testimonials per row on larger screens */
+            max-width: 500px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1rem; /* Spacing for stacked items on small screens */
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial cite {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            color: #0056b3;
+        }
+
+        /* Footer */
+        footer#page-footer { /* Changed ID to avoid conflict */
+            background-color: #343a40; /* Dark footer */
+            color: #adb5bd; /* Lighter text for footer */
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: auto; /* Pushes footer to bottom */
+        }
+
+        footer#page-footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer#page-footer nav a {
+            color: #ced4da; /* Even lighter for links */
+            margin: 0 12px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer#page-footer nav a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            #hero p { font-size: 1.1rem; }
+            #hero .scroller-content span { font-size: 1rem; padding: 0 20px; }
+
+            section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+
+            .price-box { flex-basis: 100%; max-width: 400px; } /* Stack price boxes */
+            .price-box.featured { transform: scale(1); } /* No scaling on mobile for featured */
+
+            .testimonial { flex-basis: 100%; max-width: 400px; } /* Stack testimonials */
+        }
+
     </style>
 </head>
 <body>
-    <header>
+    <header id="page-header">
         <section id="hero">
-            <h1>Welcome to My Awesome Website</h1>
-            <p>Your journey to awesomeness starts here.</p>
+            <h1>Modern Solutions, Timeless Quality</h1>
+            <p>Discover services that redefine industry standards.</p>
             <div class="scroller">
                 <div class="scroller-content">
-                    <span>Exciting News!</span>
-                    <span>New Features Added!</span>
-                    <span>Limited Time Offers!</span>
-                    <span>Join Our Community!</span>
-                    <span>Exciting News!</span>
-                    <span>New Features Added!</span>
-                    <span>Limited Time Offers!</span>
-                    <span>Join Our Community!</span>
+                    <span>Innovative Designs</span>
+                    <span>Cutting-Edge Technology</span>
+                    <span>Customer-Centric Approach</span>
+                    <span>Future-Proof Solutions</span>
+                    <span>Unmatched Performance</span>
+                    <span>Innovative Designs</span>
+                    <span>Cutting-Edge Technology</span>
+                    <span>Customer-Centric Approach</span>
                 </div>
             </div>
         </section>
@@ -54,50 +281,53 @@
 
     <main>
         <section id="pricing">
-            <h2>Subscription Plans</h2>
+            <h2>Our Service Plans</h2>
             <div class="price-box">
-                <h3>Basic Plan</h3>
+                <h3>Starter</h3>
                 <p class="price">$299</p>
-                <button>Choose Plan</button>
+                <p class="plan-description">Perfect for individuals and small teams getting started.</p>
+                <button>Get Started</button>
             </div>
-            <div class="price-box">
-                <h3>Pro Plan</h3>
+            <div class="price-box featured"> <!-- Added 'featured' class to middle box -->
+                <h3>Professional</h3>
                 <p class="price">$599</p>
-                <button>Choose Plan</button>
+                <p class="plan-description">Ideal for growing businesses needing advanced features.</p>
+                <button>Choose Pro</button>
             </div>
             <div class="price-box">
-                <h3>Ultimate Plan</h3>
+                <h3>Enterprise</h3>
                 <p class="price">$999</p>
-                <button>Choose Plan</button>
+                <p class="plan-description">Comprehensive solutions for large organizations.</p>
+                <button>Contact Us</button>
             </div>
         </section>
 
         <section id="testimonials">
-            <h2>What Our Users Say</h2>
-            <div class="testimonial">
-                <p>"This is the best website ever!"</p>
-                <cite>- Happy User 1</cite>
-            </div>
-            <div class="testimonial">
-                <p>"I can't imagine my life without it."</p>
-                <cite>- Thrilled User 2</cite>
+            <h2>Trusted by Leaders</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"The innovation and quality provided are unparalleled. A true game-changer for our business!"</p>
+                    <cite>- Alex Chen, CEO of TechForward</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"Switching to their service was the best decision we made. Efficiency and support are top-notch."</p>
+                    <cite>- Maria Rodriguez, COO of Global Solutions</cite>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2023 My Awesome Website</p>
+    <footer id="page-footer">
+        <p>&copy; 2023 Your Company Name. All Rights Reserved.</p>
         <nav>
             <a href="#">Terms of Service</a>
             <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
+            <a href="#">Contact</a>
         </nav>
     </footer>
 
     <script>
-        // Basic JavaScript for any future dynamic interactions if needed.
-        // For now, the scroller is CSS-only.
-        console.log("Website loaded!");
+        console.log("Modern website design loaded!");
     </script>
 </body>
 </html>
