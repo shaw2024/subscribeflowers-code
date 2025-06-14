@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Shop - Our Flowers</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #333; color: white; padding: 1rem 0; text-align: center; }
+        header h1 { margin: 0; }
+        header nav a { color: white; margin: 0 10px; text-decoration: none; }
+        header nav a:hover { text-decoration: underline; }
+        main { padding: 1rem; }
+        #flower-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; padding: 2rem 0; }
+        #flower-grid h2 { grid-column: 1 / -1; text-align: center; margin-bottom: 1.5rem; }
+        .flower-item { background-color: white; border: 1px solid #ddd; border-radius: 5px; padding: 1rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .flower-item img { max-width: 100%; height: 150px; object-fit: cover; border-bottom: 1px solid #eee; margin-bottom: 0.5rem; }
+        .flower-item h3 { margin-top: 0; font-size: 1.2rem; color: #333; }
+        .flower-item .price { font-size: 1rem; font-weight: bold; color: #007bff; margin: 0.5rem 0; }
+        .flower-item button { background-color: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 0.9rem; transition: background-color 0.3s ease; }
+        .flower-item button:hover { background-color: #218838; }
+        footer { background-color: #333; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        footer nav a { color: white; margin: 0 10px; text-decoration: none; }
+        footer nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Beautiful Flowers</h1>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="flower-grid">
+            <h2>Browse Our Collection</h2>
+            <!-- 50 Flower items -->
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower1" alt="Flower 1">
+                <h3>Lovely Rose</h3>
+                <p class="price">$10.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower2" alt="Flower 2">
+                <h3>Sunny Tulip</h3>
+                <p class="price">$8.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower3" alt="Flower 3">
+                <h3>Blue Orchid</h3>
+                <p class="price">$12.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower4" alt="Flower 4">
+                <h3>Green Lily</h3>
+                <p class="price">$9.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower5" alt="Flower 5">
+                <h3>Yellow Daisy</h3>
+                <p class="price">$7.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower6" alt="Flower 6">
+                <h3>Pink Carnation</h3>
+                <p class="price">$6.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower7" alt="Flower 7">
+                <h3>Golden Sunflower</h3>
+                <p class="price">$11.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower8" alt="Flower 8">
+                <h3>Sky Blue Petunia</h3>
+                <p class="price">$5.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower9" alt="Flower 9">
+                <h3>Emerald Fern</h3>
+                <p class="price">$10.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower10" alt="Flower 10">
+                <h3>Creamy Gardenia</h3>
+                <p class="price">$13.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower11" alt="Flower 11">
+                <h3>Ruby Red Rose</h3>
+                <p class="price">$15.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower12" alt="Flower 12">
+                <h3>Orange Tulip</h3>
+                <p class="price">$8.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower13" alt="Flower 13">
+                <h3>Purple Iris</h3>
+                <p class="price">$11.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower14" alt="Flower 14">
+                <h3>White Lily</h3>
+                <p class="price">$9.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower15" alt="Flower 15">
+                <h3>Bright Marigold</h3>
+                <p class="price">$6.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower16" alt="Flower 16">
+                <h3>Magenta Azalea</h3>
+                <p class="price">$10.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower17" alt="Flower 17">
+                <h3>Lemon Zinnia</h3>
+                <p class="price">$7.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower18" alt="Flower 18">
+                <h3>Violet Hyacinth</h3>
+                <p class="price">$14.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower19" alt="Flower 19">
+                <h3>Jade Cactus Flower</h3>
+                <p class="price">$18.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower20" alt="Flower 20">
+                <h3>Ivory Peony</h3>
+                <p class="price">$16.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower21" alt="Flower 21">
+                <h3>Blush Rose</h3>
+                <p class="price">$10.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower22" alt="Flower 22">
+                <h3>Amber Tulip</h3>
+                <p class="price">$8.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower23" alt="Flower 23">
+                <h3>Indigo Orchid</h3>
+                <p class="price">$12.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower24" alt="Flower 24">
+                <h3>Mint Lily</h3>
+                <p class="price">$9.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower25" alt="Flower 25">
+                <h3>Pale Yellow Daisy</h3>
+                <p class="price">$7.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower26" alt="Flower 26">
+                <h3>Peach Carnation</h3>
+                <p class="price">$6.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower27" alt="Flower 27">
+                <h3>Bronze Sunflower</h3>
+                <p class="price">$11.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower28" alt="Flower 28">
+                <h3>Lavender Petunia</h3>
+                <p class="price">$5.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower29" alt="Flower 29">
+                <h3>Forest Fern</h3>
+                <p class="price">$10.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower30" alt="Flower 30">
+                <h3>Snow White Gardenia</h3>
+                <p class="price">$13.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower31" alt="Flower 31">
+                <h3>Coral Rose</h3>
+                <p class="price">$15.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower32" alt="Flower 32">
+                <h3>Red Tulip</h3>
+                <p class="price">$8.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower33" alt="Flower 33">
+                <h3>Deep Blue Iris</h3>
+                <p class="price">$11.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower34" alt="Flower 34">
+                <h3>Tiger Lily</h3>
+                <p class="price">$9.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower35" alt="Flower 35">
+                <h3>Orange Marigold</h3>
+                <p class="price">$6.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower36" alt="Flower 36">
+                <h3>Fuchsia Azalea</h3>
+                <p class="price">$10.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower37" alt="Flower 37">
+                <h3>Gold Zinnia</h3>
+                <p class="price">$7.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower38" alt="Flower 38">
+                <h3>Royal Hyacinth</h3>
+                <p class="price">$14.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower39" alt="Flower 39">
+                <h3>Desert Cactus Flower</h3>
+                <p class="price">$18.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower40" alt="Flower 40">
+                <h3>Pearl Peony</h3>
+                <p class="price">$16.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower41" alt="Flower 41">
+                <h3>Baby Pink Rose</h3>
+                <p class="price">$10.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower42" alt="Flower 42">
+                <h3>Yellow Edge Tulip</h3>
+                <p class="price">$8.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower43" alt="Flower 43">
+                <h3>Light Blue Orchid</h3>
+                <p class="price">$12.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower44" alt="Flower 44">
+                <h3>Forest Green Lily</h3>
+                <p class="price">$9.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower45" alt="Flower 45">
+                <h3>Buttercup Daisy</h3>
+                <p class="price">$7.25</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFC0CB/000000?Text=Flower46" alt="Flower 46">
+                <h3>Rose Pink Carnation</h3>
+                <p class="price">$6.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFD700/000000?Text=Flower47" alt="Flower 47">
+                <h3>Giant Sunflower</h3>
+                <p class="price">$11.50</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/ADD8E6/000000?Text=Flower48" alt="Flower 48">
+                <h3>Periwinkle Petunia</h3>
+                <p class="price">$5.75</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/90EE90/000000?Text=Flower49" alt="Flower 49">
+                <h3>Lush Green Fern</h3>
+                <p class="price">$10.00</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="flower-item">
+                <img src="https://via.placeholder.com/150/FFFFE0/000000?Text=Flower50" alt="Flower 50">
+                <h3>Fragrant Gardenia</h3>
+                <p class="price">$13.25</p>
+                <button>Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 My Awesome Website</p>
+        <nav>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </footer>
+    <script>
+        // Basic JavaScript for any future dynamic interactions if needed.
+        console.log("Flower page loaded!");
+    </script>
+</body>
+</html>

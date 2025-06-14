@@ -3,145 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscribe Flowers - Fresh Blooms Delivered</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Awesome Website</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        header { background-color: #333; color: white; padding: 1rem 0; text-align: center; }
+        #hero { padding: 2rem; }
+        #hero h1 { font-size: 2.5rem; }
+        #hero .scroller { height: 100px; background-color: #555; margin-top: 1rem; overflow: hidden; position: relative; }
+        #hero .scroller-content { position: absolute; white-space: nowrap; animation: scroll 20s linear infinite; }
+        #hero .scroller-content span { display: inline-block; padding: 0 20px; font-size: 1.2rem; }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        main { padding: 1rem; }
+        #pricing { display: flex; justify-content: space-around; flex-wrap: wrap; padding: 2rem 0; }
+        .price-box { background-color: white; border: 1px solid #ddd; border-radius: 5px; padding: 1.5rem; margin: 1rem; text-align: center; width: 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .price-box h3 { margin-top: 0; color: #333; }
+        .price-box .price { font-size: 2rem; font-weight: bold; color: #007bff; margin: 0.5rem 0; }
+        .price-box button { background-color: #007bff; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease; }
+        .price-box button:hover { background-color: #0056b3; }
+        #testimonials { padding: 2rem 0; background-color: #e9e9e9; }
+        #testimonials h2 { text-align: center; margin-bottom: 1.5rem; }
+        .testimonial { background-color: white; border: 1px solid #ccc; border-radius: 5px; padding: 1rem; margin: 1rem auto; width: 80%; max-width: 600px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .testimonial cite { display: block; text-align: right; margin-top: 0.5rem; font-style: italic; }
+        footer { background-color: #333; color: white; text-align: center; padding: 1rem 0; margin-top: 2rem; }
+        footer nav a { color: white; margin: 0 10px; text-decoration: none; }
+        footer nav a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">Subscribe Flowers</div>
-            <ul class="menu" id="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="viewflowerssshop.html">View Flowers</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+        <section id="hero">
+            <h1>Welcome to My Awesome Website</h1>
+            <p>Your journey to awesomeness starts here.</p>
+            <div class="scroller">
+                <div class="scroller-content">
+                    <span>Exciting News!</span>
+                    <span>New Features Added!</span>
+                    <span>Limited Time Offers!</span>
+                    <span>Join Our Community!</span>
+                    <span>Exciting News!</span>
+                    <span>New Features Added!</span>
+                    <span>Limited Time Offers!</span>
+                    <span>Join Our Community!</span>
+                </div>
             </div>
-        </nav>
+        </section>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Welcome to Subscribe Flowers</h1>
-            <p>Fresh blooms delivered to your doorstep, all year round</p>
-            <a href="viewflowers.html" class="cta-button">View Flowers</a>
-        </section>
-
-        <section id="about" class="about-us container">
-            <h2>About Us</h2>
-            <p>At Subscribe Flowers, we believe in bringing the beauty of nature into your home. Choose a subscription plan that suits you, and we'll deliver handpicked, fresh flowers right to your doorstep.</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/your_video_id" frameborder="0" allowfullscreen></iframe>
+        <section id="pricing">
+            <h2>Subscription Plans</h2>
+            <div class="price-box">
+                <h3>Basic Plan</h3>
+                <p class="price">$299</p>
+                <button>Choose Plan</button>
+            </div>
+            <div class="price-box">
+                <h3>Pro Plan</h3>
+                <p class="price">$599</p>
+                <button>Choose Plan</button>
+            </div>
+            <div class="price-box">
+                <h3>Ultimate Plan</h3>
+                <p class="price">$999</p>
+                <button>Choose Plan</button>
             </div>
         </section>
 
-        <section id="plans" class="container">
-            <h2>Our Subscription Plans</h2>
-            <div class="subscription-plans">
-                <div class="plan">
-                    <h3>Blossom Starter</h3>
-                    <div class="price">$299/year</div>
-                    <ul>
-                        <li>50 flowers per quarter</li>
-                        <li>Seasonal variety</li>
-                        <li>Free delivery</li>
-                    </ul>
-                    <a href="#" class="cta-button">Subscribe Now</a>
-                </div>
-                <div class="plan">
-                    <h3>Floral Enthusiast</h3>
-                    <div class="price">$599/year</div>
-                    <ul>
-                        <li>100 flowers per quarter</li>
-                        <li>Wide selection of blooms</li>
-                        <li>Free delivery</li>
-                    </ul>
-                    <a href="#" class="cta-button">Subscribe Now</a>
-                </div>
-                <div class="plan">
-                    <h3>Botanical Bliss</h3>
-                    <div class="price">$999/year</div>
-                    <ul>
-                        <li>200 flowers per quarter</li>
-                        <li>Premium and rare varieties</li>
-                        <li>Free delivery</li>
-                    </ul>
-                    <a href="#" class="cta-button">Subscribe Now</a>
-                </div>
+        <section id="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <p>"This is the best website ever!"</p>
+                <cite>- Happy User 1</cite>
             </div>
-        </section>
-
-        <section id="testimonials" class="testimonials">
-            <h2>What Our Customers Say</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <img src="images/customer1.jpg" alt="Customer photo">
-                    <p>"Subscribe Flowers has brought so much joy to my home. The flowers are always fresh and beautiful!"</p>
-                    <h3>Jane Doe</h3>
-                    <h4>Floral Enthusiast</h4>
-                </div>
-                <div class="testimonial">
-                    <img src="images/customer2.jpg" alt="Customer photo">
-                    <p>"I love the variety and quality of flowers I receive every quarter. Highly recommend Subscribe Flowers!"</p>
-                    <h3>John Smith</h3>
-                    <h4>Blossom Starter</h4>
-                </div>
-                <div class="testimonial">
-                    <img src="images/customer3.jpg" alt="Customer photo">
-                    <p>"The subscription is worth every penny. Beautiful flowers delivered right to my door."</p>
-                    <h3>Mary Johnson</h3>
-                    <h4>Botanical Bliss</h4>
-                </div>
-                <div class="testimonial">
-                    <img src="images/customer4.jpg" alt="Customer photo">
-                    <p>"Exceptional service and stunning flowers. Subscribe Flowers has exceeded my expectations."</p>
-                    <h3>James Brown</h3>
-                    <h4>Floral Enthusiast</h4>
-                </div>
+            <div class="testimonial">
+                <p>"I can't imagine my life without it."</p>
+                <cite>- Thrilled User 2</cite>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="plans.html">Plans</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#terms">Terms and Conditions</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-icons">
-                    <a href="#facebook"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#twitter"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                    <a href="#instagram"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
+        <p>&copy; 2023 My Awesome Website</p>
+        <nav>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+        </nav>
     </footer>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const menu = document.getElementById('menu');
-
-        hamburger.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
+        // Basic JavaScript for any future dynamic interactions if needed.
+        // For now, the scroller is CSS-only.
+        console.log("Website loaded!");
     </script>
 </body>
 </html>
