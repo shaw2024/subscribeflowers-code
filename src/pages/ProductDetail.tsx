@@ -147,8 +147,16 @@ const ProductDetail = ({ onAddToCart }: ProductDetailProps) => {
                 {product.colors.map((color) => (
                   <button
                     key={color}
+                    type="button"
                     className={`color-option ${selectedColor === color ? 'selected' : ''}`}
-                    onClick={() => setSelectedColor(color)}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setSelectedColor(color)
+                    }}
+                    onTouchEnd={(e) => {
+                      e.preventDefault()
+                      setSelectedColor(color)
+                    }}
                     title={color}
                   >
                     {color}

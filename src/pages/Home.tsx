@@ -111,6 +111,10 @@ const Home = () => {
     <div className="home">
       <section className="hero">
         <div className="hero-content">
+          <div className="construction-notice">
+            <h2>🚧 Coming Soon 🚧</h2>
+            <p className="under-construction">Under Construction</p>
+          </div>
           <h1>Welcome to Subscribe Flowers</h1>
           <p>Fresh blooms delivered to your doorstep, all year round</p>
           <Link to="/shop" className="cta-button">View Flowers</Link>
