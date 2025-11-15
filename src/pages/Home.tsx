@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { saveSubscription } from '../firebase/database'
 import './Home.css'
 
 interface Plan {
@@ -31,28 +30,24 @@ const Home = () => {
     setShowSubscribeModal(true)
   }
 
-  const handleSubscriptionSubmit = async (e: React.FormEvent) => {
+  const handleSubscriptionSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
     if (!selectedPlan) return
 
-    const result = await saveSubscription({
+    console.log('Subscription:', {
       ...subscriptionForm,
       plan: selectedPlan.name,
       price: selectedPlan.price
     })
 
-    if (result.success) {
-      setSubscriptionSuccess(true)
-      setTimeout(() => {
-        setShowSubscribeModal(false)
-        setSubscriptionSuccess(false)
-        setSubscriptionForm({ name: '', email: '', phone: '' })
-        setSelectedPlan(null)
-      }, 3000)
-    } else {
-      alert('Error submitting subscription. Please try again.')
-    }
+    setSubscriptionSuccess(true)
+    setTimeout(() => {
+      setShowSubscribeModal(false)
+      setSubscriptionSuccess(false)
+      setSubscriptionForm({ name: '', email: '', phone: '' })
+      setSelectedPlan(null)
+    }, 3000)
   }
 
   const plans: Plan[] = [

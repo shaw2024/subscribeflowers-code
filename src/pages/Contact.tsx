@@ -1,5 +1,4 @@
 import { useState, FormEvent } from 'react'
-import { saveContactForm } from '../firebase/database'
 import './Contact.css'
 
 const Contact = () => {
@@ -10,26 +9,16 @@ const Contact = () => {
   })
 
   const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-    
-    // Save to Firebase
-    const result = await saveContactForm(formData)
-    
-    setLoading(false)
-    
-    if (result.success) {
-      setSubmitted(true)
-      setTimeout(() => {
-        setSubmitted(false)
-        setFormData({ name: '', email: '', message: '' })
-      }, 3000)
-    } else {
-      alert('Error submitting form. Please try again.')
-    }
+    // In a real app, you'd send this to a backend
+    console.log('Form submitted:', formData)
+    setSubmitted(true)
+    setTimeout(() => {
+      setSubmitted(false)
+      setFormData({ name: '', email: '', message: '' })
+    }, 3000)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -110,8 +99,8 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-                <button type="submit" className="submit-button" disabled={loading}>
-                  {loading ? 'Sending...' : 'Send Message'}
+                <button type="submit" className="submit-button">
+                  Send Message
                 </button>
               </form>
             </div>

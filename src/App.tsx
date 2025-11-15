@@ -5,12 +5,11 @@ import Home from './pages/Home'
 import Shop from './pages/Shop'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import Admin from './pages/Admin'
 import './App.css'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/subscribeflowers-code">
       <div className="app">
         <Header />
         <main className="main-content">
@@ -19,7 +18,6 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<Admin />} />
           </Routes>
         </main>
         <Footer />

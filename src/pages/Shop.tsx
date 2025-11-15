@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { saveOrder } from '../firebase/database'
 import './Shop.css'
 
 interface Product {
@@ -65,13 +64,13 @@ const Shop = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0)
   }
 
-  const handleCheckout = async () => {
+  const handleCheckout = () => {
     if (!customerInfo.name || !customerInfo.email) {
       alert('Please fill in your name and email')
       return
     }
 
-    const orderData = {
+    console.log('Order placed:', {
       customerName: customerInfo.name,
       customerEmail: customerInfo.email,
       items: cart.map(item => ({
@@ -81,21 +80,15 @@ const Shop = () => {
         quantity: item.quantity
       })),
       total: getTotalPrice()
-    }
+    })
 
-    const result = await saveOrder(orderData)
-    
-    if (result.success) {
-      setOrderPlaced(true)
-      setTimeout(() => {
-        setCart([])
-        setShowCheckout(false)
-        setOrderPlaced(false)
-        setCustomerInfo({ name: '', email: '' })
-      }, 3000)
-    } else {
-      alert('Error placing order. Please try again.')
-    }
+    setOrderPlaced(true)
+    setTimeout(() => {
+      setCart([])
+      setShowCheckout(false)
+      setOrderPlaced(false)
+      setCustomerInfo({ name: '', email: '' })
+    }, 3000)
   }
 
   return (
