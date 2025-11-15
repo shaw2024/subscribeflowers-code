@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Shop.css'
 
 interface Product {
@@ -13,6 +14,7 @@ interface CartItem extends Product {
 }
 
 const Shop = () => {
+  const navigate = useNavigate()
   const [cart, setCart] = useState<CartItem[]>([])
   const [showCheckout, setShowCheckout] = useState(false)
   const [customerInfo, setCustomerInfo] = useState({
@@ -22,29 +24,32 @@ const Shop = () => {
   const [orderPlaced, setOrderPlaced] = useState(false)
 
   const products: Product[] = [
-    { id: 1, name: 'Rose Bouquet', price: 30.00, image: '🌹' },
-    { id: 2, name: 'Tulip Mix', price: 25.00, image: '🌷' },
-    { id: 3, name: 'Sunflower Bouquet', price: 22.00, image: '🌻' },
-    { id: 4, name: 'Daisy Arrangement', price: 20.00, image: '🌼' },
-    { id: 5, name: 'Lily Bouquet', price: 35.00, image: '🌺' },
-    { id: 6, name: 'Orchid Pot', price: 40.00, image: '🌸' },
-    { id: 7, name: 'Peony Bouquet', price: 38.00, image: '💐' },
-    { id: 8, name: 'Carnation Mix', price: 18.00, image: '🏵️' }
+    { id: 1, name: 'Rose Bouquet', price: 45.00, image: '🌹' },
+    { id: 2, name: 'Tulip Arrangement', price: 35.00, image: '🌷' },
+    { id: 3, name: 'Sunflower Bouquet', price: 32.00, image: '🌻' },
+    { id: 4, name: 'Lily Elegance', price: 42.00, image: '🌺' },
+    { id: 5, name: 'Orchid Display', price: 55.00, image: '🌸' },
+    { id: 6, name: 'Peony Collection', price: 48.00, image: '💐' },
+    { id: 7, name: 'Carnation Classic', price: 28.00, image: '🏵️' },
+    { id: 8, name: 'Daisy Delight', price: 25.00, image: '🌼' },
+    { id: 9, name: 'Hydrangea Bouquet', price: 52.00, image: '💙' },
+    { id: 10, name: 'Lavender Bundle', price: 30.00, image: '💜' },
+    { id: 11, name: 'Gerbera Daisy Mix', price: 38.00, image: '🌸' },
+    { id: 12, name: 'Iris Collection', price: 40.00, image: '💐' },
+    { id: 13, name: 'Chrysanthemum Bunch', price: 33.00, image: '🌼' },
+    { id: 14, name: 'Daffodil Spring', price: 27.00, image: '🌻' },
+    { id: 15, name: 'Poppy Garden', price: 29.00, image: '🌺' },
+    { id: 16, name: 'Jasmine Fragrance', price: 36.00, image: '🌸' },
+    { id: 17, name: 'Magnolia Elegance', price: 50.00, image: '💐' },
+    { id: 18, name: 'Anemone Arrangement', price: 34.00, image: '🏵️' },
+    { id: 19, name: 'Gardenia Beauty', price: 44.00, image: '🌼' },
+    { id: 20, name: 'Freesia Fresh', price: 31.00, image: '🌷' },
+    { id: 21, name: 'Ranunculus Romance', price: 46.00, image: '🌹' },
+    { id: 22, name: 'Calla Lily Luxury', price: 58.00, image: '🌺' },
+    { id: 23, name: 'Zinnia Bright', price: 26.00, image: '🌻' },
+    { id: 24, name: 'Dahlia Delight', price: 43.00, image: '🌸' },
+    { id: 25, name: 'Sweet Pea Bundle', price: 24.00, image: '💐' }
   ]
-
-  const addToCart = (product: Product) => {
-    const existingItem = cart.find(item => item.id === product.id)
-    
-    if (existingItem) {
-      setCart(cart.map(item => 
-        item.id === product.id 
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      ))
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }])
-    }
-  }
 
   const removeFromCart = (productId: number) => {
     setCart(cart.filter(item => item.id !== productId))
@@ -103,14 +108,25 @@ const Shop = () => {
           <div className="products-grid">
             {products.map((product) => (
               <div key={product.id} className="product-card">
-                <div className="product-image">{product.image}</div>
-                <h3>{product.name}</h3>
+                <div 
+                  className="product-image"
+                  onClick={() => navigate(`/product/${product.id}`)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {product.image}
+                </div>
+                <h3 
+                  onClick={() => navigate(`/product/${product.id}`)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  {product.name}
+                </h3>
                 <p className="price">${product.price.toFixed(2)}</p>
                 <button 
                   className="buy-button"
-                  onClick={() => addToCart(product)}
+                  onClick={() => navigate(`/product/${product.id}`)}
                 >
-                  Add to Cart
+                  View Details
                 </button>
               </div>
             ))}

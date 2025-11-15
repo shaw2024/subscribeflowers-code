@@ -90,6 +90,14 @@
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    padding: 0.8rem 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -114,9 +122,30 @@
   .menu li {
     text-align: center;
     padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu li:last-child {
+    border-bottom: none;
+  }
+
+  .menu a {
+    display: block;
+    font-size: 1rem;
   }
 
   .menu a::after {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .hamburger div {
+    width: 22px;
+    height: 2.5px;
   }
 }

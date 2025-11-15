@@ -196,6 +196,46 @@
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
+
+  .plan-card,
+  .testimonial-card {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .about-section,
+  .plans-section,
+  .testimonials-section {
+    padding: 2rem 0;
+  }
+
+  .about-section h2,
+  .plans-section h2,
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .plan-card {
+    padding: 1.5rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
 }
 
 .subscribe-modal {

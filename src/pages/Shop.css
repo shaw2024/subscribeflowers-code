@@ -305,14 +305,82 @@
   }
 
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .product-card {
+    padding: 1rem;
+  }
+
+  .product-image {
+    font-size: 3.5rem;
+  }
+
+  .product-card h3 {
+    font-size: 1rem;
+  }
+
+  .product-card .price {
+    font-size: 1.2rem;
+  }
+
+  .buy-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 
   .cart-indicator {
     bottom: 1rem;
     right: 1rem;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
+    left: 1rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .checkout-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .cart-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .item-image {
+    font-size: 1.5rem;
+  }
+
+  .item-details {
+    flex: 1 1 100%;
+  }
+
+  .item-total {
+    min-width: 60px;
+  }
+
+  .checkout-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-hero {
+    padding: 3rem 1rem;
+  }
+
+  .shop-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .product-image {
+    font-size: 3rem;
   }
 }
