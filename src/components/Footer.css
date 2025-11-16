@@ -39,6 +39,19 @@
   text-decoration: underline;
 }
 
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.social-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
 .social-icons {
   display: flex;
   gap: 1rem;

@@ -23,12 +23,17 @@ const Footer = () => {
         </div>
         <div className="footer-section">
           <h3>Connect With Us</h3>
-          <div className="social-icons">
-            <a href="https://www.facebook.com/subscribeflower" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
-            <a href="https://www.instagram.com/subscribeflower" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
-          </div>
-          <div className="social-handles">
-            <p>@subscribeflower</p>
+          <div className="social-links">
+            <div className="social-item">
+              <a href="https://www.facebook.com/subscribeflowers" target="_blank" rel="noopener noreferrer">
+                📘 Facebook: facebook.com/subscribeflowers
+              </a>
+            </div>
+            <div className="social-item">
+              <a href="https://www.instagram.com/subscribeflower" target="_blank" rel="noopener noreferrer">
+                📷 Instagram: @subscribeflower
+              </a>
+            </div>
           </div>
         </div>
       </div>
