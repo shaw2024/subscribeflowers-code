@@ -24,9 +24,11 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Connect With Us</h3>
           <div className="social-icons">
-            <a href="#facebook" aria-label="Facebook">📘</a>
-            <a href="#twitter" aria-label="Twitter">🐦</a>
-            <a href="#instagram" aria-label="Instagram">📷</a>
+            <a href="https://www.facebook.com/subscribeflower" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+            <a href="https://www.instagram.com/subscribeflower" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+          </div>
+          <div className="social-handles">
+            <p>@subscribeflower</p>
           </div>
         </div>
       </div>

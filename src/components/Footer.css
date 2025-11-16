@@ -53,6 +53,16 @@
   transform: scale(1.2);
 }
 
+.social-handles {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.social-handles p {
+  margin: 0;
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: 1rem;
