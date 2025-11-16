@@ -11,16 +11,11 @@ interface Product {
   colors: string[]
 }
 
-interface ProductDetailProps {
-  onAddToCart?: (product: any) => void
-}
-
-const ProductDetail = ({ onAddToCart }: ProductDetailProps) => {
+const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [quantity, setQuantity] = useState<number>(1)
-  const [addedToCart, setAddedToCart] = useState(false)
 
   const allProducts: Product[] = [
     { id: 1, name: 'Rose Bouquet', price: 45.00, image: '🌹', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
@@ -106,21 +101,16 @@ const ProductDetail = ({ onAddToCart }: ProductDetailProps) => {
     )
   }
 
-  const handleAddToCart = () => {
-    const cartItem = {
-      ...product,
-      selectedColor,
-      quantity
-    }
-    
-    console.log('Adding to cart:', cartItem)
-    
-    if (onAddToCart) {
-      onAddToCart(cartItem)
-    }
-    
-    setAddedToCart(true)
-    setTimeout(() => setAddedToCart(false), 2000)
+  const handleSubscribe = () => {
+    // Redirect to home page subscription plans section
+    navigate('/')
+    // Scroll to plans section after navigation
+    setTimeout(() => {
+      const plansSection = document.querySelector('.plans-section')
+      if (plansSection) {
+        plansSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 100)
   }
 
   return (
@@ -188,9 +178,9 @@ const ProductDetail = ({ onAddToCart }: ProductDetailProps) => {
             <div className="product-actions">
               <button 
                 className="add-to-cart-btn"
-                onClick={handleAddToCart}
+                onClick={handleSubscribe}
               >
-                {addedToCart ? '✓ Added to Cart!' : 'Add to Cart'}
+                Subscribe Now
               </button>
             </div>
 
