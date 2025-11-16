@@ -36,9 +36,13 @@
 }
 
 .product-main-image {
-  font-size: 15rem;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
   background-color: var(--secondary-color);
-  padding: 3rem;
+  padding: 0;
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   transition: var(--transition);

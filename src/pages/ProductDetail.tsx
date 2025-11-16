@@ -18,31 +18,31 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState<number>(1)
 
   const allProducts: Product[] = [
-    { id: 1, name: 'Rose Bouquet', price: 45.00, image: '🌹', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
-    { id: 2, name: 'Tulip Arrangement', price: 35.00, image: '🌷', description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
-    { id: 3, name: 'Sunflower Bouquet', price: 32.00, image: '🌻', description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
-    { id: 4, name: 'Lily Elegance', price: 42.00, image: '🌺', description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },
-    { id: 5, name: 'Orchid Display', price: 55.00, image: '🌸', description: 'Exotic orchids representing luxury and sophistication.', colors: ['White', 'Purple', 'Pink', 'Yellow', 'Blue'] },
-    { id: 6, name: 'Peony Collection', price: 48.00, image: '💐', description: 'Lush peonies symbolizing romance and prosperity.', colors: ['Pink', 'White', 'Red', 'Coral'] },
-    { id: 7, name: 'Carnation Classic', price: 28.00, image: '🏵️', description: 'Long-lasting carnations perfect for any occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple'] },
-    { id: 8, name: 'Daisy Delight', price: 25.00, image: '🌼', description: 'Cheerful daisies representing innocence and purity.', colors: ['White', 'Yellow', 'Pink'] },
-    { id: 9, name: 'Hydrangea Bouquet', price: 52.00, image: '💙', description: 'Voluminous hydrangeas for a stunning display.', colors: ['Blue', 'Pink', 'White', 'Purple'] },
-    { id: 10, name: 'Lavender Bundle', price: 30.00, image: '💜', description: 'Fragrant lavender bringing calm and serenity.', colors: ['Purple', 'White', 'Pink'] },
-    { id: 11, name: 'Gerbera Daisy Mix', price: 38.00, image: '🌸', description: 'Vibrant gerbera daisies perfect for brightening any room.', colors: ['Red', 'Pink', 'Orange', 'Yellow', 'White'] },
-    { id: 12, name: 'Iris Collection', price: 40.00, image: '💐', description: 'Elegant iris flowers symbolizing wisdom and hope.', colors: ['Purple', 'Blue', 'White', 'Yellow'] },
-    { id: 13, name: 'Chrysanthemum Bunch', price: 33.00, image: '🌼', description: 'Beautiful chrysanthemums representing joy and optimism.', colors: ['Yellow', 'White', 'Red', 'Pink', 'Purple'] },
-    { id: 14, name: 'Daffodil Spring', price: 27.00, image: '🌻', description: 'Cheerful daffodils heralding the arrival of spring.', colors: ['Yellow', 'White', 'Orange'] },
-    { id: 15, name: 'Poppy Garden', price: 29.00, image: '🌺', description: 'Delicate poppies adding a wild beauty to arrangements.', colors: ['Red', 'Orange', 'Pink', 'White'] },
-    { id: 16, name: 'Jasmine Fragrance', price: 36.00, image: '🌸', description: 'Sweet-scented jasmine flowers for a romantic atmosphere.', colors: ['White', 'Yellow'] },
-    { id: 17, name: 'Magnolia Elegance', price: 50.00, image: '💐', description: 'Majestic magnolia blooms representing nobility and dignity.', colors: ['White', 'Pink', 'Purple'] },
-    { id: 18, name: 'Anemone Arrangement', price: 34.00, image: '🏵️', description: 'Delicate anemones with striking centers.', colors: ['Red', 'Pink', 'White', 'Purple', 'Blue'] },
-    { id: 19, name: 'Gardenia Beauty', price: 44.00, image: '🌼', description: 'Fragrant gardenias symbolizing purity and sweetness.', colors: ['White', 'Cream'] },
-    { id: 20, name: 'Freesia Fresh', price: 31.00, image: '🌷', description: 'Delightfully scented freesias in vibrant colors.', colors: ['White', 'Yellow', 'Pink', 'Purple', 'Red'] },
-    { id: 21, name: 'Ranunculus Romance', price: 46.00, image: '🌹', description: 'Layered petals creating a stunning romantic display.', colors: ['Pink', 'White', 'Red', 'Orange', 'Yellow'] },
-    { id: 22, name: 'Calla Lily Luxury', price: 58.00, image: '🌺', description: 'Sophisticated calla lilies for elegant occasions.', colors: ['White', 'Pink', 'Purple', 'Yellow', 'Black'] },
-    { id: 23, name: 'Zinnia Bright', price: 26.00, image: '🌻', description: 'Bold and colorful zinnias bringing joy to any space.', colors: ['Red', 'Pink', 'Orange', 'Yellow', 'Purple', 'White'] },
-    { id: 24, name: 'Dahlia Delight', price: 43.00, image: '🌸', description: 'Stunning dahlias with intricate petal patterns.', colors: ['Red', 'Pink', 'Purple', 'White', 'Yellow', 'Orange'] },
-    { id: 25, name: 'Sweet Pea Bundle', price: 24.00, image: '💐', description: 'Delicate sweet peas with a wonderful fragrance.', colors: ['Pink', 'Purple', 'White', 'Red'] }
+    { id: 1, name: 'Rose Bouquet', price: 45.00, image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=400&fit=crop', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
+    { id: 2, name: 'Tulip Arrangement', price: 35.00, image: 'https://images.unsplash.com/photo-1524386416438-98b9b2d4b433?w=400&h=400&fit=crop', description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
+    { id: 3, name: 'Sunflower Bouquet', price: 32.00, image: 'https://images.unsplash.com/photo-1597848212624-e530d17f6d6a?w=400&h=400&fit=crop', description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
+    { id: 4, name: 'Lily Elegance', price: 42.00, image: 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?w=400&h=400&fit=crop', description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },
+    { id: 5, name: 'Orchid Display', price: 55.00, image: 'https://images.unsplash.com/photo-1547972124-a32f6f650329?w=400&h=400&fit=crop', description: 'Exotic orchids representing luxury and sophistication.', colors: ['White', 'Purple', 'Pink', 'Yellow', 'Blue'] },
+    { id: 6, name: 'Peony Collection', price: 48.00, image: 'https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=400&h=400&fit=crop', description: 'Lush peonies symbolizing romance and prosperity.', colors: ['Pink', 'White', 'Red', 'Coral'] },
+    { id: 7, name: 'Carnation Classic', price: 28.00, image: 'https://images.unsplash.com/photo-1563241848-24557148e465?w=400&h=400&fit=crop', description: 'Long-lasting carnations perfect for any occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple'] },
+    { id: 8, name: 'Daisy Delight', price: 25.00, image: 'https://images.unsplash.com/photo-1558818498-28c1e002b655?w=400&h=400&fit=crop', description: 'Cheerful daisies representing innocence and purity.', colors: ['White', 'Yellow', 'Pink'] },
+    { id: 9, name: 'Hydrangea Bouquet', price: 52.00, image: 'https://images.unsplash.com/photo-1597323642774-fc6c78210b33?w=400&h=400&fit=crop', description: 'Voluminous hydrangeas for a stunning display.', colors: ['Blue', 'Pink', 'White', 'Purple'] },
+    { id: 10, name: 'Lavender Bundle', price: 30.00, image: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?w=400&h=400&fit=crop', description: 'Fragrant lavender bringing calm and serenity.', colors: ['Purple', 'White', 'Pink'] },
+    { id: 11, name: 'Gerbera Daisy Mix', price: 38.00, image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=400&fit=crop', description: 'Vibrant gerbera daisies perfect for brightening any room.', colors: ['Red', 'Pink', 'Orange', 'Yellow', 'White'] },
+    { id: 12, name: 'Iris Collection', price: 40.00, image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=400&h=400&fit=crop', description: 'Elegant iris flowers symbolizing wisdom and hope.', colors: ['Purple', 'Blue', 'White', 'Yellow'] },
+    { id: 13, name: 'Chrysanthemum Bunch', price: 33.00, image: 'https://images.unsplash.com/photo-1634141052171-96c0395faf33?w=400&h=400&fit=crop', description: 'Beautiful chrysanthemums representing joy and optimism.', colors: ['Yellow', 'White', 'Red', 'Pink', 'Purple'] },
+    { id: 14, name: 'Daffodil Spring', price: 27.00, image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=400&fit=crop', description: 'Cheerful daffodils heralding the arrival of spring.', colors: ['Yellow', 'White', 'Orange'] },
+    { id: 15, name: 'Poppy Garden', price: 29.00, image: 'https://images.unsplash.com/photo-1563639591-9a5ef1f3e238?w=400&h=400&fit=crop', description: 'Delicate poppies adding a wild beauty to arrangements.', colors: ['Red', 'Orange', 'Pink', 'White'] },
+    { id: 16, name: 'Jasmine Fragrance', price: 36.00, image: 'https://images.unsplash.com/photo-1603985529873-a8db05c32335?w=400&h=400&fit=crop', description: 'Sweet-scented jasmine flowers for a romantic atmosphere.', colors: ['White', 'Yellow'] },
+    { id: 17, name: 'Magnolia Elegance', price: 50.00, image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=400&fit=crop', description: 'Majestic magnolia blooms representing nobility and dignity.', colors: ['White', 'Pink', 'Purple'] },
+    { id: 18, name: 'Anemone Arrangement', price: 34.00, image: 'https://images.unsplash.com/photo-1563639591-9a5ef1f3e238?w=400&h=400&fit=crop', description: 'Delicate anemones with striking centers.', colors: ['Red', 'Pink', 'White', 'Purple', 'Blue'] },
+    { id: 19, name: 'Gardenia Beauty', price: 44.00, image: 'https://images.unsplash.com/photo-1603985529873-a8db05c32335?w=400&h=400&fit=crop', description: 'Fragrant gardenias symbolizing purity and sweetness.', colors: ['White', 'Cream'] },
+    { id: 20, name: 'Freesia Fresh', price: 31.00, image: 'https://images.unsplash.com/photo-1524386416438-98b9b2d4b433?w=400&h=400&fit=crop', description: 'Delightfully scented freesias in vibrant colors.', colors: ['White', 'Yellow', 'Pink', 'Purple', 'Red'] },
+    { id: 21, name: 'Ranunculus Romance', price: 46.00, image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=400&fit=crop', description: 'Layered petals creating a stunning romantic display.', colors: ['Pink', 'White', 'Red', 'Orange', 'Yellow'] },
+    { id: 22, name: 'Calla Lily Luxury', price: 58.00, image: 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?w=400&h=400&fit=crop', description: 'Sophisticated calla lilies for elegant occasions.', colors: ['White', 'Pink', 'Purple', 'Yellow', 'Black'] },
+    { id: 23, name: 'Zinnia Bright', price: 26.00, image: 'https://images.unsplash.com/photo-1597848212624-e530d17f6d6a?w=400&h=400&fit=crop', description: 'Bold and colorful zinnias bringing joy to any space.', colors: ['Red', 'Pink', 'Orange', 'Yellow', 'Purple', 'White'] },
+    { id: 24, name: 'Dahlia Delight', price: 43.00, image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=400&fit=crop', description: 'Stunning dahlias with intricate petal patterns.', colors: ['Red', 'Pink', 'Purple', 'White', 'Yellow', 'Orange'] },
+    { id: 25, name: 'Sweet Pea Bundle', price: 24.00, image: 'https://images.unsplash.com/photo-1563639591-9a5ef1f3e238?w=400&h=400&fit=crop', description: 'Delicate sweet peas with a wonderful fragrance.', colors: ['Pink', 'Purple', 'White', 'Red'] }
   ]
 
   const colorEmojis: { [key: string]: { [key: string]: string } } = {
@@ -122,8 +122,12 @@ const ProductDetail = () => {
 
         <div className="product-detail-content">
           <div className="product-image-section">
-            <div className="product-main-image">{getFlowerEmoji()}</div>
-            <p className="color-preview-text">Preview: {selectedColor}</p>
+            <img 
+              src={product.image} 
+              alt={product.name}
+              className="product-main-image"
+            />
+            <p className="color-preview-text">Selected Color: {selectedColor} {getFlowerEmoji()}</p>
           </div>
 
           <div className="product-info-section">
