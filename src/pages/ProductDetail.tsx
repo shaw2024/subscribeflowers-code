@@ -132,7 +132,6 @@ const ProductDetail = () => {
 
           <div className="product-info-section">
             <h1>{product.name}</h1>
-            <p className="product-price">${product.price.toFixed(2)}</p>
             <p className="product-description">{product.description}</p>
 
             <div className="color-selection">

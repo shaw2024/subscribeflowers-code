@@ -121,7 +121,6 @@ const Shop = () => {
                 >
                   {product.name}
                 </h3>
-                <p className="price">${product.price.toFixed(2)}</p>
                 <button 
                   className="buy-button"
                   onClick={() => navigate(`/product/${product.id}`)}
@@ -136,7 +135,7 @@ const Shop = () => {
 
       {cart.length > 0 && (
         <div className="cart-indicator" onClick={() => setShowCheckout(true)}>
-          🛒 Cart: {cart.length} item{cart.length !== 1 ? 's' : ''} - ${getTotalPrice().toFixed(2)}
+          🛒 Cart: {cart.length} item{cart.length !== 1 ? 's' : ''}
         </div>
       )}
 
@@ -155,22 +154,15 @@ const Shop = () => {
                   <span className="item-image">{item.image}</span>
                   <div className="item-details">
                     <h4>{item.name}</h4>
-                    <p>${item.price.toFixed(2)} each</p>
                   </div>
                   <div className="item-quantity">
                     <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
                     <span>{item.quantity}</span>
                     <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
                   </div>
-                  <div className="item-total">
-                    ${(item.price * item.quantity).toFixed(2)}
-                  </div>
                   <button className="remove-btn" onClick={() => removeFromCart(item.id)}>×</button>
                 </div>
               ))}
-            </div>
-            <div className="cart-total">
-              <strong>Total: ${getTotalPrice().toFixed(2)}</strong>
             </div>
             <div className="customer-form">
               <input
