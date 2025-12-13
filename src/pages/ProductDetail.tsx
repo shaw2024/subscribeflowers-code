@@ -16,6 +16,27 @@ const ProductDetail = () => {
   const navigate = useNavigate()
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [quantity, setQuantity] = useState<number>(1)
+  const [currentImage, setCurrentImage] = useState<string>('')
+
+  // Flower color images mapping
+  const flowerColorImages: { [key: string]: { [key: string]: string } } = {
+    'Roses': {
+      'Red': 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Pink': 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'White': 'https://images.pexels.com/photos/305827/pexels-photo-305827.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Yellow': 'https://images.pexels.com/photos/1322724/pexels-photo-1322724.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Orange': 'https://images.pexels.com/photos/1166414/pexels-photo-1166414.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Lavender': 'https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    },
+    'Tulips': {
+      'Red': 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Pink': 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'White': 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Yellow': 'https://images.pexels.com/photos/42069/tulips-flowers-spring-yellow-42069.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Purple': 'https://images.pexels.com/photos/1682316/pexels-photo-1682316.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Orange': 'https://images.pexels.com/photos/1390365/pexels-photo-1390365.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    }
+  }
 
   const allProducts: Product[] = [
     { id: 1, name: 'Roses', price: 45.00, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
@@ -85,8 +106,25 @@ const ProductDetail = () => {
   useEffect(() => {
     if (product && product.colors.length > 0) {
       setSelectedColor(product.colors[0])
+      // Set initial image based on product and color
+      if (flowerColorImages[product.name] && flowerColorImages[product.name][product.colors[0]]) {
+        setCurrentImage(flowerColorImages[product.name][product.colors[0]])
+      } else {
+        setCurrentImage(product.image)
+      }
     }
   }, [product])
+
+  // Update image when color changes
+  useEffect(() => {
+    if (product && selectedColor) {
+      if (flowerColorImages[product.name] && flowerColorImages[product.name][selectedColor]) {
+        setCurrentImage(flowerColorImages[product.name][selectedColor])
+      } else {
+        setCurrentImage(product.image)
+      }
+    }
+  }, [selectedColor, product])
 
   if (!product) {
     return (
@@ -123,8 +161,8 @@ const ProductDetail = () => {
         <div className="product-detail-content">
           <div className="product-image-section">
             <img 
-              src={product.image} 
-              alt={product.name}
+              src={currentImage || product.image} 
+              alt={`${product.name} - ${selectedColor}`}
               className="product-main-image"
             />
             <p className="color-preview-text">Selected Color: {selectedColor} {getFlowerEmoji()}</p>
