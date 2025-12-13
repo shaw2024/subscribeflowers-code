@@ -105,26 +105,28 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (product && product.colors.length > 0) {
-      setSelectedColor(product.colors[0])
+      const firstColor = product.colors[0]
+      setSelectedColor(firstColor)
       // Set initial image based on product and color
-      if (flowerColorImages[product.name] && flowerColorImages[product.name][product.colors[0]]) {
-        setCurrentImage(flowerColorImages[product.name][product.colors[0]])
+      if (flowerColorImages[product.name] && flowerColorImages[product.name][firstColor]) {
+        setCurrentImage(flowerColorImages[product.name][firstColor])
       } else {
         setCurrentImage(product.image)
       }
     }
-  }, [product])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
 
   // Update image when color changes
   useEffect(() => {
-    if (product && selectedColor) {
-      if (flowerColorImages[product.name] && flowerColorImages[product.name][selectedColor]) {
-        setCurrentImage(flowerColorImages[product.name][selectedColor])
-      } else {
-        setCurrentImage(product.image)
+    if (product && selectedColor && flowerColorImages[product.name]) {
+      const colorImage = flowerColorImages[product.name][selectedColor]
+      if (colorImage) {
+        setCurrentImage(colorImage)
       }
     }
-  }, [selectedColor, product])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedColor])
 
   if (!product) {
     return (
