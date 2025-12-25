@@ -53,7 +53,7 @@ const Home = () => {
   const plans: Plan[] = [
     {
       name: 'Blossom Starter',
-      price: '$299/year',
+      price: '$549/year',
       features: [
         '50 flowers per quarter',
         'Seasonal variety',
@@ -62,7 +62,7 @@ const Home = () => {
     },
     {
       name: 'Floral Enthusiast',
-      price: '$599/year',
+      price: '$899/year',
       features: [
         '100 flowers per quarter',
         'Wide selection of blooms',
@@ -71,7 +71,7 @@ const Home = () => {
     },
     {
       name: 'Botanical Bliss',
-      price: '$999/year',
+      price: '$1599/year',
       features: [
         '200 flowers per quarter',
         'Premium and rare varieties',
