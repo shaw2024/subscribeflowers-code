@@ -110,14 +110,40 @@ const Home = () => {
   return (
     <div className="home">
       <section className="hero">
+        <div className="hero-overlay"></div>
+        <div className="floating-flowers">
+          <span className="flower-float">🌸</span>
+          <span className="flower-float">🌺</span>
+          <span className="flower-float">🌻</span>
+          <span className="flower-float">🌷</span>
+          <span className="flower-float">🌹</span>
+        </div>
         <div className="hero-content">
-          <div className="construction-notice">
-            <h2>🚧 Coming Soon 🚧</h2>
-            <p className="under-construction">Under Construction</p>
+          <div className="hero-badge">🌿 Premium Flower Subscriptions</div>
+          <h1 className="hero-title">
+            <span className="gradient-text">Fresh Blooms</span>
+            <br />
+            Delivered to Your Doorstep
+          </h1>
+          <p className="hero-subtitle">Experience the joy of fresh, beautiful flowers delivered quarterly. Handpicked arrangements that brighten your home and lift your spirits.</p>
+          <div className="hero-buttons">
+            <Link to="/shop" className="cta-button primary">Explore Flowers</Link>
+            <button className="cta-button secondary" onClick={() => handleSubscribeClick(plans[0])}>Subscribe Now</button>
           </div>
-          <h1>Welcome to Subscribe Flowers</h1>
-          <p>Fresh blooms delivered to your doorstep, all year round</p>
-          <Link to="/shop" className="cta-button">View Flowers</Link>
+          <div className="hero-features">
+            <div className="feature-item">
+              <span className="feature-icon">🚚</span>
+              <span>Free Delivery</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">💯</span>
+              <span>100% Fresh</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">♻️</span>
+              <span>Eco-Friendly</span>
+            </div>
+          </div>
         </div>
       </section>
 
