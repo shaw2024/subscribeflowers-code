@@ -25,6 +25,13 @@ const Home = () => {
   })
   const [subscriptionSuccess, setSubscriptionSuccess] = useState(false)
 
+  const scrollToPlans = () => {
+    const plansSection = document.querySelector('.plans-section')
+    if (plansSection) {
+      plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
   const handleSubscribeClick = (plan: Plan) => {
     setSelectedPlan(plan)
     setShowSubscribeModal(true)
@@ -128,7 +135,7 @@ const Home = () => {
           <p className="hero-subtitle">Experience the joy of fresh, beautiful flowers delivered quarterly. Handpicked arrangements that brighten your home and lift your spirits.</p>
           <div className="hero-buttons">
             <Link to="/shop" className="cta-button primary">Explore Flowers</Link>
-            <button className="cta-button secondary" onClick={() => handleSubscribeClick(plans[0])}>Subscribe Now</button>
+            <button className="cta-button secondary" onClick={scrollToPlans}>Subscribe Now</button>
           </div>
           <div className="hero-features">
             <div className="feature-item">
