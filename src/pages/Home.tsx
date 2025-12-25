@@ -85,25 +85,25 @@ const Home = () => {
       name: 'Jane Doe',
       plan: 'Floral Enthusiast',
       text: 'Subscribe Flowers has brought so much joy to my home. The flowers are always fresh and beautiful!',
-      avatar: '👩'
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces'
     },
     {
       name: 'John Smith',
       plan: 'Blossom Starter',
       text: 'I love the variety and quality of flowers I receive every quarter. Highly recommend Subscribe Flowers!',
-      avatar: '👨'
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces'
     },
     {
       name: 'Mary Johnson',
       plan: 'Botanical Bliss',
       text: 'The subscription is worth every penny. Beautiful flowers delivered right to my door.',
-      avatar: '👩‍🦰'
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces'
     },
     {
       name: 'James Brown',
       plan: 'Floral Enthusiast',
       text: 'Exceptional service and stunning flowers. Subscribe Flowers has exceeded my expectations.',
-      avatar: '👨‍🦱'
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces'
     }
   ]
 
@@ -160,7 +160,7 @@ const Home = () => {
           <div className="testimonials-grid">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="testimonial-card">
-                <div className="avatar">{testimonial.avatar}</div>
+                <img src={testimonial.avatar} alt={testimonial.name} className="avatar" />
                 <p className="testimonial-text">"{testimonial.text}"</p>
                 <h4>{testimonial.name}</h4>
                 <p className="plan-name">{testimonial.plan}</p>
