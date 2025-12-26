@@ -123,29 +123,12 @@ const Shop = () => {
                 >
                   {product.name}
                 </h3>
-                {isAuthenticated ? (
-                  <button 
-                    className="buy-button"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  >
-                    View Details
-                  </button>
-                ) : (
-                  <button 
-                    className="buy-button subscribe-btn"
-                    onClick={() => {
-                      navigate('/');
-                      setTimeout(() => {
-                        const plansSection = document.querySelector('.plans-section');
-                        if (plansSection) {
-                          plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }, 100);
-                    }}
-                  >
-                    Subscribe Now
-                  </button>
-                )}
+                <button 
+                  className="buy-button"
+                  onClick={() => navigate(`/product/${product.id}`)}
+                >
+                  View Flowers
+                </button>
               </div>
             ))}
           </div>
