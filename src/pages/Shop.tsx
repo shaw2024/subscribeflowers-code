@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 import './Shop.css'
 
 interface Product {
@@ -15,7 +14,6 @@ interface CartItem extends Product {
 
 const Shop = () => {
   const navigate = useNavigate()
-  const { isAuthenticated } = useAuth()
   const [cart, setCart] = useState<CartItem[]>([])
   const [showCheckout, setShowCheckout] = useState(false)
   const [customerInfo, setCustomerInfo] = useState({
