@@ -24,7 +24,7 @@ const ProductDetail = () => {
   // Flower color images mapping
   const flowerColorImages: { [key: string]: { [key: string]: string } } = {
     'Roses': {
-      'Red': 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      'Red': 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5',
       'Pink': 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       'White': 'https://images.pexels.com/photos/305827/pexels-photo-305827.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       'Yellow': 'https://images.pexels.com/photos/1322724/pexels-photo-1322724.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
@@ -42,7 +42,7 @@ const ProductDetail = () => {
   }
 
   const allProducts: Product[] = [
-    { id: 1, name: 'Roses', price: 45.00, image: 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
+    { id: 1, name: 'Roses', price: 45.00, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
     { id: 2, name: 'Tulips', price: 35.00, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400', description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
     { id: 3, name: 'Sunflowers', price: 32.00, image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
     { id: 4, name: 'Lilies', price: 42.00, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },

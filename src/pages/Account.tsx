@@ -19,7 +19,7 @@ const Account: React.FC = () => {
 
   // Available flowers for subscription customers
   const availableFlowers = [
-    { id: '1', name: 'Roses', price: 0, image: 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '1', name: 'Roses', price: 0, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5' },
     { id: '2', name: 'Tulips', price: 0, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: '3', name: 'Sunflowers', price: 0, image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: '4', name: 'Lilies', price: 0, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
