@@ -23,7 +23,7 @@ const Shop = () => {
   const [orderPlaced, setOrderPlaced] = useState(false)
 
   const products: Product[] = [
-    { id: 1, name: 'Roses', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: 1, name: 'Roses', image: 'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 2, name: 'Tulips', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 3, name: 'Sunflowers', image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 4, name: 'Lilies', image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
