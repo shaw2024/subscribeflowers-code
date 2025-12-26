@@ -27,6 +27,23 @@ const Login: React.FC = () => {
     setIsLoading(false);
   };
 
+  const handleDemoLogin = async () => {
+    setEmail('demo@example.com');
+    setPassword('password123');
+    setError('');
+    setIsLoading(true);
+
+    const success = await login('demo@example.com', 'password123');
+    
+    if (success) {
+      navigate('/account');
+    } else {
+      setError('Demo login failed');
+    }
+    
+    setIsLoading(false);
+  };
+
   return (
     <div className="login-page">
       <div className="login-container">
@@ -70,6 +87,14 @@ const Login: React.FC = () => {
             <p className="demo-title">Demo Account:</p>
             <p>Email: demo@example.com</p>
             <p>Password: password123</p>
+            <button 
+              type="button" 
+              className="btn-demo-login" 
+              onClick={handleDemoLogin}
+              disabled={isLoading}
+            >
+              🚀 Quick Demo Login
+            </button>
           </div>
 
           <div className="login-footer">

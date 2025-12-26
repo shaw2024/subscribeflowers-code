@@ -119,6 +119,31 @@
   color: #666;
 }
 
+.btn-demo-login {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-demo-login:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+.btn-demo-login:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .login-footer {
   margin-top: 30px;
   text-align: center;
