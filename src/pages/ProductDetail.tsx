@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 import './ProductDetail.css'
 
 interface Product {
@@ -14,9 +15,12 @@ interface Product {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const { addToCart } = useCart()
   const [selectedColor, setSelectedColor] = useState<string>('')
+  const [selectedFrequency, setSelectedFrequency] = useState<'weekly' | 'biweekly' | 'monthly'>('monthly')
   const [quantity, setQuantity] = useState<number>(1)
   const [currentImage, setCurrentImage] = useState<string>('')
+  const [showSuccess, setShowSuccess] = useState(false)
 
   // Flower color images mapping
   const flowerColorImages: { [key: string]: { [key: string]: string } } = {
@@ -153,6 +157,25 @@ const ProductDetail = () => {
     }, 100)
   }
 
+  const handleAddToCart = () => {
+    addToCart({
+      id: `${product.id}-${selectedFrequency}`,
+      name: `${product.name} (${selectedColor})`,
+      price: product.price,
+      frequency: selectedFrequency,
+      image: currentImage || product.image,
+    })
+    
+    setShowSuccess(true)
+    setTimeout(() => setShowSuccess(false), 2000)
+  }
+
+  const frequencyPrices = {
+    weekly: product.price,
+    biweekly: product.price * 0.9,
+    monthly: product.price * 0.8,
+  }
+
   return (
     <div className="product-detail">
       <div className="container">
@@ -172,7 +195,37 @@ const ProductDetail = () => {
 
           <div className="product-info-section">
             <h1>{product.name}</h1>
+            <p className="product-price">${frequencyPrices[selectedFrequency].toFixed(2)}/delivery</p>
             <p className="product-description">{product.description}</p>
+
+            <div className="frequency-selection">
+              <h3>Subscription Frequency:</h3>
+              <div className="frequency-options">
+                <button
+                  className={`frequency-option ${selectedFrequency === 'weekly' ? 'selected' : ''}`}
+                  onClick={() => setSelectedFrequency('weekly')}
+                >
+                  <span className="freq-label">Weekly</span>
+                  <span className="freq-price">${product.price.toFixed(2)}</span>
+                </button>
+                <button
+                  className={`frequency-option ${selectedFrequency === 'biweekly' ? 'selected' : ''}`}
+                  onClick={() => setSelectedFrequency('biweekly')}
+                >
+                  <span className="freq-label">Bi-weekly</span>
+                  <span className="freq-price">${(product.price * 0.9).toFixed(2)}</span>
+                  <span className="freq-save">Save 10%</span>
+                </button>
+                <button
+                  className={`frequency-option ${selectedFrequency === 'monthly' ? 'selected' : ''}`}
+                  onClick={() => setSelectedFrequency('monthly')}
+                >
+                  <span className="freq-label">Monthly</span>
+                  <span className="freq-price">${(product.price * 0.8).toFixed(2)}</span>
+                  <span className="freq-save">Save 20%</span>
+                </button>
+              </div>
+            </div>
 
             <div className="color-selection">
               <h3>Select Color:</h3>
@@ -218,10 +271,22 @@ const ProductDetail = () => {
               </div>
             </div>
 
+            {showSuccess && (
+              <div className="success-message">
+                ✓ Added to cart!
+              </div>
+            )}
+
             <div className="product-actions">
               <button 
                 className="add-to-cart-btn"
-                onClick={handleSubscribe}
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </button>
+              <button 
+                className="subscribe-now-btn"
+                onClick={() => navigate('/checkout')}
               >
                 Subscribe Now
               </button>

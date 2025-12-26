@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Cart from './Cart'
 import './Header.css'
 
 const Header = () => {
@@ -33,6 +34,9 @@ const Header = () => {
             <Link to="/contact" onClick={closeMenu}>Contact</Link>
           </li>
         </ul>
+        <div className="header-actions">
+          <Cart />
+        </div>
         <div 
           className={`hamburger ${menuOpen ? 'active' : ''}`} 
           onClick={toggleMenu}

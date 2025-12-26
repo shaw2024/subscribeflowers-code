@@ -33,6 +33,13 @@ const Shop = () => {
     { id: 8, name: 'Daisies', image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 9, name: 'Hydrangeas', image: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 10, name: 'Lavender', image: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     { id: 11, name: 'Gerbera Daisies', image: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 12, name: 'Irises', image: 'https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
     { id: 13, name: 'Chrysanthemums', image: 'https://images.pexels.com/photos/1301862/pexels-photo-1301862.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
