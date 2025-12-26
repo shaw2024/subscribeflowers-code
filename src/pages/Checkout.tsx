@@ -14,6 +14,7 @@ interface CustomerInfo {
   state: string;
   zipCode: string;
   country: string;
+  deliveryDate: string;
 }
 
 const Checkout: React.FC = () => {
@@ -21,6 +22,14 @@ const Checkout: React.FC = () => {
   const { cartItems, getCartTotal, clearCart } = useCart();
   const { isAuthenticated, customer, updateUsage } = useAuth();
   const [isProcessing, setIsProcessing] = useState(false);
+  
+  // Calculate minimum delivery date (tomorrow)
+  const getMinDeliveryDate = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split('T')[0];
+  };
+
   const [formData, setFormData] = useState<CustomerInfo>({
     firstName: '',
     lastName: '',
@@ -31,7 +40,27 @@ const Checkout: React.FC = () => {
     state: '',
     zipCode: '',
     country: 'United States',
+    deliveryDate: getMinDeliveryDate(),
   });
+
+  const SHIPPING_COST = 15.00; // Shipping cost for out-of-state deliveries
+  const CALIFORNIA_STATES = ['CA', 'California'];
+
+  const calculateShipping = (): number => {
+    // Free shipping if authenticated (subscription member)
+    if (isAuthenticated) return 0;
+    
+    // Free shipping for California deliveries
+    const isCaliforniaDelivery = CALIFORNIA_STATES.some(
+      ca => formData.state.toUpperCase().includes(ca.toUpperCase())
+    );
+    
+    return isCaliforniaDelivery ? 0 : SHIPPING_COST;
+  };
+
+  const getGrandTotal = (): number => {
+    return getCartTotal() + calculateShipping();
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -205,6 +234,20 @@ const Checkout: React.FC = () => {
                     </select>
                   </div>
                 </div>
+
+                <div className="form-group">
+                  <label htmlFor="deliveryDate">Delivery Date *</label>
+                  <input
+                    type="date"
+                    id="deliveryDate"
+                    name="deliveryDate"
+                    value={formData.deliveryDate}
+                    onChange={handleInputChange}
+                    min={getMinDeliveryDate()}
+                    required
+                  />
+                  <p className="field-hint">Select your preferred delivery date (orders must be placed at least 1 day in advance)</p>
+                </div>
               </div>
 
               <div className="form-section payment-note">
@@ -256,10 +299,10 @@ const Checkout: React.FC = () => {
                 </div>
                 <div className="summary-row">
                   <span>Shipping</span>
-                  {isAuthenticated ? (
+                  {calculateShipping() === 0 ? (
                     <span className="free-shipping">FREE ✓</span>
                   ) : (
-                    <span>Calculated at checkout</span>
+                    <span>${calculateShipping().toFixed(2)}</span>
                   )}
                 </div>
                 {isAuthenticated && (
@@ -267,9 +310,19 @@ const Checkout: React.FC = () => {
                     🎉 Free shipping with your subscription!
                   </div>
                 )}
+                {!isAuthenticated && calculateShipping() === 0 && formData.state && (
+                  <div className="summary-note">
+                    ✓ Free shipping for California deliveries!
+                  </div>
+                )}
+                {!isAuthenticated && calculateShipping() > 0 && formData.state && (
+                  <div className="summary-note shipping-info">
+                    ℹ️ ${SHIPPING_COST.toFixed(2)} shipping fee applies for out-of-state deliveries
+                  </div>
+                )}
                 <div className="summary-row total">
                   <span>Total</span>
-                  <span>${getCartTotal().toFixed(2)}</span>
+                  <span>${getGrandTotal().toFixed(2)}</span>
                 </div>
               </div>
             </div>
