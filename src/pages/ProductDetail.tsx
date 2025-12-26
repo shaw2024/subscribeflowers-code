@@ -16,7 +16,7 @@ interface Product {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const { isAuthenticated, customer, getRemainingFlowers } = useAuth()
+  const { isAuthenticated, getRemainingFlowers } = useAuth()
   const { addToCart } = useCart()
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [currentImage, setCurrentImage] = useState<string>('')
