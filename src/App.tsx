@@ -14,6 +14,8 @@ import ProductDetail from './pages/ProductDetail'
 import Checkout from './pages/Checkout'
 import Login from './pages/Login'
 import Account from './pages/Account'
+import Subscribe from './pages/Subscribe'
+import SubscribeSuccess from './pages/SubscribeSuccess'
 import './App.css'
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/subscribe" element={<Subscribe />} />
+                <Route path="/subscribe/success" element={<SubscribeSuccess />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="/about" element={<About />} />

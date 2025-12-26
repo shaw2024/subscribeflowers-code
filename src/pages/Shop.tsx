@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import './Shop.css'
 
 interface Product {
@@ -14,6 +15,7 @@ interface CartItem extends Product {
 
 const Shop = () => {
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
   const [cart, setCart] = useState<CartItem[]>([])
   const [showCheckout, setShowCheckout] = useState(false)
   const [customerInfo, setCustomerInfo] = useState({
@@ -121,12 +123,29 @@ const Shop = () => {
                 >
                   {product.name}
                 </h3>
-                <button 
-                  className="buy-button"
-                  onClick={() => navigate(`/product/${product.id}`)}
-                >
-                  View Details
-                </button>
+                {isAuthenticated ? (
+                  <button 
+                    className="buy-button"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    View Details
+                  </button>
+                ) : (
+                  <button 
+                    className="buy-button subscribe-btn"
+                    onClick={() => {
+                      navigate('/');
+                      setTimeout(() => {
+                        const plansSection = document.querySelector('.plans-section');
+                        if (plansSection) {
+                          plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    Subscribe Now
+                  </button>
+                )}
               </div>
             ))}
           </div>

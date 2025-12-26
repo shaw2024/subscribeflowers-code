@@ -288,18 +288,29 @@ const ProductDetail = () => {
             )}
 
             <div className="product-actions">
-              <button 
-                className="add-to-cart-btn"
-                onClick={handleAddToCart}
-              >
-                Add to Cart
-              </button>
-              <button 
-                className="subscribe-now-btn"
-                onClick={() => navigate('/checkout')}
-              >
-                Subscribe Now
-              </button>
+              {isAuthenticated ? (
+                <button 
+                  className="add-to-cart-btn"
+                  onClick={handleAddToCart}
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <button 
+                  className="subscribe-now-btn"
+                  onClick={() => {
+                    navigate('/');
+                    setTimeout(() => {
+                      const plansSection = document.querySelector('.plans-section');
+                      if (plansSection) {
+                        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, 100);
+                  }}
+                >
+                  Subscribe Now
+                </button>
+              )}
             </div>
 
             <div className="product-features">

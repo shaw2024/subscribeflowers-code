@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './Home.css'
 
 interface Plan {
@@ -16,14 +15,7 @@ interface Testimonial {
 }
 
 const Home = () => {
-  const [showSubscribeModal, setShowSubscribeModal] = useState(false)
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null)
-  const [subscriptionForm, setSubscriptionForm] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  })
-  const [subscriptionSuccess, setSubscriptionSuccess] = useState(false)
+  const navigate = useNavigate();
 
   const scrollToPlans = () => {
     const plansSection = document.querySelector('.plans-section')
@@ -33,28 +25,7 @@ const Home = () => {
   }
 
   const handleSubscribeClick = (plan: Plan) => {
-    setSelectedPlan(plan)
-    setShowSubscribeModal(true)
-  }
-
-  const handleSubscriptionSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!selectedPlan) return
-
-    console.log('Subscription:', {
-      ...subscriptionForm,
-      plan: selectedPlan.name,
-      price: selectedPlan.price
-    })
-
-    setSubscriptionSuccess(true)
-    setTimeout(() => {
-      setShowSubscribeModal(false)
-      setSubscriptionSuccess(false)
-      setSubscriptionForm({ name: '', email: '', phone: '' })
-      setSelectedPlan(null)
-    }, 3000)
+    navigate('/subscribe', { state: { plan } });
   }
 
   const plans: Plan[] = [
@@ -202,58 +173,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {showSubscribeModal && (
-        <div className="subscribe-modal" onClick={() => setShowSubscribeModal(false)}>
-          <div className="subscribe-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Subscribe to {selectedPlan?.name}</h2>
-            <p className="plan-price">{selectedPlan?.price}</p>
-            
-            {subscriptionSuccess && (
-              <div className="success-message">
-                Subscription request submitted! We'll contact you soon. ✓
-              </div>
-            )}
-            
-            <form onSubmit={handleSubscriptionSubmit}>
-              <div className="form-group">
-                <label>Full Name *</label>
-                <input
-                  type="text"
-                  value={subscriptionForm.name}
-                  onChange={(e) => setSubscriptionForm({...subscriptionForm, name: e.target.value})}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label>Email *</label>
-                <input
-                  type="email"
-                  value={subscriptionForm.email}
-                  onChange={(e) => setSubscriptionForm({...subscriptionForm, email: e.target.value})}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label>Phone Number</label>
-                <input
-                  type="tel"
-                  value={subscriptionForm.phone}
-                  onChange={(e) => setSubscriptionForm({...subscriptionForm, phone: e.target.value})}
-                />
-              </div>
-              <div className="modal-actions">
-                <button type="submit" className="submit-btn">
-                  Submit Subscription
-                </button>
-                <button type="button" className="cancel-btn" onClick={() => setShowSubscribeModal(false)}>
-                  Cancel
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
