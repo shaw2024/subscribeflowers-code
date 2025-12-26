@@ -193,27 +193,36 @@ const ProductDetail = () => {
             </div>
 
             <div className="product-actions">
-              {isAuthenticated && customer ? (
-                <button 
-                  className="add-to-cart-btn"
-                  onClick={() => {
-                    const remainingFlowers = getRemainingFlowers();
-                    if (remainingFlowers > 0) {
-                      addToCart({
-                        id: product.id.toString(),
-                        name: `${product.name} (${selectedColor})`,
-                        price: 0,
-                        quantity: 1,
-                        image: currentImage || product.image,
-                      });
-                      alert(`${product.name} (${selectedColor}) added to cart!`);
-                    } else {
-                      alert('You have reached your quarterly limit. Please upgrade your plan or wait for next quarter.');
-                    }
-                  }}
-                >
-                  Add to Cart
-                </button>
+              {isAuthenticated ? (
+                <>
+                  <button 
+                    className="add-to-cart-btn"
+                    onClick={() => {
+                      const remainingFlowers = getRemainingFlowers();
+                      if (remainingFlowers > 0) {
+                        addToCart({
+                          id: product.id.toString(),
+                          name: `${product.name} (${selectedColor})`,
+                          price: 0,
+                          quantity: 1,
+                          image: currentImage || product.image,
+                        });
+                        alert(`${product.name} (${selectedColor}) added to cart!`);
+                      } else {
+                        alert('You have reached your quarterly limit. Please upgrade your plan or wait for next quarter.');
+                      }
+                    }}
+                    disabled={getRemainingFlowers() === 0}
+                  >
+                    {getRemainingFlowers() > 0 ? 'Add to Cart' : 'Limit Reached'}
+                  </button>
+                  {getRemainingFlowers() > 0 && (
+                    <p className="subscription-info">✓ Included in your subscription ({getRemainingFlowers()} remaining)</p>
+                  )}
+                  {getRemainingFlowers() === 0 && (
+                    <p className="limit-warning">⚠ Quarterly limit reached. Wait for next quarter or upgrade plan.</p>
+                  )}
+                </>
               ) : (
                 <button 
                   className="subscribe-now-btn"

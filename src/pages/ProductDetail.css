@@ -223,6 +223,40 @@
   box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
 }
 
+.add-to-cart-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.add-to-cart-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.subscription-info {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.limit-warning {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #fff3cd;
+  color: #856404;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .subscribe-now-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
