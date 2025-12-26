@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { useCart, CartItem } from '../context/CartContext';
 import './Cart.css';
 
 const Cart: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { items, removeFromCart, updateQuantity, getTotalPrice, getItemCount } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, getCartTotal, getCartCount } = useCart();
   const navigate = useNavigate();
 
   const handleCheckout = () => {
@@ -31,8 +31,8 @@ const Cart: React.FC = () => {
           <path d="M9 2L7 6H3L6 20H18L21 6H17L15 2H9Z" />
           <path d="M9 6V4H15V6" />
         </svg>
-        {getItemCount() > 0 && (
-          <span className="cart-badge">{getItemCount()}</span>
+        {getCartCount() > 0 && (
+          <span className="cart-badge">{getCartCount()}</span>
         )}
       </button>
 
@@ -52,10 +52,10 @@ const Cart: React.FC = () => {
             </div>
 
             <div className="cart-items">
-              {items.length === 0 ? (
+              {cartItems.length === 0 ? (
                 <p className="cart-empty">Your cart is empty</p>
               ) : (
-                items.map((item) => (
+                cartItems.map((item: CartItem) => (
                   <div key={`${item.id}-${item.frequency}`} className="cart-item">
                     {item.image && (
                       <img src={item.image} alt={item.name} className="cart-item-image" />
@@ -94,11 +94,11 @@ const Cart: React.FC = () => {
               )}
             </div>
 
-            {items.length > 0 && (
+            {cartItems.length > 0 && (
               <div className="cart-footer">
                 <div className="cart-total">
                   <span>Total:</span>
-                  <span className="cart-total-price">${getTotalPrice().toFixed(2)}</span>
+                  <span className="cart-total-price">${getCartTotal().toFixed(2)}</span>
                 </div>
                 <button className="cart-checkout-btn" onClick={handleCheckout}>
                   Proceed to Checkout

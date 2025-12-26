@@ -145,23 +145,12 @@ const ProductDetail = () => {
     )
   }
 
-  const handleSubscribe = () => {
-    // Redirect to home page subscription plans section
-    navigate('/')
-    // Scroll to plans section after navigation
-    setTimeout(() => {
-      const plansSection = document.querySelector('.plans-section')
-      if (plansSection) {
-        plansSection.scrollIntoView({ behavior: 'smooth' })
-      }
-    }, 100)
-  }
-
   const handleAddToCart = () => {
     addToCart({
       id: `${product.id}-${selectedFrequency}`,
       name: `${product.name} (${selectedColor})`,
-      price: product.price,
+      price: frequencyPrices[selectedFrequency],
+      quantity: 1,
       frequency: selectedFrequency,
       image: currentImage || product.image,
     })
