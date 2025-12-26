@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { useCart } from '../context/CartContext'
-import { useAuth } from '../context/AuthContext'
 import './ProductDetail.css'
 
 interface Product {
@@ -16,13 +14,8 @@ interface Product {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
-  const { addToCart } = useCart()
-  const { isAuthenticated, canPurchase, getRemainingFlowers } = useAuth()
   const [selectedColor, setSelectedColor] = useState<string>('')
-  const [selectedFrequency, setSelectedFrequency] = useState<'weekly' | 'biweekly' | 'monthly'>('monthly')
-  const [quantity, setQuantity] = useState<number>(1)
   const [currentImage, setCurrentImage] = useState<string>('')
-  const [showSuccess, setShowSuccess] = useState(false)
 
   // Flower color images mapping
   const flowerColorImages: { [key: string]: { [key: string]: string } } = {
@@ -147,36 +140,7 @@ const ProductDetail = () => {
     )
   }
 
-  const handleAddToCart = () => {
-    // Check if logged in customer can purchase
-    if (isAuthenticated && !canPurchase(1)) {
-      alert('You have reached your quarterly subscription limit. Please upgrade your plan or wait for the next quarter.');
-      return;
-    }
 
-    if (!selectedColor) {
-      alert('Please select a color first');
-      return;
-    }
-
-    addToCart({
-      id: `${product.id}-${selectedFrequency}`,
-      name: `${product.name} (${selectedColor})`,
-      price: frequencyPrices[selectedFrequency],
-      quantity: 1,
-      frequency: selectedFrequency,
-      image: currentImage || product.image,
-    })
-    
-    setShowSuccess(true)
-    setTimeout(() => setShowSuccess(false), 2000)
-  }
-
-  const frequencyPrices = {
-    weekly: product.price,
-    biweekly: product.price * 0.9,
-    monthly: product.price * 0.8,
-  }
 
   return (
     <div className="product-detail">
@@ -197,37 +161,7 @@ const ProductDetail = () => {
 
           <div className="product-info-section">
             <h1>{product.name}</h1>
-            <p className="product-price">${frequencyPrices[selectedFrequency].toFixed(2)}/delivery</p>
             <p className="product-description">{product.description}</p>
-
-            <div className="frequency-selection">
-              <h3>Subscription Frequency:</h3>
-              <div className="frequency-options">
-                <button
-                  className={`frequency-option ${selectedFrequency === 'weekly' ? 'selected' : ''}`}
-                  onClick={() => setSelectedFrequency('weekly')}
-                >
-                  <span className="freq-label">Weekly</span>
-                  <span className="freq-price">${product.price.toFixed(2)}</span>
-                </button>
-                <button
-                  className={`frequency-option ${selectedFrequency === 'biweekly' ? 'selected' : ''}`}
-                  onClick={() => setSelectedFrequency('biweekly')}
-                >
-                  <span className="freq-label">Bi-weekly</span>
-                  <span className="freq-price">${(product.price * 0.9).toFixed(2)}</span>
-                  <span className="freq-save">Save 10%</span>
-                </button>
-                <button
-                  className={`frequency-option ${selectedFrequency === 'monthly' ? 'selected' : ''}`}
-                  onClick={() => setSelectedFrequency('monthly')}
-                >
-                  <span className="freq-label">Monthly</span>
-                  <span className="freq-price">${(product.price * 0.8).toFixed(2)}</span>
-                  <span className="freq-save">Save 20%</span>
-                </button>
-              </div>
-            </div>
 
             <div className="color-selection">
               <h3>Select Color:</h3>
@@ -254,63 +188,21 @@ const ProductDetail = () => {
               <p className="selected-color">Selected: <strong>{selectedColor}</strong></p>
             </div>
 
-            <div className="quantity-selection">
-              <h3>Quantity:</h3>
-              <div className="quantity-controls">
-                <button 
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="quantity-btn"
-                >
-                  -
-                </button>
-                <span className="quantity-display">{quantity}</span>
-                <button 
-                  onClick={() => setQuantity(quantity + 1)}
-                  className="quantity-btn"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-            {showSuccess && (
-              <div className="success-message">
-                ✓ Added to cart!
-              </div>
-            )}
-
-            {isAuthenticated && (
-              <div className="subscription-status">
-                <p className="remaining-count">
-                  {getRemainingFlowers()} bouquet{getRemainingFlowers() !== 1 ? 's' : ''} remaining in your quarterly plan
-                </p>
-              </div>
-            )}
-
             <div className="product-actions">
-              {isAuthenticated ? (
-                <button 
-                  className="add-to-cart-btn"
-                  onClick={handleAddToCart}
-                >
-                  Add to Cart
-                </button>
-              ) : (
-                <button 
-                  className="subscribe-now-btn"
-                  onClick={() => {
-                    navigate('/');
-                    setTimeout(() => {
-                      const plansSection = document.querySelector('.plans-section');
-                      if (plansSection) {
-                        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }, 100);
-                  }}
-                >
-                  Subscribe Now
-                </button>
-              )}
+              <button 
+                className="subscribe-now-btn"
+                onClick={() => {
+                  navigate('/');
+                  setTimeout(() => {
+                    const plansSection = document.querySelector('.plans-section');
+                    if (plansSection) {
+                      plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 100);
+                }}
+              >
+                Subscribe Now
+              </button>
             </div>
 
             <div className="product-features">
