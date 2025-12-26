@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/CartContext';
 import './Account.css';
 
 const Account: React.FC = () => {
   const navigate = useNavigate();
   const { customer, isAuthenticated, logout, getRemainingFlowers, updateAddress } = useAuth();
+  const { addToCart } = useCart();
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [addressForm, setAddressForm] = useState({
     street: '',
@@ -14,6 +16,22 @@ const Account: React.FC = () => {
     zipCode: '',
     country: '',
   });
+
+  // Available flowers for subscription customers
+  const availableFlowers = [
+    { id: '1', name: 'Roses', price: 0, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '2', name: 'Tulips', price: 0, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '3', name: 'Sunflowers', price: 0, image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '4', name: 'Lilies', price: 0, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '5', name: 'Orchids', price: 0, image: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '6', name: 'Peonies', price: 0, image: 'https://images.pexels.com/photos/931176/pexels-photo-931176.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '7', name: 'Carnations', price: 0, image: 'https://images.pexels.com/photos/1458603/pexels-photo-1458603.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '8', name: 'Daisies', price: 0, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '9', name: 'Hydrangeas', price: 0, image: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '10', name: 'Lavender', price: 0, image: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '11', name: 'Gerbera Daisies', price: 0, image: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '12', name: 'Irises', price: 0, image: 'https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+  ];
 
   if (!isAuthenticated || !customer) {
     navigate('/login');
@@ -46,6 +64,21 @@ const Account: React.FC = () => {
 
   const handleCancelEdit = () => {
     setIsEditingAddress(false);
+  };
+
+  const handleAddToCart = (flower: typeof availableFlowers[0]) => {
+    if (remainingFlowers > 0) {
+      addToCart({
+        id: flower.id,
+        name: flower.name,
+        price: flower.price,
+        quantity: 1,
+        image: flower.image,
+      });
+      alert(`${flower.name} added to cart!`);
+    } else {
+      alert('You have reached your quarterly limit. Please upgrade your plan or wait for next quarter.');
+    }
   };
 
   return (
@@ -159,6 +192,51 @@ const Account: React.FC = () => {
                   ⚠ You've reached your quarterly limit. Upgrade your plan or wait for next quarter.
                 </div>
               )}
+            </div>
+          </div>
+
+          {/* Available Flowers */}
+          <div className="account-card flowers-card full-width">
+            <div className="card-header">
+              <h2>Available Flowers</h2>
+              <span className="usage-count">
+                {remainingFlowers > 0 ? `${remainingFlowers} bouquet${remainingFlowers !== 1 ? 's' : ''} available` : 'Limit reached'}
+              </span>
+            </div>
+            <div className="card-content">
+              {remainingFlowers === 0 ? (
+                <div className="no-flowers-message">
+                  <p>⚠ You've used all your bouquets for this quarter.</p>
+                  <p>Upgrade your plan or wait for the next quarter to order more flowers.</p>
+                </div>
+              ) : (
+                <div className="flowers-grid">
+                  {availableFlowers.map((flower) => (
+                    <div key={flower.id} className="flower-item">
+                      <img src={flower.image} alt={flower.name} className="flower-image" />
+                      <div className="flower-info">
+                        <h3 className="flower-name">{flower.name}</h3>
+                        <p className="flower-price">Included in subscription</p>
+                        <button
+                          className="btn-add-to-cart"
+                          onClick={() => handleAddToCart(flower)}
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="checkout-action">
+                <button
+                  className="btn-checkout"
+                  onClick={() => navigate('/checkout')}
+                  disabled={remainingFlowers === 0}
+                >
+                  🛒 View Cart & Checkout
+                </button>
+              </div>
             </div>
           </div>
 

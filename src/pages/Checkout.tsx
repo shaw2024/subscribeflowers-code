@@ -31,15 +31,15 @@ const Checkout: React.FC = () => {
   };
 
   const [formData, setFormData] = useState<CustomerInfo>({
-    firstName: '',
-    lastName: '',
-    email: '',
+    firstName: customer?.firstName || '',
+    lastName: customer?.lastName || '',
+    email: customer?.email || '',
     phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    country: 'United States',
+    address: customer?.shippingAddress.street || '',
+    city: customer?.shippingAddress.city || '',
+    state: customer?.shippingAddress.state || '',
+    zipCode: customer?.shippingAddress.zipCode || '',
+    country: customer?.shippingAddress.country || 'United States',
     deliveryDate: getMinDeliveryDate(),
   });
 
@@ -59,6 +59,10 @@ const Checkout: React.FC = () => {
   };
 
   const getGrandTotal = (): number => {
+    // For subscription customers, the total is always $0
+    if (isAuthenticated && customer) {
+      return 0;
+    }
     return getCartTotal() + calculateShipping();
   };
 
@@ -71,21 +75,52 @@ const Checkout: React.FC = () => {
     e.preventDefault();
     setIsProcessing(true);
 
-    // TODO: Replace with actual Stripe integration
-    // This will redirect to Stripe Checkout with the customer info
+    // Generate unique order number
+    const orderNumber = `ORD-${Date.now()}-${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
+    
+    // Prepare order data
+    const orderData = {
+      orderNumber,
+      customerInfo: formData,
+      items: cartItems,
+      subtotal: getCartTotal(),
+      shipping: calculateShipping(),
+      total: getGrandTotal(),
+      isSubscriptionOrder: isAuthenticated && customer,
+      timestamp: new Date().toISOString(),
+      ...(isAuthenticated && customer && {
+        customerId: customer.id,
+        customerEmail: customer.email,
+      })
+    };
+
+    // Simulate API call to save order to database
     setTimeout(() => {
-      console.log('Customer Info:', formData);
-      console.log('Cart Items:', cartItems);
-      console.log('Total:', getCartTotal());
+      console.log('=== ORDER SUBMITTED TO DATABASE ===');
+      console.log('Order Data:', orderData);
       
       // Update subscription usage if customer is logged in
       if (isAuthenticated && customer) {
         const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
         updateUsage(totalItems);
+        
+        // Simulate sending email with order number
+        console.log('=== EMAIL SENT ===');
+        console.log(`To: ${customer.email}`);
+        console.log(`Subject: Order Confirmation - ${orderNumber}`);
+        console.log(`Body: Thank you for your order! Your order number is ${orderNumber}. Your subscription flowers will be delivered on ${formData.deliveryDate}.`);
+        
+        alert(`✅ Order placed successfully!\n\nOrder Number: ${orderNumber}\n\nA confirmation email has been sent to ${customer.email}\n\nTotal Charge: $${getGrandTotal().toFixed(2)} (Covered by subscription)`);
+      } else {
+        // For non-subscription customers, would redirect to Stripe
+        console.log('=== EMAIL SENT ===');
+        console.log(`To: ${formData.email}`);
+        console.log(`Subject: Order Confirmation - ${orderNumber}`);
+        console.log(`Body: Thank you for your order! Your order number is ${orderNumber}. Total: $${getGrandTotal().toFixed(2)}`);
+        
+        alert(`Payment gateway integration coming soon! This will connect to Stripe.\n\nOrder Number: ${orderNumber}`);
       }
       
-      // Simulate successful payment
-      alert('Payment gateway integration coming soon! This will connect to Stripe.');
       clearCart();
       navigate(isAuthenticated ? '/account' : '/');
       setIsProcessing(false);
@@ -295,7 +330,11 @@ const Checkout: React.FC = () => {
               <div className="summary-totals">
                 <div className="summary-row">
                   <span>Subtotal</span>
-                  <span>${getCartTotal().toFixed(2)}</span>
+                  {isAuthenticated && customer ? (
+                    <span className="strike-through">${getCartTotal().toFixed(2)}</span>
+                  ) : (
+                    <span>${getCartTotal().toFixed(2)}</span>
+                  )}
                 </div>
                 <div className="summary-row">
                   <span>Shipping</span>
@@ -305,7 +344,12 @@ const Checkout: React.FC = () => {
                     <span>${calculateShipping().toFixed(2)}</span>
                   )}
                 </div>
-                {isAuthenticated && (
+                {isAuthenticated && customer && (
+                  <div className="summary-note subscription-note">
+                    🎉 Covered by your subscription - No charge!
+                  </div>
+                )}
+                {isAuthenticated && !customer && (
                   <div className="summary-note">
                     🎉 Free shipping with your subscription!
                   </div>
@@ -322,7 +366,9 @@ const Checkout: React.FC = () => {
                 )}
                 <div className="summary-row total">
                   <span>Total</span>
-                  <span>${getGrandTotal().toFixed(2)}</span>
+                  <span className={isAuthenticated && customer ? 'zero-total' : ''}>
+                    ${getGrandTotal().toFixed(2)}
+                  </span>
                 </div>
               </div>
             </div>
