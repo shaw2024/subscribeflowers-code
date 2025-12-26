@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import './Checkout.css';
 
 interface CustomerInfo {
@@ -18,6 +19,7 @@ interface CustomerInfo {
 const Checkout: React.FC = () => {
   const navigate = useNavigate();
   const { cartItems, getCartTotal, clearCart } = useCart();
+  const { isAuthenticated, customer, updateUsage } = useAuth();
   const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState<CustomerInfo>({
     firstName: '',
@@ -47,10 +49,16 @@ const Checkout: React.FC = () => {
       console.log('Cart Items:', cartItems);
       console.log('Total:', getCartTotal());
       
+      // Update subscription usage if customer is logged in
+      if (isAuthenticated && customer) {
+        const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        updateUsage(totalItems);
+      }
+      
       // Simulate successful payment
       alert('Payment gateway integration coming soon! This will connect to Stripe.');
       clearCart();
-      navigate('/');
+      navigate(isAuthenticated ? '/account' : '/');
       setIsProcessing(false);
     }, 2000);
   };
@@ -248,8 +256,17 @@ const Checkout: React.FC = () => {
                 </div>
                 <div className="summary-row">
                   <span>Shipping</span>
-                  <span>Free</span>
+                  {isAuthenticated ? (
+                    <span className="free-shipping">FREE ✓</span>
+                  ) : (
+                    <span>Calculated at checkout</span>
+                  )}
                 </div>
+                {isAuthenticated && (
+                  <div className="summary-note">
+                    🎉 Free shipping with your subscription!
+                  </div>
+                )}
                 <div className="summary-row total">
                   <span>Total</span>
                   <span>${getCartTotal().toFixed(2)}</span>

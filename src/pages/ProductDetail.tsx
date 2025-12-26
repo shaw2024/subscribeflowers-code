@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 import './ProductDetail.css'
 
 interface Product {
@@ -16,6 +17,7 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const { addToCart } = useCart()
+  const { isAuthenticated, canPurchase, getRemainingFlowers } = useAuth()
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [selectedFrequency, setSelectedFrequency] = useState<'weekly' | 'biweekly' | 'monthly'>('monthly')
   const [quantity, setQuantity] = useState<number>(1)
@@ -146,6 +148,17 @@ const ProductDetail = () => {
   }
 
   const handleAddToCart = () => {
+    // Check if logged in customer can purchase
+    if (isAuthenticated && !canPurchase(1)) {
+      alert('You have reached your quarterly subscription limit. Please upgrade your plan or wait for the next quarter.');
+      return;
+    }
+
+    if (!selectedColor) {
+      alert('Please select a color first');
+      return;
+    }
+
     addToCart({
       id: `${product.id}-${selectedFrequency}`,
       name: `${product.name} (${selectedColor})`,
@@ -263,6 +276,14 @@ const ProductDetail = () => {
             {showSuccess && (
               <div className="success-message">
                 ✓ Added to cart!
+              </div>
+            )}
+
+            {isAuthenticated && (
+              <div className="subscription-status">
+                <p className="remaining-count">
+                  {getRemainingFlowers()} bouquet{getRemainingFlowers() !== 1 ? 's' : ''} remaining in your quarterly plan
+                </p>
               </div>
             )}
 
