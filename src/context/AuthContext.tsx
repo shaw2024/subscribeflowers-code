@@ -31,6 +31,7 @@ interface AuthContextType {
   updateUsage: (amount: number) => void;
   getRemainingFlowers: () => number;
   canPurchase: (amount: number) => boolean;
+  updateAddress: (address: Customer['shippingAddress']) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -113,6 +114,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return getRemainingFlowers() >= amount;
   };
 
+  const updateAddress = (address: Customer['shippingAddress']) => {
+    if (customer) {
+      setCustomer({
+        ...customer,
+        shippingAddress: address,
+      });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -123,6 +133,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         updateUsage,
         getRemainingFlowers,
         canPurchase,
+        updateAddress,
       }}
     >
       {children}

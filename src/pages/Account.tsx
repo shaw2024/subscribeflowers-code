@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Account.css';
 
 const Account: React.FC = () => {
   const navigate = useNavigate();
-  const { customer, isAuthenticated, logout, getRemainingFlowers } = useAuth();
+  const { customer, isAuthenticated, logout, getRemainingFlowers, updateAddress } = useAuth();
+  const [isEditingAddress, setIsEditingAddress] = useState(false);
+  const [addressForm, setAddressForm] = useState({
+    street: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    country: '',
+  });
 
   if (!isAuthenticated || !customer) {
     navigate('/login');
@@ -18,6 +26,26 @@ const Account: React.FC = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleEditAddress = () => {
+    setAddressForm(customer.shippingAddress);
+    setIsEditingAddress(true);
+  };
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAddressForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSaveAddress = (e: React.FormEvent) => {
+    e.preventDefault();
+    updateAddress(addressForm);
+    setIsEditingAddress(false);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditingAddress(false);
   };
 
   return (
@@ -66,7 +94,7 @@ const Account: React.FC = () => {
                 {customer.shippingAddress.city}, {customer.shippingAddress.state} {customer.shippingAddress.zipCode}
               </p>
               <p className="address-line">{customer.shippingAddress.country}</p>
-              <button className="btn-edit">Edit Address</button>
+              <button className="btn-edit" onClick={handleEditAddress}>Edit Address</button>
             </div>
           </div>
 
@@ -162,6 +190,88 @@ const Account: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Edit Address Modal */}
+        {isEditingAddress && (
+          <>
+            <div className="modal-overlay" onClick={handleCancelEdit} />
+            <div className="modal-content">
+              <div className="modal-header">
+                <h2>Edit Shipping Address</h2>
+                <button className="modal-close" onClick={handleCancelEdit}>✕</button>
+              </div>
+              <form onSubmit={handleSaveAddress} className="address-form">
+                <div className="form-group">
+                  <label htmlFor="street">Street Address *</label>
+                  <input
+                    type="text"
+                    id="street"
+                    name="street"
+                    value={addressForm.street}
+                    onChange={handleAddressChange}
+                    required
+                  />
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="city">City *</label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      value={addressForm.city}
+                      onChange={handleAddressChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="state">State *</label>
+                    <input
+                      type="text"
+                      id="state"
+                      name="state"
+                      value={addressForm.state}
+                      onChange={handleAddressChange}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="zipCode">ZIP Code *</label>
+                    <input
+                      type="text"
+                      id="zipCode"
+                      name="zipCode"
+                      value={addressForm.zipCode}
+                      onChange={handleAddressChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="country">Country *</label>
+                    <input
+                      type="text"
+                      id="country"
+                      name="country"
+                      value={addressForm.country}
+                      onChange={handleAddressChange}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="modal-actions">
+                  <button type="button" onClick={handleCancelEdit} className="btn-secondary">
+                    Cancel
+                  </button>
+                  <button type="submit" className="btn-primary">
+                    Save Address
+                  </button>
+                </div>
+              </form>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
