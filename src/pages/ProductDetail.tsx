@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import { useCart } from '../context/CartContext'
 import './ProductDetail.css'
 
 interface Product {
@@ -14,6 +16,8 @@ interface Product {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const { isAuthenticated, customer, getRemainingFlowers } = useAuth()
+  const { addToCart } = useCart()
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [currentImage, setCurrentImage] = useState<string>('')
 
@@ -189,20 +193,43 @@ const ProductDetail = () => {
             </div>
 
             <div className="product-actions">
-              <button 
-                className="subscribe-now-btn"
-                onClick={() => {
-                  navigate('/');
-                  setTimeout(() => {
-                    const plansSection = document.querySelector('.plans-section');
-                    if (plansSection) {
-                      plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              {isAuthenticated && customer ? (
+                <button 
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    const remainingFlowers = getRemainingFlowers();
+                    if (remainingFlowers > 0) {
+                      addToCart({
+                        id: product.id.toString(),
+                        name: `${product.name} (${selectedColor})`,
+                        price: 0,
+                        quantity: 1,
+                        image: currentImage || product.image,
+                      });
+                      alert(`${product.name} (${selectedColor}) added to cart!`);
+                    } else {
+                      alert('You have reached your quarterly limit. Please upgrade your plan or wait for next quarter.');
                     }
-                  }, 100);
-                }}
-              >
-                Subscribe Now
-              </button>
+                  }}
+                >
+                  Add to Cart
+                </button>
+              ) : (
+                <button 
+                  className="subscribe-now-btn"
+                  onClick={() => {
+                    navigate('/');
+                    setTimeout(() => {
+                      const plansSection = document.querySelector('.plans-section');
+                      if (plansSection) {
+                        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, 100);
+                  }}
+                >
+                  Subscribe Now
+                </button>
+              )}
             </div>
 
             <div className="product-features">
