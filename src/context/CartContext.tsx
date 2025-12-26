@@ -33,18 +33,28 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const addToCart = (item: CartItem) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
+      // Create composite key if frequency exists
+      const itemKey = item.frequency ? `${item.id}-${item.frequency}` : item.id;
+      const existingItem = prevItems.find((i) => {
+        const existingKey = i.frequency ? `${i.id}-${i.frequency}` : i.id;
+        return existingKey === itemKey;
+      });
       if (existingItem) {
-        return prevItems.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
-        );
+        return prevItems.map((i) => {
+          const existingKey = i.frequency ? `${i.id}-${i.frequency}` : i.id;
+          return existingKey === itemKey ? { ...i, quantity: i.quantity + item.quantity } : i;
+        });
       }
       return [...prevItems, item];
     });
   };
 
   const removeFromCart = (id: string) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setCartItems((prevItems) => prevItems.filter((item) => {
+      // Handle both simple id and composite id (id-frequency)
+      const itemKey = item.frequency ? `${item.id}-${item.frequency}` : item.id;
+      return itemKey !== id;
+    }));
   };
 
   const updateQuantity = (id: string, quantity: number) => {
@@ -53,7 +63,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return;
     }
     setCartItems((prevItems) =>
-      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
+      prevItems.map((item) => {
+        // Handle both simple id and composite id (id-frequency)
+        const itemKey = item.frequency ? `${item.id}-${item.frequency}` : item.id;
+        return itemKey === id ? { ...item, quantity } : item;
+      })
     );
   };
 
