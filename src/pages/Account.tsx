@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import { getProductImage } from '../data/images';
 import './Account.css';
 
 const Account: React.FC = () => {
@@ -19,18 +20,18 @@ const Account: React.FC = () => {
 
   // Available flowers for subscription customers
   const availableFlowers = [
-    { id: '1', name: 'Roses', price: 0, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5' },
-    { id: '2', name: 'Tulips', price: 0, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '3', name: 'Sunflowers', price: 0, image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '4', name: 'Lilies', price: 0, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '5', name: 'Orchids', price: 0, image: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '6', name: 'Peonies', price: 0, image: 'https://images.pexels.com/photos/931176/pexels-photo-931176.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '7', name: 'Carnations', price: 0, image: 'https://images.pexels.com/photos/1458603/pexels-photo-1458603.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '8', name: 'Daisies', price: 0, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '9', name: 'Hydrangeas', price: 0, image: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '10', name: 'Lavender', price: 0, image: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '11', name: 'Gerbera Daisies', price: 0, image: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: '12', name: 'Irises', price: 0, image: 'https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: '1', name: 'Roses', price: 0, image: getProductImage('Roses') },
+    { id: '2', name: 'Tulips', price: 0, image: getProductImage('Tulips') },
+    { id: '3', name: 'Sunflowers', price: 0, image: getProductImage('Sunflowers') },
+    { id: '4', name: 'Lilies', price: 0, image: getProductImage('Lilies') },
+    { id: '5', name: 'Orchids', price: 0, image: getProductImage('Orchids') },
+    { id: '6', name: 'Peonies', price: 0, image: getProductImage('Peonies') },
+    { id: '7', name: 'Carnations', price: 0, image: getProductImage('Carnations') },
+    { id: '8', name: 'Daisies', price: 0, image: getProductImage('Daisies') },
+    { id: '9', name: 'Hydrangeas', price: 0, image: getProductImage('Hydrangeas') },
+    { id: '10', name: 'Lavender', price: 0, image: getProductImage('Lavender') },
+    { id: '11', name: 'Gerbera Daisies', price: 0, image: getProductImage('Gerbera Daisies') },
+    { id: '12', name: 'Irises', price: 0, image: getProductImage('Irises') },
   ];
 
   if (!isAuthenticated || !customer) {

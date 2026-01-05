@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
+import { productImages, getProductImage } from '../data/images'
 import './ProductDetail.css'
 
 interface Product {
@@ -21,43 +22,43 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState<string>('')
   const [currentImage, setCurrentImage] = useState<string>('')
 
-  // Flower color images mapping
+  // Flower color images mapping - using centralized configuration
   const flowerColorImages: { [key: string]: { [key: string]: string } } = {
     'Roses': {
-      'Red': 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5',
-      'Pink': 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'White': 'https://images.pexels.com/photos/305827/pexels-photo-305827.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Yellow': 'https://images.pexels.com/photos/1322724/pexels-photo-1322724.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Orange': 'https://images.pexels.com/photos/1166414/pexels-photo-1166414.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Lavender': 'https://images.pexels.com/photos/1382734/pexels-photo-1382734.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      'Red': productImages.roses.colors.red,
+      'Pink': productImages.roses.colors.pink,
+      'White': productImages.roses.colors.white,
+      'Yellow': productImages.roses.colors.yellow,
+      'Orange': productImages.roses.colors.orange,
+      'Lavender': productImages.roses.colors.lavender
     },
     'Tulips': {
-      'Red': 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Pink': 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'White': 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Yellow': 'https://images.pexels.com/photos/42069/tulips-flowers-spring-yellow-42069.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Purple': 'https://images.pexels.com/photos/1682316/pexels-photo-1682316.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      'Orange': 'https://images.pexels.com/photos/1390365/pexels-photo-1390365.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      'Red': productImages.tulips.colors.red,
+      'Pink': productImages.tulips.colors.pink,
+      'White': productImages.tulips.colors.white,
+      'Yellow': productImages.tulips.colors.yellow,
+      'Purple': productImages.tulips.colors.purple,
+      'Orange': productImages.tulips.colors.orange
     }
   }
 
   const allProducts: Product[] = [
-    { id: 1, name: 'Roses', price: 45.00, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5', description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
-    { id: 2, name: 'Tulips', price: 35.00, image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400', description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
-    { id: 3, name: 'Sunflowers', price: 32.00, image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
-    { id: 4, name: 'Lilies', price: 42.00, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },
-    { id: 5, name: 'Orchids', price: 55.00, image: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Exotic orchids representing luxury and sophistication.', colors: ['White', 'Purple', 'Pink', 'Yellow', 'Blue'] },
-    { id: 6, name: 'Peonies', price: 48.00, image: 'https://images.pexels.com/photos/931176/pexels-photo-931176.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Lush peonies symbolizing romance and prosperity.', colors: ['Pink', 'White', 'Red', 'Coral'] },
-    { id: 7, name: 'Carnations', price: 28.00, image: 'https://images.pexels.com/photos/1458603/pexels-photo-1458603.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Long-lasting carnations perfect for any occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple'] },
-    { id: 8, name: 'Daisies', price: 25.00, image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Cheerful daisies representing innocence and purity.', colors: ['White', 'Yellow', 'Pink'] },
-    { id: 9, name: 'Hydrangeas', price: 52.00, image: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400', description: 'Voluminous hydrangeas for a stunning display.', colors: ['Blue', 'Pink', 'White', 'Purple'] },
-    { id: 10, name: 'Lavender', price: 30.00, image: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Fragrant lavender bringing calm and serenity.', colors: ['Purple', 'White', 'Pink'] },
-    { id: 11, name: 'Gerbera Daisies', price: 38.00, image: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Vibrant gerbera daisies perfect for brightening any room.', colors: ['Red', 'Pink', 'Orange', 'Yellow', 'White'] },
-    { id: 12, name: 'Irises', price: 40.00, image: 'https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Elegant iris flowers symbolizing wisdom and hope.', colors: ['Purple', 'Blue', 'White', 'Yellow'] },
-    { id: 13, name: 'Chrysanthemums', price: 33.00, image: 'https://images.pexels.com/photos/1301862/pexels-photo-1301862.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Beautiful chrysanthemums representing joy and optimism.', colors: ['Yellow', 'White', 'Red', 'Pink', 'Purple'] },
-    { id: 14, name: 'Daffodils', price: 27.00, image: 'https://images.pexels.com/photos/54320/pexels-photo-54320.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Cheerful daffodils heralding the arrival of spring.', colors: ['Yellow', 'White', 'Orange'] },
-    { id: 15, name: 'Poppies', price: 29.00, image: 'https://images.pexels.com/photos/1002703/pexels-photo-1002703.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Delicate poppies adding a wild beauty to arrangements.', colors: ['Red', 'Orange', 'Pink', 'White'] },
-    { id: 16, name: 'Jasmine', price: 36.00, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Sweet-scented jasmine flowers for a romantic atmosphere.', colors: ['White', 'Yellow'] },
+    { id: 1, name: 'Roses', price: 45.00, image: getProductImage('Roses'), description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
+    { id: 2, name: 'Tulips', price: 35.00, image: getProductImage('Tulips'), description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
+    { id: 3, name: 'Sunflowers', price: 32.00, image: getProductImage('Sunflowers'), description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
+    { id: 4, name: 'Lilies', price: 42.00, image: getProductImage('Lilies'), description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },
+    { id: 5, name: 'Orchids', price: 55.00, image: getProductImage('Orchids'), description: 'Exotic orchids representing luxury and sophistication.', colors: ['White', 'Purple', 'Pink', 'Yellow', 'Blue'] },
+    { id: 6, name: 'Peonies', price: 48.00, image: getProductImage('Peonies'), description: 'Lush peonies symbolizing romance and prosperity.', colors: ['Pink', 'White', 'Red', 'Coral'] },
+    { id: 7, name: 'Carnations', price: 28.00, image: getProductImage('Carnations'), description: 'Long-lasting carnations perfect for any occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple'] },
+    { id: 8, name: 'Daisies', price: 25.00, image: getProductImage('Daisies'), description: 'Cheerful daisies representing innocence and purity.', colors: ['White', 'Yellow', 'Pink'] },
+    { id: 9, name: 'Hydrangeas', price: 52.00, image: getProductImage('Hydrangeas'), description: 'Voluminous hydrangeas for a stunning display.', colors: ['Blue', 'Pink', 'White', 'Purple'] },
+    { id: 10, name: 'Lavender', price: 30.00, image: getProductImage('Lavender'), description: 'Fragrant lavender bringing calm and serenity.', colors: ['Purple', 'White', 'Pink'] },
+    { id: 11, name: 'Gerbera Daisies', price: 38.00, image: getProductImage('Gerbera Daisies'), description: 'Vibrant gerbera daisies perfect for brightening any room.', colors: ['Red', 'Pink', 'Orange', 'Yellow', 'White'] },
+    { id: 12, name: 'Irises', price: 40.00, image: getProductImage('Irises'), description: 'Elegant iris flowers symbolizing wisdom and hope.', colors: ['Purple', 'Blue', 'White', 'Yellow'] },
+    { id: 13, name: 'Chrysanthemums', price: 33.00, image: getProductImage('Chrysanthemums'), description: 'Beautiful chrysanthemums representing joy and optimism.', colors: ['Yellow', 'White', 'Red', 'Pink', 'Purple'] },
+    { id: 14, name: 'Daffodils', price: 27.00, image: getProductImage('Daffodils'), description: 'Cheerful daffodils heralding the arrival of spring.', colors: ['Yellow', 'White', 'Orange'] },
+    { id: 15, name: 'Poppies', price: 29.00, image: getProductImage('Poppies'), description: 'Delicate poppies adding a wild beauty to arrangements.', colors: ['Red', 'Orange', 'Pink', 'White'] },
+    { id: 16, name: 'Jasmine', price: 36.00, image: getProductImage('Jasmine'), description: 'Sweet-scented jasmine flowers for a romantic atmosphere.', colors: ['White', 'Yellow'] },
     { id: 17, name: 'Magnolias', price: 50.00, image: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Majestic magnolia blooms representing nobility and dignity.', colors: ['White', 'Pink', 'Purple'] },
     { id: 18, name: 'Anemones', price: 34.00, image: 'https://images.pexels.com/photos/931175/pexels-photo-931175.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Delicate anemones with striking centers.', colors: ['Red', 'Pink', 'White', 'Purple', 'Blue'] },
     { id: 19, name: 'Gardenias', price: 44.00, image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop', description: 'Fragrant gardenias symbolizing purity and sweetness.', colors: ['White', 'Cream'] },

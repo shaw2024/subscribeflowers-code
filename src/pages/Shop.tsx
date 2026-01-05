@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getProductImage } from '../data/images'
 import './Shop.css'
 
 interface Product {
@@ -23,16 +24,16 @@ const Shop = () => {
   const [orderPlaced, setOrderPlaced] = useState(false)
 
   const products: Product[] = [
-    { id: 1, name: 'Roses', image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop&crop=focalpoint&fp-x=0.3&fp-y=0.5' },
-    { id: 2, name: 'Tulips', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 3, name: 'Sunflowers', image: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 4, name: 'Lilies', image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 5, name: 'Orchids', image: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 6, name: 'Peonies', image: 'https://images.pexels.com/photos/931176/pexels-photo-931176.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 7, name: 'Carnations', image: 'https://images.pexels.com/photos/1458603/pexels-photo-1458603.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 8, name: 'Daisies', image: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 9, name: 'Hydrangeas', image: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 10, name: 'Lavender', image: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
+    { id: 1, name: 'Roses', image: getProductImage('Roses') },
+    { id: 2, name: 'Tulips', image: getProductImage('Tulips') },
+    { id: 3, name: 'Sunflowers', image: getProductImage('Sunflowers') },
+    { id: 4, name: 'Lilies', image: getProductImage('Lilies') },
+    { id: 5, name: 'Orchids', image: getProductImage('Orchids') },
+    { id: 6, name: 'Peonies', image: getProductImage('Peonies') },
+    { id: 7, name: 'Carnations', image: getProductImage('Carnations') },
+    { id: 8, name: 'Daisies', image: getProductImage('Daisies') },
+    { id: 9, name: 'Hydrangeas', image: getProductImage('Hydrangeas') },
+    { id: 10, name: 'Lavender', image: getProductImage('Lavender') },
  
  
  
