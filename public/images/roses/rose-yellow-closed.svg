@@ -1,0 +1,12 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="yellow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fab005;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#yellow-grad)"/>
+  <text x="150" y="130" font-family="Arial" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">Yellow Rose</text>
+  <text x="150" y="160" font-family="Arial" font-size="18" fill="#333" text-anchor="middle">Closed</text>
+  <text x="150" y="190" font-family="monospace" font-size="12" fill="#333" opacity="0.8" text-anchor="middle">rose-yellow-closed</text>
+</svg>

@@ -20,9 +20,9 @@ export interface RoseImageSet {
 
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: '/images/roses/rose-red-closed.png',
-    open: '/images/roses/rose-red-open.png',
-    stem: '/images/roses/rose-red-stem.png',
+    closed: '/images/roses/rose-red-closed.svg',
+    open: '/images/roses/rose-red-open.svg',
+    stem: '/images/roses/rose-red-stem.svg',
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -35,9 +35,9 @@ export const roseImages: Record<string, RoseImageSet> = {
     }
   },
   pink: {
-    closed: '/images/roses/rose-pink-closed.png',
-    open: '/images/roses/rose-pink-open.png',
-    stem: '/images/roses/rose-pink-stem.png',
+    closed: '/images/roses/rose-pink-closed.svg',
+    open: '/images/roses/rose-pink-open.svg',
+    stem: '/images/roses/rose-pink-stem.svg',
     alt: {
       closed: 'Pink rose tight bud - elegant flower subscription',
       open: 'Pink rose in full bloom - premium flower delivery',
@@ -50,9 +50,9 @@ export const roseImages: Record<string, RoseImageSet> = {
     }
   },
   white: {
-    closed: '/images/roses/rose-white-closed.png',
-    open: '/images/roses/rose-white-open.png',
-    stem: '/images/roses/rose-white-stem.png',
+    closed: '/images/roses/rose-white-closed.svg',
+    open: '/images/roses/rose-white-open.svg',
+    stem: '/images/roses/rose-white-stem.svg',
     alt: {
       closed: 'White rose tight bud - pure flower subscription',
       open: 'White rose in full bloom - pristine flower delivery',
@@ -65,9 +65,9 @@ export const roseImages: Record<string, RoseImageSet> = {
     }
   },
   yellow: {
-    closed: '/images/roses/rose-yellow-closed.png',
-    open: '/images/roses/rose-yellow-open.png',
-    stem: '/images/roses/rose-yellow-stem.png',
+    closed: '/images/roses/rose-yellow-closed.svg',
+    open: '/images/roses/rose-yellow-open.svg',
+    stem: '/images/roses/rose-yellow-stem.svg',
     alt: {
       closed: 'Yellow rose tight bud - cheerful flower subscription',
       open: 'Yellow rose in full bloom - bright flower delivery',
@@ -80,9 +80,9 @@ export const roseImages: Record<string, RoseImageSet> = {
     }
   },
   orange: {
-    closed: '/images/roses/rose-orange-closed.png',
-    open: '/images/roses/rose-orange-open.png',
-    stem: '/images/roses/rose-orange-stem.png',
+    closed: '/images/roses/rose-orange-closed.svg',
+    open: '/images/roses/rose-orange-open.svg',
+    stem: '/images/roses/rose-orange-stem.svg',
     alt: {
       closed: 'Orange rose tight bud - vibrant flower subscription',
       open: 'Orange rose in full bloom - energetic flower delivery',
@@ -95,9 +95,9 @@ export const roseImages: Record<string, RoseImageSet> = {
     }
   },
   lavender: {
-    closed: '/images/roses/rose-lavender-closed.png',
-    open: '/images/roses/rose-lavender-open.png',
-    stem: '/images/roses/rose-lavender-stem.png',
+    closed: '/images/roses/rose-lavender-closed.svg',
+    open: '/images/roses/rose-lavender-open.svg',
+    stem: '/images/roses/rose-lavender-stem.svg',
     alt: {
       closed: 'Lavender rose tight bud - enchanting flower subscription',
       open: 'Lavender rose in full bloom - magical flower delivery',
@@ -113,14 +113,14 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: '/images/roses/rose-red-open.png',
+    main: '/images/roses/rose-red-open.svg',
     colors: {
-      red: '/images/roses/rose-red-open.png',
-      pink: '/images/roses/rose-pink-open.png',
-      white: '/images/roses/rose-white-open.png',
-      yellow: '/images/roses/rose-yellow-open.png',
-      orange: '/images/roses/rose-orange-open.png',
-      lavender: '/images/roses/rose-lavender-open.png'
+      red: '/images/roses/rose-red-open.svg',
+      pink: '/images/roses/rose-pink-open.svg',
+      white: '/images/roses/rose-white-open.svg',
+      yellow: '/images/roses/rose-yellow-open.svg',
+      orange: '/images/roses/rose-orange-open.svg',
+      lavender: '/images/roses/rose-lavender-open.svg'
     }
   },
   tulips: {
