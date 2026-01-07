@@ -34,28 +34,21 @@ const Shop = () => {
     { id: 8, name: 'Daisies', image: getProductImage('Daisies') },
     { id: 9, name: 'Hydrangeas', image: getProductImage('Hydrangeas') },
     { id: 10, name: 'Lavender', image: getProductImage('Lavender') },
- 
- 
- 
- 
- 
- 
- 
-    { id: 11, name: 'Gerbera Daisies', image: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 12, name: 'Irises', image: 'https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 13, name: 'Chrysanthemums', image: 'https://images.pexels.com/photos/1301862/pexels-photo-1301862.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 14, name: 'Daffodils', image: 'https://images.pexels.com/photos/54320/pexels-photo-54320.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 15, name: 'Poppies', image: 'https://images.pexels.com/photos/1002703/pexels-photo-1002703.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 16, name: 'Jasmine', image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 17, name: 'Magnolias', image: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 18, name: 'Anemones', image: 'https://images.pexels.com/photos/931175/pexels-photo-931175.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 19, name: 'Gardenias', image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 20, name: 'Freesias', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 21, name: 'Ranunculus', image: 'https://images.pexels.com/photos/931175/pexels-photo-931175.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 22, name: 'Calla Lilies', image: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 23, name: 'Zinnias', image: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 24, name: 'Dahlias', image: 'https://images.pexels.com/photos/1301862/pexels-photo-1301862.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' },
-    { id: 25, name: 'Sweet Peas', image: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop' }
+    { id: 11, name: 'Gerbera Daisies', image: getProductImage('GerberaDaisies') },
+    { id: 12, name: 'Irises', image: getProductImage('Irises') },
+    { id: 13, name: 'Chrysanthemums', image: getProductImage('Chrysanthemums') },
+    { id: 14, name: 'Daffodils', image: getProductImage('Daffodils') },
+    { id: 15, name: 'Poppies', image: getProductImage('Poppies') },
+    { id: 16, name: 'Jasmine', image: getProductImage('Jasmine') },
+    { id: 17, name: 'Magnolias', image: getProductImage('Magnolias') },
+    { id: 18, name: 'Anemones', image: getProductImage('Anemones') },
+    { id: 19, name: 'Gardenias', image: getProductImage('Gardenias') },
+    { id: 20, name: 'Freesias', image: getProductImage('Freesias') },
+    { id: 21, name: 'Ranunculus', image: getProductImage('Ranunculus') },
+    { id: 22, name: 'Calla Lilies', image: getProductImage('CallaLilies') },
+    { id: 23, name: 'Zinnias', image: getProductImage('Zinnias') },
+    { id: 24, name: 'Dahlias', image: getProductImage('Dahlias') },
+    { id: 25, name: 'Sweet Peas', image: getProductImage('SweetPeas') }
   ]
 
   const removeFromCart = (productId: number) => {
