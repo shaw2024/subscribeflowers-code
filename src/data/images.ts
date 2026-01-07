@@ -58,7 +58,7 @@ export const roseImages: Record<string, RoseImageSet> = {
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
       description:
-        'Delicate pink roses symbolizing grace and admira'tion. Subscribe for weekly delivery of fresh premium pink roses.',
+        'Delicate pink roses symbolizing grace and admiration. Subscribe for weekly delivery of fresh premium pink roses.',
       keywords: [
         'pink roses',
         'elegant flowers',
