@@ -93,9 +93,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   yellow: {
-    closed: `${BASE_URL}images/roses/rose-yellow-closed.svg`,
-    open: `${BASE_URL}images/roses/rose-yellow-open.svg`,
-    stem: `${BASE_URL}images/roses/rose-yellow-stem.svg`,
+    closed: `${BASE_URL}images/roses/rose-yellow-closed.jpg`,
+    open: `${BASE_URL}images/roses/rose-yellow-open.jpg`,
+    stem: `${BASE_URL}images/roses/rose-yellow-stem.jpg`,
     alt: {
       closed: 'Yellow rose tight bud - cheerful flower subscription',
       open: 'Yellow rose in full bloom - bright flower delivery',
@@ -169,7 +169,7 @@ export const productImages = {
       red: `${BASE_URL}images/red/rose.jpg`,
       pink: `${BASE_URL}images/roses/rose-pink-open.svg`,
       white: `${BASE_URL}images/roses/rose-white-open.svg`,
-      yellow: `${BASE_URL}images/roses/rose-yellow-open.svg`,
+      yellow: `${BASE_URL}images/roses/rose-yellow-open.jpg`,
       orange: `${BASE_URL}images/roses/rose-orange-open.svg`,
       lavender: `${BASE_URL}images/roses/rose-lavender-open.svg`
     }
