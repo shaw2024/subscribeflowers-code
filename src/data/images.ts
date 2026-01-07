@@ -166,7 +166,7 @@ export const productImages = {
   roses: {
     main: `${BASE_URL}images/roses/rose-red-open.jpg`,
     colors: {
-      red: `${BASE_URL}images/red/rose.jpg`,
+      red: `${BASE_URL}images/roses/rose-red-open.jpg`,
       pink: `${BASE_URL}images/roses/rose-pink-open.svg`,
       white: `${BASE_URL}images/roses/rose-white-open.svg`,
       yellow: `${BASE_URL}images/roses/rose-yellow-open.jpg`,
