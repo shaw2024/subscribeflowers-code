@@ -107,7 +107,7 @@ const Subscribe = () => {
     }
   };
 
-  const sendConfirmationEmail = async (orderData: any) => {
+  const sendConfirmationEmail = async (orderData: unknown) => {
     // Simulate sending email
     console.log('📧 Confirmation Email Sent to:', formData.email);
     console.log('Order Details:', orderData);

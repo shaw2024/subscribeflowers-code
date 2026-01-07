@@ -3,7 +3,7 @@
 
 // Get the base URL for production deployment (e.g., /subscribeflowers-code/)
 // Using vite's import.meta.env
-const BASE_URL = (import.meta as any).env?.BASE_URL || '/';
+const BASE_URL = import.meta.env.BASE_URL || '/';
 
 // Rose image metadata with SEO optimization
 export interface RoseImageSet {
