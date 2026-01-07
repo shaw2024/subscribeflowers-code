@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getProductImage } from '../data/images'
 import './Shop.css'
@@ -9,19 +8,8 @@ interface Product {
   image: string
 }
 
-interface CartItem extends Product {
-  quantity: number
-}
-
 const Shop = () => {
   const navigate = useNavigate()
-  const [cart, setCart] = useState<CartItem[]>([])
-  const [showCheckout, setShowCheckout] = useState(false)
-  const [customerInfo, setCustomerInfo] = useState({
-    name: '',
-    email: ''
-  })
-  const [orderPlaced, setOrderPlaced] = useState(false)
 
   const products: Product[] = [
     { id: 1, name: 'Roses', image: getProductImage('Roses') },
@@ -50,45 +38,6 @@ const Shop = () => {
     { id: 24, name: 'Dahlias', image: getProductImage('Dahlias') },
     { id: 25, name: 'Sweet Peas', image: getProductImage('SweetPeas') }
   ]
-
-  const removeFromCart = (productId: number) => {
-    setCart(cart.filter(item => item.id !== productId))
-  }
-
-  const updateQuantity = (productId: number, quantity: number) => {
-    if (quantity <= 0) {
-      removeFromCart(productId)
-    } else {
-      setCart(cart.map(item => 
-        item.id === productId ? { ...item, quantity } : item
-      ))
-    }
-  }
-
-  const handleCheckout = () => {
-    if (!customerInfo.name || !customerInfo.email) {
-      alert('Please fill in your name and email')
-      return
-    }
-
-    console.log('Order placed:', {
-      customerName: customerInfo.name,
-      customerEmail: customerInfo.email,
-      items: cart.map(item => ({
-        id: item.id,
-        name: item.name,
-        quantity: item.quantity
-      }))
-    })
-
-    setOrderPlaced(true)
-    setTimeout(() => {
-      setCart([])
-      setShowCheckout(false)
-      setOrderPlaced(false)
-      setCustomerInfo({ name: '', email: '' })
-    }, 3000)
-  }
 
   return (
     <div className="shop">
@@ -126,63 +75,6 @@ const Shop = () => {
           </div>
         </div>
       </section>
-
-      {cart.length > 0 && (
-        <div className="cart-indicator" onClick={() => setShowCheckout(true)}>
-          🛒 Cart: {cart.length} item{cart.length !== 1 ? 's' : ''}
-        </div>
-      )}
-
-      {showCheckout && (
-        <div className="checkout-modal" onClick={() => setShowCheckout(false)}>
-          <div className="checkout-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Your Cart</h2>
-            {orderPlaced && (
-              <div className="success-message">
-                Order placed successfully! Thank you! ✓
-              </div>
-            )}
-            <div className="cart-items">
-              {cart.map(item => (
-                <div key={item.id} className="cart-item">
-                  <img src={item.image} alt={item.name} className="item-image" style={{width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px'}} />
-                  <div className="item-details">
-                    <h4>{item.name}</h4>
-                  </div>
-                  <div className="item-quantity">
-                    <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
-                  </div>
-                  <button className="remove-btn" onClick={() => removeFromCart(item.id)}>×</button>
-                </div>
-              ))}
-            </div>
-            <div className="customer-form">
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={customerInfo.name}
-                onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                value={customerInfo.email}
-                onChange={(e) => setCustomerInfo({...customerInfo, email: e.target.value})}
-              />
-            </div>
-            <div className="checkout-actions">
-              <button className="checkout-btn" onClick={handleCheckout}>
-                Place Order
-              </button>
-              <button className="cancel-btn" onClick={() => setShowCheckout(false)}>
-                Continue Shopping
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
