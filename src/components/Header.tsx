@@ -20,7 +20,8 @@ const Header = () => {
     <header className="header">
       <nav className="nav-container">
         <Link to="/" className="logo" onClick={closeMenu}>
-          Subscribe Flowers
+          <span className="logo-icon">🌹</span>
+          <span className="logo-text">Subscribe Flowers</span>
         </Link>
         <ul className={`menu ${menuOpen ? 'active' : ''}`}>
           <li>
