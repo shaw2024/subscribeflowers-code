@@ -22,6 +22,7 @@
   font-weight: bold;
   color: var(--secondary-color);
   transition: var(--transition);
+  margin-right: 3rem;
 }
 
 .logo:hover {
