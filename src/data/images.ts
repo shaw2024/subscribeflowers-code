@@ -24,9 +24,9 @@ export interface RoseImageSet {
 
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: `${BASE_URL}images/roses/rose-red-closed.svg`,
-    open: `${BASE_URL}images/roses/rose-red-open.svg`,
-    stem: `${BASE_URL}images/roses/rose-red-stem.svg`,
+    closed: `${BASE_URL}images/roses/rose-red-closed.jpg`,
+    open: `${BASE_URL}images/roses/rose-red-open.jpg`,
+    stem: `${BASE_URL}images/roses/rose-red-stem.jpg`,
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -164,9 +164,9 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: `${BASE_URL}images/roses/rose-red-open.svg`,
+    main: `${BASE_URL}images/roses/rose-red-open.jpg`,
     colors: {
-      red: `${BASE_URL}images/roses/rose-red-open.svg`,
+      red: `${BASE_URL}images/roses/rose-red-open.jpg`,
       pink: `${BASE_URL}images/roses/rose-pink-open.svg`,
       white: `${BASE_URL}images/roses/rose-white-open.svg`,
       yellow: `${BASE_URL}images/roses/rose-yellow-open.svg`,
