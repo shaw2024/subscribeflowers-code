@@ -24,9 +24,9 @@ export interface RoseImageSet {
 
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: `${BASE_URL}images/roses/rose-red-closed.jpg`,
-    open: `${BASE_URL}images/roses/rose-red-open.jpg`,
-    stem: `${BASE_URL}images/roses/rose-red-stem.jpg`,
+    closed: 'https://images.pexels.com/photos/1666065/pexels-photo-1666065.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/3585089/pexels-photo-3585089.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -47,9 +47,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   pink: {
-    closed: `${BASE_URL}images/roses/rose-pink-closed.svg`,
-    open: `${BASE_URL}images/roses/rose-pink-open.svg`,
-    stem: `${BASE_URL}images/roses/rose-pink-stem.svg`,
+    closed: 'https://images.pexels.com/photos/1161423/pexels-photo-1161423.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/3612082/pexels-photo-3612082.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     alt: {
       closed: 'Pink rose tight bud - elegant flower subscription',
       open: 'Pink rose in full bloom - premium flower delivery',
@@ -70,9 +70,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   white: {
-    closed: `${BASE_URL}images/roses/rose-white-closed.svg`,
-    open: `${BASE_URL}images/roses/rose-white-open.svg`,
-    stem: `${BASE_URL}images/roses/rose-white-stem.svg`,
+    closed: 'https://images.pexels.com/photos/2072453/pexels-photo-2072453.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/1878508/pexels-photo-1878508.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     alt: {
       closed: 'White rose tight bud - pure flower subscription',
       open: 'White rose in full bloom - pristine flower delivery',
@@ -93,9 +93,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   yellow: {
-    closed: `${BASE_URL}images/roses/rose-yellow-closed.jpg`,
-    open: `${BASE_URL}images/roses/rose-yellow-open.jpg`,
-    stem: `${BASE_URL}images/roses/rose-yellow-stem.jpg`,
+    closed: 'https://images.pexels.com/photos/1194036/pexels-photo-1194036.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/2166456/pexels-photo-2166456.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     alt: {
       closed: 'Yellow rose tight bud - cheerful flower subscription',
       open: 'Yellow rose in full bloom - bright flower delivery',
@@ -116,9 +116,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   orange: {
-    closed: `${BASE_URL}images/roses/rose-orange-closed.svg`,
-    open: `${BASE_URL}images/roses/rose-orange-open.svg`,
-    stem: `${BASE_URL}images/roses/rose-orange-stem.svg`,
+    closed: 'https://images.pexels.com/photos/2072444/pexels-photo-2072444.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/3615417/pexels-photo-3615417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/2072445/pexels-photo-2072445.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     alt: {
       closed: 'Orange rose tight bud - vibrant flower subscription',
       open: 'Orange rose in full bloom - energetic flower delivery',
@@ -139,9 +139,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   lavender: {
-    closed: `${BASE_URL}images/roses/rose-lavender-closed.svg`,
-    open: `${BASE_URL}images/roses/rose-lavender-open.svg`,
-    stem: `${BASE_URL}images/roses/rose-lavender-stem.svg`,
+    closed: 'https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/2925229/pexels-photo-2925229.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/1703376/pexels-photo-1703376.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     alt: {
       closed: 'Lavender rose tight bud - enchanting flower subscription',
       open: 'Lavender rose in full bloom - magical flower delivery',
@@ -164,18 +164,18 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: `${BASE_URL}images/roses/red-rose.jpg`,
+    main: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     colors: {
-      red: `${BASE_URL}images/roses/red-rose.jpg`,
-      pink: `${BASE_URL}images/roses/rose-pink-open.svg`,
-      white: `${BASE_URL}images/roses/rose-white-open.svg`,
-      yellow: `${BASE_URL}images/roses/red-rose.jpg`,
-      orange: `${BASE_URL}images/roses/rose-orange-open.svg`,
-      lavender: `${BASE_URL}images/roses/rose-lavender-open.svg`
+      red: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      pink: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      white: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      yellow: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      orange: 'https://images.pexels.com/photos/3615417/pexels-photo-3615417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      lavender: 'https://images.pexels.com/photos/2925229/pexels-photo-2925229.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
     }
   },
   tulips: {
-    main: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400',
+    main: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
     colors: {
       red: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       pink: 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
@@ -186,25 +186,25 @@ export const productImages = {
     }
   },
   sunflowers: {
-    main: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   lilies: {
-    main: 'https://images.pexels.com/photos/1391487/pexels-photo-1391487.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   orchids: {
-    main: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/414181/pexels-photo-414181.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   peonies: {
-    main: 'https://images.pexels.com/photos/931176/pexels-photo-931176.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/2080393/pexels-photo-2080393.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   carnations: {
     main: 'https://images.pexels.com/photos/1458603/pexels-photo-1458603.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   daisies: {
-    main: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/36729/tulip-flower-bloom-pink.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   hydrangeas: {
-    main: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400'
+    main: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   lavender: {
     main: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
@@ -228,7 +228,7 @@ export const productImages = {
     main: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   magnolias: {
-    main: 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   anemones: {
     main: 'https://images.pexels.com/photos/931175/pexels-photo-931175.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
@@ -237,7 +237,7 @@ export const productImages = {
     main: 'https://images.pexels.com/photos/1382195/pexels-photo-1382195.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   freesias: {
-    main: 'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   ranunculus: {
     main: 'https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
@@ -246,13 +246,13 @@ export const productImages = {
     main: 'https://images.pexels.com/photos/1179863/pexels-photo-1179863.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   zinnias: {
-    main: 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/1194036/pexels-photo-1194036.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   dahlias: {
-    main: 'https://images.pexels.com/photos/1002703/pexels-photo-1002703.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   },
   sweetPeas: {
-    main: 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   }
 }
 

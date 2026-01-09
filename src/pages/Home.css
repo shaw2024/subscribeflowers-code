@@ -3,10 +3,9 @@
 }
 
 .hero {
-  height: 90vh;
+  min-height: 100vh;
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
-    url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&q=80');
+    url('https://images.unsplash.com/photo-1488005287930-6f39c2fc6919?w=1920&q=90');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
