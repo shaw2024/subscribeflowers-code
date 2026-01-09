@@ -1,9 +1,5 @@
 // Central image configuration for all flowers
-// To use custom images, upload to /public folder and reference as '/filename.jpg'
-
-// Get the base URL for production deployment (e.g., /subscribeflowers-code/)
-// Using vite's import.meta.env
-const BASE_URL = import.meta.env.BASE_URL || '/';
+// All images sourced from Pexels API in JPEG format for optimal performance
 
 // Rose image metadata with SEO optimization
 export interface RoseImageSet {
