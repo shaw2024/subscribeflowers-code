@@ -81,10 +81,41 @@ const Home = () => {
   return (
     <div className="home">
       <section className="hero">
+        <div className="hero-overlay"></div>
+        <div className="floating-flowers">
+          <span className="flower-float">🌸</span>
+          <span className="flower-float">🌺</span>
+          <span className="flower-float">🌼</span>
+          <span className="flower-float">🌻</span>
+          <span className="flower-float">🌷</span>
+        </div>
         <div className="hero-content">
-          <h1>Welcome to Subscribe Flowers</h1>
-          <p>Fresh blooms delivered to your doorstep, all year round</p>
-          <Link to="/shop" className="cta-button">View Flowers</Link>
+          <div className="hero-badge">🌹 Premium Flower Subscriptions</div>
+          <h1 className="hero-title">
+            Welcome to <span className="gradient-text">Subscribe Flowers</span>
+          </h1>
+          <p className="hero-subtitle">
+            Experience the joy of fresh, handpicked blooms delivered to your doorstep. 
+            Transform your space with nature's finest creations, all year round.
+          </p>
+          <div className="hero-buttons">
+            <Link to="/shop" className="cta-button primary">Explore Collection</Link>
+            <Link to="/subscribe" className="cta-button secondary">Start Subscription</Link>
+          </div>
+          <div className="hero-features">
+            <div className="feature-item">
+              <span className="feature-icon">🚚</span>
+              <span>Free Delivery</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">🌿</span>
+              <span>Fresh Blooms</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">💝</span>
+              <span>Hand-Picked</span>
+            </div>
+          </div>
         </div>
       </section>
 

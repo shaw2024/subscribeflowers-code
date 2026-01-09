@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--secondary-color);
+  color: #ffffff;
   position: relative;
   overflow: hidden;
 }
@@ -25,10 +25,20 @@
   right: 0;
   bottom: 0;
   background: linear-gradient(135deg, 
-    rgba(156, 39, 176, 0.7) 0%, 
-    rgba(233, 30, 99, 0.6) 50%,
-    rgba(255, 152, 0, 0.6) 100%);
+    rgba(156, 39, 176, 0.75) 0%, 
+    rgba(233, 30, 99, 0.65) 50%,
+    rgba(255, 152, 0, 0.65) 100%);
   z-index: 1;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.85;
+  }
 }
 
 .floating-flowers {
@@ -197,6 +207,65 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+}
+
+.cta-button.secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+.hero-features {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out 1s both;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.feature-item span:last-child {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cta-button.primary:hover {
