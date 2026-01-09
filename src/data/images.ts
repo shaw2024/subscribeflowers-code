@@ -169,7 +169,7 @@ export const productImages = {
       red: `${BASE_URL}images/roses/red-rose.jpg`,
       pink: `${BASE_URL}images/roses/rose-pink-open.svg`,
       white: `${BASE_URL}images/roses/rose-white-open.svg`,
-      yellow: `${BASE_URL}images/roses/rose-yellow-open.jpg`,
+      yellow: `${BASE_URL}images/roses/red-rose.jpg`,
       orange: `${BASE_URL}images/roses/rose-orange-open.svg`,
       lavender: `${BASE_URL}images/roses/rose-lavender-open.svg`
     }
