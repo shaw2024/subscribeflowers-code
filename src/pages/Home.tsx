@@ -17,13 +17,6 @@ interface Testimonial {
 const Home = () => {
   const navigate = useNavigate();
 
-  const scrollToPlans = () => {
-    const plansSection = document.querySelector('.plans-section')
-    if (plansSection) {
-      plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
   const handleSubscribeClick = (plan: Plan) => {
     navigate('/subscribe', { state: { plan } });
   }
