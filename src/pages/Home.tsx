@@ -100,7 +100,7 @@ const Home = () => {
           </p>
           <div className="hero-buttons">
             <Link to="/shop" className="cta-button primary">Explore Collection</Link>
-            <Link to="/subscribe" className="cta-button secondary">Start Subscription</Link>
+            <a href="#plans" className="cta-button secondary">Start Subscription</a>
           </div>
           <div className="hero-features">
             <div className="feature-item">
@@ -130,7 +130,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="plans-section">
+      <section id="plans" className="plans-section">
         <div className="container">
           <h2>Our Subscription Plans</h2>
           <div className="plans-grid">
