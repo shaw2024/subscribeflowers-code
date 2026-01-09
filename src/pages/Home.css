@@ -3,9 +3,10 @@
 }
 
 .hero {
-  min-height: 100vh;
+  height: 90vh;
   background-image: 
-    url('https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&w=1920&q=90');
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1920&q=80');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -16,7 +17,6 @@
   color: var(--secondary-color);
   position: relative;
   overflow: hidden;
-  padding: 2rem;
 }
 
 .hero-overlay {
