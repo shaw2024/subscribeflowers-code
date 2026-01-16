@@ -18,11 +18,13 @@ export interface RoseImageSet {
   };
 }
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: '/subscribeflowers-code/images/red/red-rose.jpg',
-    open: '/subscribeflowers-code/images/red/red-rose.jpg',
-    stem: '/subscribeflowers-code/images/red/red-rose.jpg',
+    closed: `${BASE_URL}images/red/red-rose.jpg`,
+    open: `${BASE_URL}images/red/red-rose.jpg`,
+    stem: `${BASE_URL}images/red/red-rose.jpg`,
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -160,9 +162,9 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: '/subscribeflowers-code/images/red/red-rose.jpg',
+    main: `${BASE_URL}images/red/red-rose.jpg`,
     colors: {
-      red: '/subscribeflowers-code/images/red/red-rose.jpg',
+      red: `${BASE_URL}images/red/red-rose.jpg`,
       pink: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       white: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       yellow: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',

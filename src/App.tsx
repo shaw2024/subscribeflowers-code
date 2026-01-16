@@ -19,8 +19,12 @@ import SubscribeSuccess from './pages/SubscribeSuccess'
 import './App.css'
 
 function App() {
+  const basename = import.meta.env.BASE_URL.endsWith('/') 
+    ? import.meta.env.BASE_URL.slice(0, -1) 
+    : import.meta.env.BASE_URL;
+
   return (
-    <Router basename="/subscribeflowers-code">
+    <Router basename={basename}>
       <AuthProvider>
         <CartProvider>
           <ScrollToTop />
