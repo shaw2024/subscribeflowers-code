@@ -130,6 +130,20 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="featured-flower">
+        <div className="container">
+          <h2>Featured Flower</h2>
+          <div className="featured-card">
+            <img src="/images/red/red-rose.jpg" alt="Red Rose" className="featured-image" />
+            <div className="featured-info">
+              <h3>Red Rose</h3>
+              <p>Our classic Red Rose is the epitome of elegance and passion. Hand-selected for its vibrant color and perfect form, it's our most popular choice for expressing love.</p>
+              <Link to="/product/1" className="cta-button">View Classic Red Rose</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="plans" className="plans-section">
         <div className="container">
           <h2>Our Subscription Plans</h2>

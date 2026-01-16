@@ -165,7 +165,7 @@ const ProductDetail = () => {
           </div>
 
           <div className="product-info-section">
-            <h1>{product.name}</h1>
+            <h1>{selectedColor === 'Red' && product.name === 'Roses' ? 'Red Rose' : product.name}</h1>
             <p className="product-description">{product.description}</p>
 
             <div className="color-selection">

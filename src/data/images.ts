@@ -20,9 +20,9 @@ export interface RoseImageSet {
 
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: 'https://images.pexels.com/photos/1666065/pexels-photo-1666065.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/3585089/pexels-photo-3585089.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: '/images/red/red-rose.jpg',
+    open: '/images/red/red-rose.jpg',
+    stem: '/images/red/red-rose.jpg',
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -160,9 +160,9 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    main: '/images/red/red-rose.jpg',
     colors: {
-      red: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+      red: '/images/red/red-rose.jpg',
       pink: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       white: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       yellow: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
