@@ -75,7 +75,39 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Valentine\'s Day', 'Anniversary', 'Romantic Gestures', 'Apologies', 'Weddings'],
   },
   {
-    id: 'rose-pink-002',
+    id: 'rose-bicolor-002',
+    name: 'Stunning Bicolor Rose',
+    color: 'Bicolor',
+    price: 52.99,
+    description: 'Unique bicolor roses with red and white petals symbolizing unity',
+    longDescription: 'Our stunning bicolor roses feature breathtaking red and white petals that blend harmoniously to create a truly unique display. Each bloom represents unity, harmony, and the balance of passion with purity. Perfect for celebrating diverse relationships, multicultural events, or making a distinctive statement.',
+    category: 'Roses',
+    images: {
+      closed: roseImages.bicolor.closed,
+      open: roseImages.bicolor.open,
+      stem: roseImages.bicolor.stem,
+    },
+    altText: roseImages.bicolor.alt,
+    seo: {
+      title: roseImages.bicolor.seo.title,
+      metaDescription: roseImages.bicolor.seo.description,
+      keywords: roseImages.bicolor.seo.keywords,
+      slug: 'stunning-bicolor-rose-subscription',
+    },
+    availability: {
+      inStock: true,
+      subscriptionOnly: false,
+    },
+    care: {
+      waterFrequency: 'Change water every 2-3 days',
+      sunlight: 'Indirect sunlight',
+      lifespan: '7-14 days with proper care',
+    },
+    symbolism: 'Unity, Harmony, Balance',
+    occasions: ['Weddings', 'Unity Celebrations', 'Diversity Events', 'Unique Expressions', 'Special Occasions'],
+  },
+  {
+    id: 'rose-pink-003',
     name: 'Elegant Pink Rose',
     color: 'Pink',
     price: 44.99,
@@ -107,7 +139,7 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Mother\'s Day', 'Thank You', 'New Baby', 'Get Well', 'Just Because'],
   },
   {
-    id: 'rose-white-003',
+    id: 'rose-white-004',
     name: 'Pure White Rose',
     color: 'White',
     price: 54.99,
@@ -139,7 +171,7 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Weddings', 'Sympathy', 'Baptisms', 'Graduations', 'Remembrance'],
   },
   {
-    id: 'rose-yellow-004',
+    id: 'rose-yellow-005',
     name: 'Cheerful Yellow Rose',
     color: 'Yellow',
     price: 42.99,
@@ -171,7 +203,7 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Friendship Day', 'Congratulations', 'Get Well', 'Housewarming', 'Thank You'],
   },
   {
-    id: 'rose-orange-005',
+    id: 'rose-orange-006',
     name: 'Vibrant Orange Rose',
     color: 'Orange',
     price: 46.99,
@@ -203,7 +235,7 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Congratulations', 'Promotions', 'Graduations', 'Bold Gestures', 'Fall Celebrations'],
   },
   {
-    id: 'rose-lavender-006',
+    id: 'rose-lavender-007',
     name: 'Enchanting Lavender Rose',
     color: 'Lavender',
     price: 59.99,

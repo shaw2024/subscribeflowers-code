@@ -1,5 +1,10 @@
 // Central image configuration for all flowers
-// All images sourced from Pexels API in JPEG format for optimal performance
+// Red roses use local bundled images, others use Pexels API for optimal CDN delivery
+
+// Import local red rose images for Vite bundling and optimization
+import roseRedClosed from '../assets/images/roses/rose-red-closed.png';
+import roseRedOpen from '../assets/images/roses/rose-red-open.png';
+import roseRedStem from '../assets/images/roses/rose-red-stem.png';
 
 // Rose image metadata with SEO optimization
 export interface RoseImageSet {
@@ -18,13 +23,11 @@ export interface RoseImageSet {
   };
 }
 
-const BASE_URL = import.meta.env.BASE_URL;
-
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: `${BASE_URL}images/roses/rose-red-closed.png`,
-    open: `${BASE_URL}images/roses/rose-red-open.png`,
-    stem: `${BASE_URL}images/roses/rose-red-stem.png`,
+    closed: roseRedClosed,
+    open: roseRedOpen,
+    stem: roseRedStem,
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -40,6 +43,30 @@ export const roseImages: Record<string, RoseImageSet> = {
         'romantic flowers',
         'rose subscription',
         'fresh red roses'
+      ]
+    }
+  },
+
+  bicolor: {
+    closed: 'https://images.pexels.com/photos/1233414/pexels-photo-1233414.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    open: 'https://images.pexels.com/photos/1233417/pexels-photo-1233417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    stem: 'https://images.pexels.com/photos/1233416/pexels-photo-1233416.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    alt: {
+      closed: 'Bicolor rose tight bud - unique two-tone flower subscription',
+      open: 'Bicolor rose in full bloom - stunning red and white flower delivery',
+      stem: 'Bicolor rose with stem and leaves - distinctive floral arrangement'
+    },
+    seo: {
+      title: 'Premium Bicolor Roses - Unique Flower Subscription',
+      description:
+        'Stunning bicolor roses with red and white petals symbolizing unity and harmony. Subscribe for weekly delivery of premium two-tone roses.',
+      keywords: [
+        'bicolor roses',
+        'two-tone roses',
+        'red and white roses',
+        'unique roses',
+        'rose subscription',
+        'fresh bicolor roses'
       ]
     }
   },
@@ -162,9 +189,10 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: `${BASE_URL}images/roses/rose-red-open.png`,
+    main: roseRedOpen,
     colors: {
-      red: `${BASE_URL}images/roses/rose-red-open.png`,
+      red: roseRedOpen,
+      bicolor: 'https://images.pexels.com/photos/1233417/pexels-photo-1233417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       pink: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       white: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
       yellow: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
