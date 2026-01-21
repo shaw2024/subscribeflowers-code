@@ -90,7 +90,7 @@ const Home = () => {
           <span className="flower-float">🌷</span>
         </div>
         <div className="hero-content">
-          <div className="hero-badge">🌹 Premium Flower Subscriptions</div>
+          <div className="hero-badge">Premium Flower Subscriptions</div>
           <h1 className="hero-title">
             Welcome to <span className="gradient-text">Subscribe Flowers</span>
           </h1>
