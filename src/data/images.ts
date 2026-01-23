@@ -1,10 +1,13 @@
 // Central image configuration for all flowers
-// Red roses use local bundled images, others use Pexels API for optimal CDN delivery
+// All roses use local images from public/images/roses/ folder
 
-// Import local red rose images for Vite bundling and optimization
-import roseRedClosed from '../assets/images/roses/rose-red-closed.png';
-import roseRedOpen from '../assets/images/roses/rose-red-open.png';
-import roseRedStem from '../assets/images/roses/rose-red-stem.png';
+// Base path for rose images in public folder
+const roseBasePath = '/images/roses';
+
+// Helper to generate rose image paths (all use JPG format)
+const getRoseImagePath = (color: string, variant: 'closed' | 'open' | 'stem') => {
+  return `${roseBasePath}/rose-${color}-${variant}.jpg`;
+};
 
 // Rose image metadata with SEO optimization
 export interface RoseImageSet {
@@ -25,9 +28,9 @@ export interface RoseImageSet {
 
 export const roseImages: Record<string, RoseImageSet> = {
   red: {
-    closed: roseRedClosed,
-    open: roseRedOpen,
-    stem: roseRedStem,
+    closed: getRoseImagePath('red', 'closed'),
+    open: getRoseImagePath('red', 'open'),
+    stem: getRoseImagePath('red', 'stem'),
     alt: {
       closed: 'Red rose tight bud - premium quality flower subscription',
       open: 'Red rose in full bloom - fresh flower delivery',
@@ -48,9 +51,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   bicolor: {
-    closed: 'https://images.pexels.com/photos/1233414/pexels-photo-1233414.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/1233417/pexels-photo-1233417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/1233416/pexels-photo-1233416.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: getRoseImagePath('bicolor', 'closed'),
+    open: getRoseImagePath('bicolor', 'open'),
+    stem: getRoseImagePath('bicolor', 'stem'),
     alt: {
       closed: 'Bicolor rose tight bud - unique two-tone flower subscription',
       open: 'Bicolor rose in full bloom - stunning red and white flower delivery',
@@ -72,9 +75,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   pink: {
-    closed: 'https://images.pexels.com/photos/1161423/pexels-photo-1161423.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/3612082/pexels-photo-3612082.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: getRoseImagePath('pink', 'closed'),
+    open: getRoseImagePath('pink', 'open'),
+    stem: getRoseImagePath('pink', 'stem'),
     alt: {
       closed: 'Pink rose tight bud - elegant flower subscription',
       open: 'Pink rose in full bloom - premium flower delivery',
@@ -95,9 +98,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   white: {
-    closed: 'https://images.pexels.com/photos/2072453/pexels-photo-2072453.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/1878508/pexels-photo-1878508.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: getRoseImagePath('white', 'closed'),
+    open: getRoseImagePath('white', 'open'),
+    stem: getRoseImagePath('white', 'stem'),
     alt: {
       closed: 'White rose tight bud - pure flower subscription',
       open: 'White rose in full bloom - pristine flower delivery',
@@ -118,9 +121,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   yellow: {
-    closed: 'https://images.pexels.com/photos/1194036/pexels-photo-1194036.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/2166456/pexels-photo-2166456.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: getRoseImagePath('yellow', 'closed'),
+    open: getRoseImagePath('yellow', 'open'),
+    stem: getRoseImagePath('yellow', 'stem'),
     alt: {
       closed: 'Yellow rose tight bud - cheerful flower subscription',
       open: 'Yellow rose in full bloom - bright flower delivery',
@@ -141,9 +144,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   orange: {
-    closed: 'https://images.pexels.com/photos/2072444/pexels-photo-2072444.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/3615417/pexels-photo-3615417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/2072445/pexels-photo-2072445.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: getRoseImagePath('orange', 'closed'),
+    open: getRoseImagePath('orange', 'open'),
+    stem: getRoseImagePath('orange', 'stem'),
     alt: {
       closed: 'Orange rose tight bud - vibrant flower subscription',
       open: 'Orange rose in full bloom - energetic flower delivery',
@@ -164,9 +167,9 @@ export const roseImages: Record<string, RoseImageSet> = {
   },
 
   lavender: {
-    closed: 'https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    open: 'https://images.pexels.com/photos/2925229/pexels-photo-2925229.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-    stem: 'https://images.pexels.com/photos/1703376/pexels-photo-1703376.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    closed: getRoseImagePath('lavender', 'closed'),
+    open: getRoseImagePath('lavender', 'open'),
+    stem: getRoseImagePath('lavender', 'stem'),
     alt: {
       closed: 'Lavender rose tight bud - enchanting flower subscription',
       open: 'Lavender rose in full bloom - magical flower delivery',
@@ -189,15 +192,15 @@ export const roseImages: Record<string, RoseImageSet> = {
 
 export const productImages = {
   roses: {
-    main: roseRedOpen,
+    main: getRoseImagePath('red', 'open'),
     colors: {
-      red: roseRedOpen,
-      bicolor: 'https://images.pexels.com/photos/1233417/pexels-photo-1233417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      pink: 'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      white: 'https://images.pexels.com/photos/1482228/pexels-photo-1482228.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      yellow: 'https://images.pexels.com/photos/1194035/pexels-photo-1194035.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      orange: 'https://images.pexels.com/photos/3615417/pexels-photo-3615417.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      lavender: 'https://images.pexels.com/photos/2925229/pexels-photo-2925229.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      red: getRoseImagePath('red', 'open'),
+      bicolor: getRoseImagePath('bicolor', 'open'),
+      pink: getRoseImagePath('pink', 'open'),
+      white: getRoseImagePath('white', 'open'),
+      yellow: getRoseImagePath('yellow', 'open'),
+      orange: getRoseImagePath('orange', 'open'),
+      lavender: getRoseImagePath('lavender', 'open')
     }
   },
   tulips: {
