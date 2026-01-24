@@ -12,7 +12,7 @@ const Shop = () => {
   const navigate = useNavigate()
 
   const products: Product[] = [
-    { id: 1, name: 'Red Rose', image: getProductImage('Roses', 'Red') },
+    { id: 1, name: 'Roses', image: getProductImage('Roses', 'Red') },
     { id: 2, name: 'Tulips', image: getProductImage('Tulips') },
     { id: 3, name: 'Sunflowers', image: getProductImage('Sunflowers') },
     { id: 4, name: 'Lilies', image: getProductImage('Lilies') },
