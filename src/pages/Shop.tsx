@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { getProductImage } from '../data/images'
+import { getProductImage, roseImages } from '../data/images'
 import './Shop.css'
 
 interface Product {
@@ -12,7 +12,7 @@ const Shop = () => {
   const navigate = useNavigate()
 
   const products: Product[] = [
-    { id: 1, name: 'Roses', image: getProductImage('Roses', 'Red') },
+    { id: 1, name: 'Roses', image: roseImages.red.path },
     { id: 2, name: 'Tulips', image: getProductImage('Tulips') },
     { id: 3, name: 'Sunflowers', image: getProductImage('Sunflowers') },
     { id: 4, name: 'Lilies', image: getProductImage('Lilies') },

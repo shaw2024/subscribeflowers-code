@@ -11,16 +11,8 @@ export interface RoseProduct {
   description: string;
   longDescription: string;
   category: string;
-  images: {
-    closed: string;
-    open: string;
-    stem: string;
-  };
-  altText: {
-    closed: string;
-    open: string;
-    stem: string;
-  };
+  image: string;
+  altText: string;
   seo: {
     title: string;
     metaDescription: string;
@@ -50,11 +42,7 @@ export const roseProducts: RoseProduct[] = [
     description: 'Premium long-stem red roses symbolizing love and passion',
     longDescription: 'Our classic red roses are hand-selected for their vibrant color and perfect form. Each stem is carefully cultivated to ensure maximum vase life and beauty. Perfect for expressing deep love, celebrating anniversaries, or making romantic gestures.',
     category: 'Roses',
-    images: {
-      closed: roseImages.red.closed,
-      open: roseImages.red.open,
-      stem: roseImages.red.stem,
-    },
+    image: roseImages.red.path,
     altText: roseImages.red.alt,
     seo: {
       title: roseImages.red.seo.title,
@@ -75,50 +63,14 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Valentine\'s Day', 'Anniversary', 'Romantic Gestures', 'Apologies', 'Weddings'],
   },
   {
-    id: 'rose-bicolor-002',
-    name: 'Stunning Bicolor Rose',
-    color: 'Bicolor',
-    price: 52.99,
-    description: 'Unique bicolor roses with red and white petals symbolizing unity',
-    longDescription: 'Our stunning bicolor roses feature breathtaking red and white petals that blend harmoniously to create a truly unique display. Each bloom represents unity, harmony, and the balance of passion with purity. Perfect for celebrating diverse relationships, multicultural events, or making a distinctive statement.',
-    category: 'Roses',
-    images: {
-      closed: roseImages.bicolor.closed,
-      open: roseImages.bicolor.open,
-      stem: roseImages.bicolor.stem,
-    },
-    altText: roseImages.bicolor.alt,
-    seo: {
-      title: roseImages.bicolor.seo.title,
-      metaDescription: roseImages.bicolor.seo.description,
-      keywords: roseImages.bicolor.seo.keywords,
-      slug: 'stunning-bicolor-rose-subscription',
-    },
-    availability: {
-      inStock: true,
-      subscriptionOnly: false,
-    },
-    care: {
-      waterFrequency: 'Change water every 2-3 days',
-      sunlight: 'Indirect sunlight',
-      lifespan: '7-14 days with proper care',
-    },
-    symbolism: 'Unity, Harmony, Balance',
-    occasions: ['Weddings', 'Unity Celebrations', 'Diversity Events', 'Unique Expressions', 'Special Occasions'],
-  },
-  {
-    id: 'rose-pink-003',
+    id: 'rose-pink-002',
     name: 'Elegant Pink Rose',
     color: 'Pink',
     price: 44.99,
     description: 'Delicate pink roses symbolizing grace and admiration',
     longDescription: 'Our elegant pink roses showcase soft, romantic hues that convey admiration and appreciation. Each bloom is selected for its perfect petal formation and graceful appearance. Ideal for expressing gratitude, celebrating new beginnings, or brightening someone\'s day.',
     category: 'Roses',
-    images: {
-      closed: roseImages.pink.closed,
-      open: roseImages.pink.open,
-      stem: roseImages.pink.stem,
-    },
+    image: roseImages.pink.path,
     altText: roseImages.pink.alt,
     seo: {
       title: roseImages.pink.seo.title,
@@ -139,18 +91,14 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Mother\'s Day', 'Thank You', 'New Baby', 'Get Well', 'Just Because'],
   },
   {
-    id: 'rose-white-004',
+    id: 'rose-white-003',
     name: 'Pure White Rose',
     color: 'White',
     price: 54.99,
     description: 'Pristine white roses symbolizing purity and innocence',
     longDescription: 'Our pure white roses embody elegance and sophistication with their pristine petals and timeless beauty. Each stem represents purity, new beginnings, and reverence. Perfect for weddings, sympathy arrangements, or creating a serene atmosphere.',
     category: 'Roses',
-    images: {
-      closed: roseImages.white.closed,
-      open: roseImages.white.open,
-      stem: roseImages.white.stem,
-    },
+    image: roseImages.white.path,
     altText: roseImages.white.alt,
     seo: {
       title: roseImages.white.seo.title,
@@ -171,82 +119,14 @@ export const roseProducts: RoseProduct[] = [
     occasions: ['Weddings', 'Sympathy', 'Baptisms', 'Graduations', 'Remembrance'],
   },
   {
-    id: 'rose-yellow-005',
-    name: 'Cheerful Yellow Rose',
-    color: 'Yellow',
-    price: 42.99,
-    description: 'Bright yellow roses symbolizing friendship and joy',
-    longDescription: 'Our cheerful yellow roses radiate warmth and happiness with their sunny disposition. Each bloom is carefully selected to bring joy and celebrate friendship. Excellent for uplifting spirits, celebrating achievements, or expressing platonic affection.',
-    category: 'Roses',
-    images: {
-      closed: roseImages.yellow.closed,
-      open: roseImages.yellow.open,
-      stem: roseImages.yellow.stem,
-    },
-    altText: roseImages.yellow.alt,
-    seo: {
-      title: roseImages.yellow.seo.title,
-      metaDescription: roseImages.yellow.seo.description,
-      keywords: roseImages.yellow.seo.keywords,
-      slug: 'cheerful-yellow-rose-subscription',
-    },
-    availability: {
-      inStock: true,
-      subscriptionOnly: false,
-    },
-    care: {
-      waterFrequency: 'Change water every 2-3 days',
-      sunlight: 'Indirect sunlight',
-      lifespan: '7-14 days with proper care',
-    },
-    symbolism: 'Friendship, Joy, New Beginnings',
-    occasions: ['Friendship Day', 'Congratulations', 'Get Well', 'Housewarming', 'Thank You'],
-  },
-  {
-    id: 'rose-orange-006',
-    name: 'Vibrant Orange Rose',
-    color: 'Orange',
-    price: 46.99,
-    description: 'Bold orange roses symbolizing enthusiasm and desire',
-    longDescription: 'Our vibrant orange roses burst with energy and passion, blending the enthusiasm of yellow with the intensity of red. Each bloom represents excitement and desire, making them perfect for expressing passionate feelings or celebrating bold achievements.',
-    category: 'Roses',
-    images: {
-      closed: roseImages.orange.closed,
-      open: roseImages.orange.open,
-      stem: roseImages.orange.stem,
-    },
-    altText: roseImages.orange.alt,
-    seo: {
-      title: roseImages.orange.seo.title,
-      metaDescription: roseImages.orange.seo.description,
-      keywords: roseImages.orange.seo.keywords,
-      slug: 'vibrant-orange-rose-subscription',
-    },
-    availability: {
-      inStock: true,
-      subscriptionOnly: false,
-    },
-    care: {
-      waterFrequency: 'Change water every 2-3 days',
-      sunlight: 'Indirect sunlight',
-      lifespan: '7-14 days with proper care',
-    },
-    symbolism: 'Enthusiasm, Passion, Energy',
-    occasions: ['Congratulations', 'Promotions', 'Graduations', 'Bold Gestures', 'Fall Celebrations'],
-  },
-  {
-    id: 'rose-lavender-007',
+    id: 'rose-lavender-004',
     name: 'Enchanting Lavender Rose',
     color: 'Lavender',
-    price: 59.99,
+    price: 56.99,
     description: 'Enchanting lavender roses symbolizing love at first sight',
-    longDescription: 'Our enchanting lavender roses captivate with their unique purple hues and mystical beauty. Each rare bloom represents enchantment, wonder, and love at first sight. Perfect for expressing magical moments, unique love, or creating an ethereal atmosphere.',
+    longDescription: 'Our enchanting lavender roses feature a captivating purple hue that speaks to the mystery and magic of love at first sight. Each bloom is carefully selected for its unique color and perfect form. Ideal for expressing enchantment, wonder, or making a memorable impression.',
     category: 'Roses',
-    images: {
-      closed: roseImages.lavender.closed,
-      open: roseImages.lavender.open,
-      stem: roseImages.lavender.stem,
-    },
+    image: roseImages.lavender.path,
     altText: roseImages.lavender.alt,
     seo: {
       title: roseImages.lavender.seo.title,
@@ -263,55 +143,40 @@ export const roseProducts: RoseProduct[] = [
       sunlight: 'Indirect sunlight',
       lifespan: '7-14 days with proper care',
     },
-    symbolism: 'Enchantment, Wonder, Love at First Sight',
-    occasions: ['First Date', 'Unique Expressions', 'Enchanted Events', 'Mystical Celebrations', 'Rare Occasions'],
+    symbolism: 'Enchantment, Mystery, Love at First Sight',
+    occasions: ['First Date', 'Enchantment', 'Wonder', 'Unique Expressions', 'Special Occasions'],
   },
 ];
 
-// Helper function to get product by color
-export const getRoseProductByColor = (color: string): RoseProduct | undefined => {
-  return roseProducts.find(p => p.color.toLowerCase() === color.toLowerCase());
+// Helper function to get a rose product by color
+export const getRoseByColor = (color: string): RoseProduct | undefined => {
+  return roseProducts.find(
+    (product) => product.color.toLowerCase() === color.toLowerCase()
+  );
 };
 
-// Helper function to get all product slugs (for SEO/routing)
-export const getAllRoseSlugs = (): string[] => {
-  return roseProducts.map(p => p.seo.slug);
+// Helper function to get all available rose colors
+export const getAvailableColors = (): string[] => {
+  return roseProducts.map((product) => product.color);
 };
 
-// MongoDB seed data generator
-export const generateMongoDBSeed = () => {
-  return {
-    collection: 'products',
-    data: roseProducts.map(product => ({
-      ...product,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      featured: product.color === 'Red', // Feature red roses
-      ratings: {
-        average: 4.8,
-        count: 0,
-      },
-      inventory: {
-        quantity: 100,
-        lowStockThreshold: 20,
-      },
-    })),
-  };
-};
-
-// Generate sitemap URLs
-export const generateSitemapUrls = (baseUrl: string = 'https://subscribeflowers.com') => {
-  return roseProducts.map(product => ({
-    url: `${baseUrl}/products/${product.seo.slug}`,
-    lastmod: new Date().toISOString(),
-    changefreq: 'weekly',
-    priority: 0.8,
-    images: [
-      {
-        url: `${baseUrl}${product.images.open}`,
-        title: product.seo.title,
-        caption: product.description,
-      },
-    ],
+// Generate SEO-friendly product listing for all roses
+export const generateProductListingSEO = () => {
+  return roseProducts.map((product) => ({
+    '@context': 'https://schema.org/',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    image: product.image,
+    sku: product.id,
+    offers: {
+      '@type': 'Offer',
+      price: product.price,
+      priceCurrency: 'USD',
+      availability: product.availability.inStock
+        ? 'https://schema.org/InStock'
+        : 'https://schema.org/OutOfStock',
+    },
+    category: product.category,
   }));
 };

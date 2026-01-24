@@ -1,24 +1,13 @@
 // Central image configuration for all flowers
-// All roses use local images from public/images/roses/ folder
+// All roses use local PNG images from public/images/roses/ folder
 
-// Base path for rose images in public folder
-const roseBasePath = '/images/roses';
+// Export BASE_URL for use in other modules
+export const BASE_URL = import.meta.env.BASE_URL;
 
-// Helper to generate rose image paths (all use JPG format)
-const getRoseImagePath = (color: string, variant: 'closed' | 'open' | 'stem') => {
-  return `${roseBasePath}/rose-${color}-${variant}.jpg`;
-};
-
-// Rose image metadata with SEO optimization
-export interface RoseImageSet {
-  closed: string;
-  open: string;
-  stem: string;
-  alt: {
-    closed: string;
-    open: string;
-    stem: string;
-  };
+// Rose image type definition
+export interface RoseImage {
+  path: string;
+  alt: string;
   seo: {
     title: string;
     description: string;
@@ -26,20 +15,15 @@ export interface RoseImageSet {
   };
 }
 
-export const roseImages: Record<string, RoseImageSet> = {
+// Rose images using BASE_URL for GitHub Pages compatibility
+export const roseImages: Record<string, RoseImage> = {
   red: {
-    closed: getRoseImagePath('red', 'closed'),
-    open: getRoseImagePath('red', 'open'),
-    stem: getRoseImagePath('red', 'stem'),
-    alt: {
-      closed: 'Red rose tight bud - premium quality flower subscription',
-      open: 'Red rose in full bloom - fresh flower delivery',
-      stem: 'Red rose with stem and leaves - luxury floral arrangement'
-    },
+    path: `${BASE_URL}images/roses/rose-red.png`,
+    alt: 'Red rose - premium quality flower subscription',
     seo: {
       title: 'Premium Red Roses - Fresh Flower Subscription',
       description:
-        'Classic red roses symbolizing love and passion. Subscribe for weekly fresh flower delivery of premium long-stem red roses.',
+        'Classic red roses symbolizing love and passion. Subscribe for weekly fresh flower delivery of premium roses.',
       keywords: [
         'red roses',
         'valentine roses',
@@ -49,40 +33,9 @@ export const roseImages: Record<string, RoseImageSet> = {
       ]
     }
   },
-
-  bicolor: {
-    closed: getRoseImagePath('bicolor', 'closed'),
-    open: getRoseImagePath('bicolor', 'open'),
-    stem: getRoseImagePath('bicolor', 'stem'),
-    alt: {
-      closed: 'Bicolor rose tight bud - unique two-tone flower subscription',
-      open: 'Bicolor rose in full bloom - stunning red and white flower delivery',
-      stem: 'Bicolor rose with stem and leaves - distinctive floral arrangement'
-    },
-    seo: {
-      title: 'Premium Bicolor Roses - Unique Flower Subscription',
-      description:
-        'Stunning bicolor roses with red and white petals symbolizing unity and harmony. Subscribe for weekly delivery of premium two-tone roses.',
-      keywords: [
-        'bicolor roses',
-        'two-tone roses',
-        'red and white roses',
-        'unique roses',
-        'rose subscription',
-        'fresh bicolor roses'
-      ]
-    }
-  },
-
   pink: {
-    closed: getRoseImagePath('pink', 'closed'),
-    open: getRoseImagePath('pink', 'open'),
-    stem: getRoseImagePath('pink', 'stem'),
-    alt: {
-      closed: 'Pink rose tight bud - elegant flower subscription',
-      open: 'Pink rose in full bloom - premium flower delivery',
-      stem: 'Pink rose with stem and leaves - graceful floral arrangement'
-    },
+    path: `${BASE_URL}images/roses/rose-pink.png`,
+    alt: 'Pink rose - elegant flower subscription',
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
       description:
@@ -96,85 +49,25 @@ export const roseImages: Record<string, RoseImageSet> = {
       ]
     }
   },
-
   white: {
-    closed: getRoseImagePath('white', 'closed'),
-    open: getRoseImagePath('white', 'open'),
-    stem: getRoseImagePath('white', 'stem'),
-    alt: {
-      closed: 'White rose tight bud - pure flower subscription',
-      open: 'White rose in full bloom - pristine flower delivery',
-      stem: 'White rose with stem and leaves - elegant floral arrangement'
-    },
+    path: `${BASE_URL}images/roses/rose-white.png`,
+    alt: 'White rose - pure flower subscription',
     seo: {
       title: 'Premium White Roses - Pure Flower Subscription',
       description:
-        'Pristine white roses symbolizing purity and innocence. Subscribe for weekly delivery of fresh premium white roses.',
+        'Elegant white roses symbolizing purity and new beginnings. Subscribe for weekly delivery of fresh premium white roses.',
       keywords: [
         'white roses',
-        'wedding flowers',
-        'pure roses',
+        'pure flowers',
+        'elegant roses',
         'rose subscription',
         'fresh white roses'
       ]
     }
   },
-
-  yellow: {
-    closed: getRoseImagePath('yellow', 'closed'),
-    open: getRoseImagePath('yellow', 'open'),
-    stem: getRoseImagePath('yellow', 'stem'),
-    alt: {
-      closed: 'Yellow rose tight bud - cheerful flower subscription',
-      open: 'Yellow rose in full bloom - bright flower delivery',
-      stem: 'Yellow rose with stem and leaves - vibrant floral arrangement'
-    },
-    seo: {
-      title: 'Premium Yellow Roses - Cheerful Flower Subscription',
-      description:
-        'Bright yellow roses symbolizing friendship and joy. Subscribe for weekly delivery of fresh premium yellow roses.',
-      keywords: [
-        'yellow roses',
-        'friendship flowers',
-        'cheerful roses',
-        'rose subscription',
-        'fresh yellow roses'
-      ]
-    }
-  },
-
-  orange: {
-    closed: getRoseImagePath('orange', 'closed'),
-    open: getRoseImagePath('orange', 'open'),
-    stem: getRoseImagePath('orange', 'stem'),
-    alt: {
-      closed: 'Orange rose tight bud - vibrant flower subscription',
-      open: 'Orange rose in full bloom - energetic flower delivery',
-      stem: 'Orange rose with stem and leaves - bold floral arrangement'
-    },
-    seo: {
-      title: 'Premium Orange Roses - Vibrant Flower Subscription',
-      description:
-        'Bold orange roses symbolizing enthusiasm and desire. Subscribe for weekly delivery of fresh premium orange roses.',
-      keywords: [
-        'orange roses',
-        'vibrant flowers',
-        'bold roses',
-        'rose subscription',
-        'fresh orange roses'
-      ]
-    }
-  },
-
   lavender: {
-    closed: getRoseImagePath('lavender', 'closed'),
-    open: getRoseImagePath('lavender', 'open'),
-    stem: getRoseImagePath('lavender', 'stem'),
-    alt: {
-      closed: 'Lavender rose tight bud - enchanting flower subscription',
-      open: 'Lavender rose in full bloom - magical flower delivery',
-      stem: 'Lavender rose with stem and leaves - mystical floral arrangement'
-    },
+    path: `${BASE_URL}images/roses/rose-lavender.png`,
+    alt: 'Lavender rose - enchanting flower subscription',
     seo: {
       title: 'Premium Lavender Roses - Enchanting Flower Subscription',
       description:
@@ -190,17 +83,15 @@ export const roseImages: Record<string, RoseImageSet> = {
   }
 };
 
+// Product images for Shop page - roses use local PNGs, others use CDN
 export const productImages = {
   roses: {
-    main: getRoseImagePath('red', 'open'),
+    main: roseImages.red.path,
     colors: {
-      red: getRoseImagePath('red', 'open'),
-      bicolor: getRoseImagePath('bicolor', 'open'),
-      pink: getRoseImagePath('pink', 'open'),
-      white: getRoseImagePath('white', 'open'),
-      yellow: getRoseImagePath('yellow', 'open'),
-      orange: getRoseImagePath('orange', 'open'),
-      lavender: getRoseImagePath('lavender', 'open')
+      red: roseImages.red.path,
+      pink: roseImages.pink.path,
+      white: roseImages.white.path,
+      lavender: roseImages.lavender.path
     }
   },
   tulips: {
@@ -283,19 +174,19 @@ export const productImages = {
   sweetPeas: {
     main: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
   }
-}
+};
 
 // Helper function to get image by product name
 export const getProductImage = (productName: string, color?: string): string => {
-  const key = productName.toLowerCase().replace(/\s+/g, '')
-  const product = productImages[key as keyof typeof productImages]
+  const key = productName.toLowerCase().replace(/\s+/g, '');
+  const product = productImages[key as keyof typeof productImages];
   
-  if (!product) return productImages.roses.main // fallback
+  if (!product) return productImages.roses.main; // fallback
   
   if (color && 'colors' in product) {
-    const colorKey = color.toLowerCase()
-    return product.colors[colorKey as keyof typeof product.colors] || product.main
+    const colorKey = color.toLowerCase();
+    return product.colors[colorKey as keyof typeof product.colors] || product.main;
   }
   
-  return product.main
-}
+  return product.main;
+};

@@ -28,8 +28,6 @@ const ProductDetail = () => {
       'Red': productImages.roses.colors.red,
       'Pink': productImages.roses.colors.pink,
       'White': productImages.roses.colors.white,
-      'Yellow': productImages.roses.colors.yellow,
-      'Orange': productImages.roses.colors.orange,
       'Lavender': productImages.roses.colors.lavender
     },
     'Tulips': {
@@ -43,7 +41,7 @@ const ProductDetail = () => {
   }
 
   const allProducts: Product[] = [
-    { id: 1, name: 'Roses', price: 45.00, image: getProductImage('Roses'), description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Orange', 'Lavender'] },
+    { id: 1, name: 'Roses', price: 45.00, image: getProductImage('Roses'), description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Lavender'] },
     { id: 2, name: 'Tulips', price: 35.00, image: getProductImage('Tulips'), description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
     { id: 3, name: 'Sunflowers', price: 32.00, image: getProductImage('Sunflowers'), description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
     { id: 4, name: 'Lilies', price: 42.00, image: getProductImage('Lilies'), description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },
