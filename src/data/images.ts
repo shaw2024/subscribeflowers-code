@@ -1,3 +1,5 @@
+
+
 // Central image configuration for all flowers
 // All roses use local PNG images from public/images/roses/ folder
 
