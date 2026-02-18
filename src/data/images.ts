@@ -1,10 +1,14 @@
 
 
 // Central image configuration for all flowers
-// All roses use local PNG images from public/images/roses/ folder
+// Using Unsplash API for high-quality flower images
 
 // Export BASE_URL for use in other modules
 export const BASE_URL = import.meta.env.BASE_URL;
+
+// Unsplash image helper function
+const unsplashImg = (photoId: string, w = 400, h = 400) => 
+  `https://images.unsplash.com/photo-${photoId}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
 
 // Rose image type definition
 export interface RoseImage {
@@ -17,10 +21,10 @@ export interface RoseImage {
   };
 }
 
-// Rose images using BASE_URL for GitHub Pages compatibility
+// Rose images using Unsplash for high-quality photos
 export const roseImages: Record<string, RoseImage> = {
   red: {
-    path: `${BASE_URL}images/roses/rose-red.png`,
+    path: unsplashImg('1465101046530-73398c7f28ca'),
     alt: 'Red rose - premium quality flower subscription',
     seo: {
       title: 'Premium Red Roses - Fresh Flower Subscription',
@@ -36,7 +40,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   pink: {
-    path: `${BASE_URL}images/roses/rose-pink.png`,
+    path: unsplashImg('1455659817273-f96807779a8a'),
     alt: 'Pink rose - elegant flower subscription',
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
@@ -52,7 +56,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   white: {
-    path: `${BASE_URL}images/roses/rose-white.png`,
+    path: unsplashImg('1559563362-c667ba5f5480'),
     alt: 'White rose - pure flower subscription',
     seo: {
       title: 'Premium White Roses - Pure Flower Subscription',
@@ -68,7 +72,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   lavender: {
-    path: `${BASE_URL}images/roses/rose-lavender.png`,
+    path: unsplashImg('1518882605-1e3c7d8db8a2'),
     alt: 'Lavender rose - enchanting flower subscription',
     seo: {
       title: 'Premium Lavender Roses - Enchanting Flower Subscription',
@@ -85,7 +89,7 @@ export const roseImages: Record<string, RoseImage> = {
   }
 };
 
-// Product images for Shop page - roses use local PNGs, others use CDN
+// Product images for Shop page - using Unsplash for high-quality flower images
 export const productImages = {
   roses: {
     main: roseImages.red.path,
@@ -97,84 +101,84 @@ export const productImages = {
     }
   },
   tulips: {
-    main: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
+    main: unsplashImg('1520763185298-1b434c919102'), // Red tulips
     colors: {
-      red: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      pink: 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      white: 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      yellow: 'https://images.pexels.com/photos/42069/tulips-flowers-spring-yellow-42069.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      purple: 'https://images.pexels.com/photos/1682316/pexels-photo-1682316.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop',
-      orange: 'https://images.pexels.com/photos/1390365/pexels-photo-1390365.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+      red: unsplashImg('1520763185298-1b434c919102'),
+      pink: unsplashImg('1457530378978-8bac673b8062'), // Pink tulips
+      white: unsplashImg('1521334726092-b509a19597c6'), // White tulips
+      yellow: unsplashImg('1459411552884-841db9b3cc2a'), // Yellow tulips
+      purple: unsplashImg('1518882541-8c6b21d0f8b5'), // Purple tulips
+      orange: unsplashImg('1585320806297-9794b3e4eeae') // Orange tulips
     }
   },
   sunflowers: {
-    main: 'https://images.pexels.com/photos/33044/sunflower-sun-summer-yellow.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1597848212624-a19eb35e2651') // Bright sunflowers
   },
   lilies: {
-    main: 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1588625500633-a0e3c6617c70') // White lilies
   },
   orchids: {
-    main: 'https://images.pexels.com/photos/414181/pexels-photo-414181.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1566907225872-98b4a1c2f14b') // Purple orchids
   },
   peonies: {
-    main: 'https://images.pexels.com/photos/2080393/pexels-photo-2080393.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1527061638498-3e9b7e9a3d4a') // Pink peonies
   },
   carnations: {
-    main: 'https://images.pexels.com/photos/1458603/pexels-photo-1458603.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1518882541-8b206d9ddb6b') // Pink carnations
   },
   daisies: {
-    main: 'https://images.pexels.com/photos/36729/tulip-flower-bloom-pink.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1496062031456-07b8f162a322') // White daisies
   },
   hydrangeas: {
-    main: 'https://images.pexels.com/photos/1410225/pexels-photo-1410225.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1560717799-81c8df4e8c30') // Blue hydrangeas
   },
   lavender: {
-    main: 'https://images.pexels.com/photos/207518/pexels-photo-207518.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1499002238440-d264edd596ec') // Lavender field
   },
   gerberaDaisies: {
-    main: 'https://images.pexels.com/photos/1169084/pexels-photo-1169084.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1508610048659-a06b669e3321') // Colorful gerbera daisies
   },
   irises: {
-    main: 'https://images.pexels.com/photos/1084188/pexels-photo-1084188.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1588866325816-77c4d485ecca') // Purple irises
   },
   chrysanthemums: {
-    main: 'https://images.pexels.com/photos/1301862/pexels-photo-1301862.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1508896694512-1ecd1e577c49') // Yellow chrysanthemums
   },
   daffodils: {
-    main: 'https://images.pexels.com/photos/54320/pexels-photo-54320.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1518882541-8e60a0ea6c8e') // Yellow daffodils
   },
   poppies: {
-    main: 'https://images.pexels.com/photos/1002703/pexels-photo-1002703.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1560717799-5e9b3e9a2d8e') // Red poppies
   },
   jasmine: {
-    main: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1589391886645-d51941baf7fb') // White jasmine
   },
   magnolias: {
-    main: 'https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1518882541-8a5e5e5f5e5f') // Pink magnolias
   },
   anemones: {
-    main: 'https://images.pexels.com/photos/931175/pexels-photo-931175.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1487530811176-3780de880c2d') // Purple anemones
   },
   gardenias: {
-    main: 'https://images.pexels.com/photos/1382195/pexels-photo-1382195.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1559563362-c667ba5f5480') // White gardenias
   },
   freesias: {
-    main: 'https://images.pexels.com/photos/1390361/pexels-photo-1390361.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1490750967868-88aa4486c946') // Colorful freesias
   },
   ranunculus: {
-    main: 'https://images.pexels.com/photos/1416530/pexels-photo-1416530.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1455659817273-f96807779a8a') // Pink ranunculus
   },
   callaLilies: {
-    main: 'https://images.pexels.com/photos/1179863/pexels-photo-1179863.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1518882605-6e2a7b0c3e8f') // White calla lilies
   },
   zinnias: {
-    main: 'https://images.pexels.com/photos/1194036/pexels-photo-1194036.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1508896694512-1ecd1e577c49') // Colorful zinnias
   },
   dahlias: {
-    main: 'https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1508610048659-a06b669e3321') // Pink dahlias
   },
   sweetPeas: {
-    main: 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop'
+    main: unsplashImg('1457530378978-8bac673b8062') // Sweet peas
   }
 };
 
