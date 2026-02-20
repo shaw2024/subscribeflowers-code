@@ -1,7 +1,7 @@
 
 
 // Central image configuration for all flowers
-// All roses use local PNG images from public/images/roses/ folder
+// All roses use real rose photo URLs (Pexels CDN)
 
 // Export BASE_URL for use in other modules
 export const BASE_URL = import.meta.env.BASE_URL;
@@ -17,10 +17,10 @@ export interface RoseImage {
   };
 }
 
-// Rose images using BASE_URL for GitHub Pages compatibility
+// Rose images use hosted real-photo URLs
 export const roseImages: Record<string, RoseImage> = {
   red: {
-    path: `${BASE_URL}images/roses/rose-red.png`,
+    path: 'https://pngimg.com/uploads/rose/rose_PNG669.png',
     alt: 'Red rose - premium quality flower subscription',
     seo: {
       title: 'Premium Red Roses - Fresh Flower Subscription',
@@ -36,7 +36,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   pink: {
-    path: `${BASE_URL}images/roses/rose-pink.png`,
+    path: 'https://images.pexels.com/photos/1458283/pexels-photo-1458283.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop',
     alt: 'Pink rose - elegant flower subscription',
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
@@ -52,7 +52,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   white: {
-    path: `${BASE_URL}images/roses/rose-white.png`,
+    path: 'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop',
     alt: 'White rose - pure flower subscription',
     seo: {
       title: 'Premium White Roses - Pure Flower Subscription',
@@ -68,7 +68,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   lavender: {
-    path: `${BASE_URL}images/roses/rose-lavender.png`,
+    path: 'https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1200&fit=crop',
     alt: 'Lavender rose - enchanting flower subscription',
     seo: {
       title: 'Premium Lavender Roses - Enchanting Flower Subscription',
@@ -85,7 +85,7 @@ export const roseImages: Record<string, RoseImage> = {
   }
 };
 
-// Product images for Shop page - roses use local PNGs, others use CDN
+// Product images for Shop page - roses use real photo URLs, others use CDN
 export const productImages = {
   roses: {
     main: roseImages.red.path,
