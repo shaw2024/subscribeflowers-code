@@ -9,6 +9,10 @@ export const BASE_URL = import.meta.env.BASE_URL;
 // Helper function for local images
 const localImg = (filename: string) => `${BASE_URL}images/roses/${filename}`;
 
+// Unsplash image helper function for other flower types
+const unsplashImg = (photoId: string, w = 400, h = 400) => 
+  `https://images.unsplash.com/photo-${photoId}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
+
 // Rose image type definition
 export interface RoseImage {
   path: string;
