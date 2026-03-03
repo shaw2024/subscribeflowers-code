@@ -6,9 +6,8 @@
 // Export BASE_URL for use in other modules
 export const BASE_URL = import.meta.env.BASE_URL;
 
-// Unsplash image helper function
-const unsplashImg = (photoId: string, w = 400, h = 400) => 
-  `https://images.unsplash.com/photo-${photoId}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
+// Helper function for local images
+const localImg = (filename: string) => `${BASE_URL}images/roses/${filename}`;
 
 // Rose image type definition
 export interface RoseImage {
@@ -21,10 +20,10 @@ export interface RoseImage {
   };
 }
 
-// Rose images using Unsplash for high-quality photos
+// Rose images using local files
 export const roseImages: Record<string, RoseImage> = {
   red: {
-    path: unsplashImg('1465101046530-73398c7f28ca'),
+    path: localImg('rose-red.png'),
     alt: 'Red rose - premium quality flower subscription',
     seo: {
       title: 'Premium Red Roses - Fresh Flower Subscription',
@@ -40,7 +39,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   pink: {
-    path: unsplashImg('1455659817273-f96807779a8a'),
+    path: localImg('rose-pink.png'),
     alt: 'Pink rose - elegant flower subscription',
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
@@ -56,7 +55,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   white: {
-    path: unsplashImg('1559563362-c667ba5f5480'),
+    path: localImg('rose-white.png'),
     alt: 'White rose - pure flower subscription',
     seo: {
       title: 'Premium White Roses - Pure Flower Subscription',
@@ -72,7 +71,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   lavender: {
-    path: unsplashImg('1518882605-1e3c7d8db8a2'),
+    path: localImg('rose-lavender.png'),
     alt: 'Lavender rose - enchanting flower subscription',
     seo: {
       title: 'Premium Lavender Roses - Enchanting Flower Subscription',
