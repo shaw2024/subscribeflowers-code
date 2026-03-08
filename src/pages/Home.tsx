@@ -102,19 +102,19 @@ const Home = () => {
             <Link to="/shop" className="cta-button primary">Explore Collection</Link>
             <a href="#plans" className="cta-button secondary">Start Subscription</a>
           </div>
-          <div className="hero-features">
-            <div className="feature-item">
-              <span className="feature-icon">🚚</span>
-              <span>Free Delivery</span>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">🌿</span>
-              <span>Fresh Blooms</span>
-            </div>
-            <div className="feature-item">
-              <span className="feature-icon">💝</span>
-              <span>Hand-Picked</span>
-            </div>
+        </div>
+        <div className="hero-features">
+          <div className="feature-item">
+            <span className="feature-icon">🚚</span>
+            <span>Free Delivery</span>
+          </div>
+          <div className="feature-item">
+            <span className="feature-icon">🌿</span>
+            <span>Fresh Blooms</span>
+          </div>
+          <div className="feature-item">
+            <span className="feature-icon">💝</span>
+            <span>Hand-Picked</span>
           </div>
         </div>
       </section>
