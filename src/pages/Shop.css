@@ -327,7 +327,9 @@
   }
 
   .product-image {
-    height: 150px;
+    width: 100%;
+    height: auto;
+    max-height: 250px;
   }
 
   .product-card h3 {
@@ -446,7 +448,9 @@
   }
 
   .product-image {
-    height: 130px;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
   }
 
   .product-card h3 {
