@@ -243,19 +243,21 @@ html {
   flex-wrap: wrap;
   z-index: 3;
   animation: fadeInUp 1s ease-out 1s both;
+  max-width: 90%;
 }
 
 .feature-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .feature-item:hover {
@@ -265,15 +267,20 @@ html {
 }
 
 .feature-icon {
-  font-size: 1rem;
-  margin-bottom: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .feature-item span:last-child {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 .cta-button.primary:hover {
@@ -482,18 +489,20 @@ html {
   .hero-features {
     bottom: 1.5rem;
     gap: 0.6rem;
+    max-width: 95%;
   }
 
   .feature-item {
-    padding: 0.35rem 0.7rem;
+    padding: 0.4rem 0.8rem;
+    gap: 0.4rem;
   }
 
   .feature-icon {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .feature-item span:last-child {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .about-section h2,
@@ -534,18 +543,22 @@ html {
   .hero-features {
     bottom: 1rem;
     gap: 0.5rem;
+    max-width: 95%;
+    flex-direction: column;
+    align-items: center;
   }
 
   .feature-item {
-    padding: 0.3rem 0.6rem;
+    padding: 0.4rem 0.9rem;
+    gap: 0.5rem;
   }
 
   .feature-icon {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
 
   .feature-item span:last-child {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 
   .construction-notice {
