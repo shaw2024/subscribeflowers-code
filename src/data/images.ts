@@ -115,49 +115,49 @@ export const productImages = {
     }
   },
   sunflowers: {
-    main: unsplashImg('1597848212624-a19eb35e2651') // Bright sunflowers
+    main: unsplashImg('1470509037663-253afd7f0f51') // Bright sunflowers
   },
   lilies: {
-    main: unsplashImg('1588625500633-a0e3c6617c70') // White lilies
+    main: unsplashImg('1455659817273-f96807779a8a') // Beautiful lilies
   },
   orchids: {
-    main: unsplashImg('1566907225872-98b4a1c2f14b') // Purple orchids
+    main: unsplashImg('1509423350716-97f9360b4e09') // Purple orchids
   },
   peonies: {
-    main: unsplashImg('1527061638498-3e9b7e9a3d4a') // Pink peonies
+    main: unsplashImg('1527061637736-80747f199cde') // Pink peonies
   },
   carnations: {
-    main: unsplashImg('1518882541-8b206d9ddb6b') // Pink carnations
+    main: unsplashImg('1563784462041-5c0e9d6e5a3e') // Pink carnations
   },
   daisies: {
-    main: unsplashImg('1496062031456-07b8f162a322') // White daisies
+    main: unsplashImg('1463699775698-f6a6dc4b6bbf') // White daisies
   },
   hydrangeas: {
-    main: unsplashImg('1560717799-81c8df4e8c30') // Blue hydrangeas
+    main: unsplashImg('1591697485071-8f8e9a5c8e8f') // Blue hydrangeas
   },
   lavender: {
     main: unsplashImg('1499002238440-d264edd596ec') // Lavender field
   },
   gerberaDaisies: {
-    main: unsplashImg('1508610048659-a06b669e3321') // Colorful gerbera daisies
+    main: unsplashImg('1561181286-d2d98e5cfb66') // Colorful gerbera daisies
   },
   irises: {
-    main: unsplashImg('1588866325816-77c4d485ecca') // Purple irises
+    main: unsplashImg('1524386416013-92e301c22742') // Purple irises
   },
   chrysanthemums: {
-    main: unsplashImg('1508896694512-1ecd1e577c49') // Yellow chrysanthemums
+    main: unsplashImg('1566401040434-c84d8f5f1b8c') // Yellow chrysanthemums
   },
   daffodils: {
-    main: unsplashImg('1518882541-8e60a0ea6c8e') // Yellow daffodils
+    main: unsplashImg('1490750967868-88aa4486c946') // Yellow daffodils
   },
   poppies: {
-    main: unsplashImg('1560717799-5e9b3e9a2d8e') // Red poppies
+    main: unsplashImg('1527061637736-7e0d1b1b6d5b') // Red poppies
   },
   jasmine: {
     main: unsplashImg('1589391886645-d51941baf7fb') // White jasmine
   },
   magnolias: {
-    main: unsplashImg('1518882541-8a5e5e5f5e5f') // Pink magnolias
+    main: unsplashImg('1523542045154-b8ecebbc9c28') // Pink magnolias
   },
   anemones: {
     main: unsplashImg('1487530811176-3780de880c2d') // Purple anemones
@@ -166,22 +166,22 @@ export const productImages = {
     main: unsplashImg('1559563362-c667ba5f5480') // White gardenias
   },
   freesias: {
-    main: unsplashImg('1490750967868-88aa4486c946') // Colorful freesias
+    main: unsplashImg('1524386416013-92e301c22742') // Colorful freesias
   },
   ranunculus: {
-    main: unsplashImg('1455659817273-f96807779a8a') // Pink ranunculus
+    main: unsplashImg('1527061637736-80747f199cde') // Pink ranunculus
   },
   callaLilies: {
-    main: unsplashImg('1518882605-6e2a7b0c3e8f') // White calla lilies
+    main: unsplashImg('1509423350716-97f9360b4e09') // White calla lilies
   },
   zinnias: {
-    main: unsplashImg('1508896694512-1ecd1e577c49') // Colorful zinnias
+    main: unsplashImg('1561181286-d2d98e5cfb66') // Colorful zinnias
   },
   dahlias: {
-    main: unsplashImg('1508610048659-a06b669e3321') // Pink dahlias
+    main: unsplashImg('1455659817273-f96807779a8a') // Pink dahlias
   },
   sweetPeas: {
-    main: unsplashImg('1457530378978-8bac673b8062') // Sweet peas
+    main: unsplashImg('1463699775698-f6a6dc4b6bbf') // Sweet peas
   }
 };
 
