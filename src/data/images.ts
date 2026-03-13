@@ -1,17 +1,15 @@
 
 
 // Central image configuration for all flowers
-// Using Unsplash API for high-quality flower images
+// Uses local photo assets from the public directory for stable storefront images.
 
 // Export BASE_URL for use in other modules
 export const BASE_URL = import.meta.env.BASE_URL;
 
-// Helper function for local images
-const localImg = (filename: string) => `${BASE_URL}images/roses/${filename}`;
-
-// Unsplash image helper function for other flower types
-const unsplashImg = (photoId: string, w = 400, h = 400) => 
-  `https://images.unsplash.com/photo-${photoId}?w=${w}&h=${h}&fit=crop&auto=format&q=80`;
+const localImage = (folder: string, filename: string) => `${BASE_URL}images/${folder}/${filename}`;
+const roseImg = (filename: string) => localImage('roses', filename);
+const flowerImg = (filename: string) => localImage('flowers', filename);
+const tulipImg = (filename: string) => localImage('tulips', filename);
 
 // Rose image type definition
 export interface RoseImage {
@@ -27,7 +25,7 @@ export interface RoseImage {
 // Rose images using local files
 export const roseImages: Record<string, RoseImage> = {
   red: {
-    path: localImg('rose-red.png'),
+    path: roseImg('rose-red.png'),
     alt: 'Red rose - premium quality flower subscription',
     seo: {
       title: 'Premium Red Roses - Fresh Flower Subscription',
@@ -43,7 +41,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   pink: {
-    path: localImg('rose-pink.png'),
+    path: roseImg('rose-pink.png'),
     alt: 'Pink rose - elegant flower subscription',
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
@@ -59,7 +57,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   white: {
-    path: localImg('rose-white.png'),
+    path: roseImg('rose-white.png'),
     alt: 'White rose - pure flower subscription',
     seo: {
       title: 'Premium White Roses - Pure Flower Subscription',
@@ -75,7 +73,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   lavender: {
-    path: localImg('rose-lavender.png'),
+    path: roseImg('rose-lavender.png'),
     alt: 'Lavender rose - enchanting flower subscription',
     seo: {
       title: 'Premium Lavender Roses - Enchanting Flower Subscription',
@@ -92,7 +90,7 @@ export const roseImages: Record<string, RoseImage> = {
   }
 };
 
-// Product images for Shop page - using Unsplash for high-quality flower images
+// Product images for Shop page
 export const productImages = {
   roses: {
     main: roseImages.red.path,
@@ -104,84 +102,84 @@ export const productImages = {
     }
   },
   tulips: {
-    main: unsplashImg('1520763185298-1b434c919102'), // Red tulips
+    main: flowerImg('tulips.jpg'),
     colors: {
-      red: unsplashImg('1520763185298-1b434c919102'),
-      pink: unsplashImg('1457530378978-8bac673b8062'), // Pink tulips
-      white: unsplashImg('1521334726092-b509a19597c6'), // White tulips
-      yellow: unsplashImg('1459411552884-841db9b3cc2a'), // Yellow tulips
-      purple: unsplashImg('1518882541-8c6b21d0f8b5'), // Purple tulips
-      orange: unsplashImg('1585320806297-9794b3e4eeae') // Orange tulips
+      red: tulipImg('tulip-red.jpg'),
+      pink: tulipImg('tulip-pink.jpg'),
+      white: tulipImg('tulip-white.jpg'),
+      yellow: tulipImg('tulip-yellow.jpg'),
+      purple: tulipImg('tulip-purple.jpg'),
+      orange: tulipImg('tulip-orange.jpg')
     }
   },
   sunflowers: {
-    main: unsplashImg('1470509037663-253afd7f0f51') // Bright sunflowers
+    main: flowerImg('sunflowers.jpg')
   },
   lilies: {
-    main: unsplashImg('1455659817273-f96807779a8a') // Beautiful lilies
+    main: flowerImg('lilies.jpg')
   },
   orchids: {
-    main: unsplashImg('1509423350716-97f9360b4e09') // Purple orchids
+    main: flowerImg('orchids.jpg')
   },
   peonies: {
-    main: unsplashImg('1527061637736-80747f199cde') // Pink peonies
+    main: flowerImg('peonies.jpg')
   },
   carnations: {
-    main: unsplashImg('1563784462041-5c0e9d6e5a3e') // Pink carnations
+    main: flowerImg('carnations.jpg')
   },
   daisies: {
-    main: unsplashImg('1463699775698-f6a6dc4b6bbf') // White daisies
+    main: flowerImg('daisies.jpg')
   },
   hydrangeas: {
-    main: unsplashImg('1591697485071-8f8e9a5c8e8f') // Blue hydrangeas
+    main: flowerImg('hydrangeas.jpg')
   },
   lavender: {
-    main: unsplashImg('1499002238440-d264edd596ec') // Lavender field
+    main: flowerImg('lavender.jpg')
   },
   gerberaDaisies: {
-    main: unsplashImg('1561181286-d2d98e5cfb66') // Colorful gerbera daisies
+    main: flowerImg('gerbera-daisies.jpg')
   },
   irises: {
-    main: unsplashImg('1524386416013-92e301c22742') // Purple irises
+    main: flowerImg('irises.jpg')
   },
   chrysanthemums: {
-    main: unsplashImg('1566401040434-c84d8f5f1b8c') // Yellow chrysanthemums
+    main: flowerImg('chrysanthemums.jpg')
   },
   daffodils: {
-    main: unsplashImg('1490750967868-88aa4486c946') // Yellow daffodils
+    main: flowerImg('daffodils.jpg')
   },
   poppies: {
-    main: unsplashImg('1527061637736-7e0d1b1b6d5b') // Red poppies
+    main: flowerImg('poppies.jpg')
   },
   jasmine: {
-    main: unsplashImg('1589391886645-d51941baf7fb') // White jasmine
+    main: flowerImg('jasmine.jpg')
   },
   magnolias: {
-    main: unsplashImg('1523542045154-b8ecebbc9c28') // Pink magnolias
+    main: flowerImg('magnolias.jpg')
   },
   anemones: {
-    main: unsplashImg('1487530811176-3780de880c2d') // Purple anemones
+    main: flowerImg('anemones.jpg')
   },
   gardenias: {
-    main: unsplashImg('1559563362-c667ba5f5480') // White gardenias
+    main: flowerImg('gardenias.jpg')
   },
   freesias: {
-    main: unsplashImg('1524386416013-92e301c22742') // Colorful freesias
+    main: flowerImg('freesias.jpg')
   },
   ranunculus: {
-    main: unsplashImg('1527061637736-80747f199cde') // Pink ranunculus
+    main: flowerImg('ranunculus.jpg')
   },
   callaLilies: {
-    main: unsplashImg('1509423350716-97f9360b4e09') // White calla lilies
+    main: flowerImg('calla-lilies.jpg')
   },
   zinnias: {
-    main: unsplashImg('1561181286-d2d98e5cfb66') // Colorful zinnias
+    main: flowerImg('zinnias.jpg')
   },
   dahlias: {
-    main: unsplashImg('1455659817273-f96807779a8a') // Pink dahlias
+    main: flowerImg('dahlias.jpg')
   },
   sweetPeas: {
-    main: unsplashImg('1463699775698-f6a6dc4b6bbf') // Sweet peas
+    main: flowerImg('sweet-peas.jpg')
   }
 };
 
