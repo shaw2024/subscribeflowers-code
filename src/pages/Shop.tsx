@@ -39,6 +39,14 @@ const Shop = () => {
     { id: 25, name: 'Sweet Peas', image: getProductImage('SweetPeas') }
   ]
 
+  const getProductRoute = (productId: number) => {
+    if (productId === 1) {
+      return '/shop/roses'
+    }
+
+    return `/product/${productId}`
+  }
+
   return (
     <div className="shop">
       <section className="shop-hero">
@@ -55,20 +63,20 @@ const Shop = () => {
                   src={product.image}
                   alt={product.name}
                   className="product-image"
-                  onClick={() => navigate(`/product/${product.id}`)}
+                  onClick={() => navigate(getProductRoute(product.id))}
                   style={{ cursor: 'pointer' }}
                 />
                 <h3 
-                  onClick={() => navigate(`/product/${product.id}`)}
+                  onClick={() => navigate(getProductRoute(product.id))}
                   style={{ cursor: 'pointer' }}
                 >
                   {product.name}
                 </h3>
                 <button 
                   className="buy-button"
-                  onClick={() => navigate(`/product/${product.id}`)}
+                  onClick={() => navigate(getProductRoute(product.id))}
                 >
-                  View Flowers
+                  {product.id === 1 ? 'View Roses' : 'View Flowers'}
                 </button>
               </div>
             ))}

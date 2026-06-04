@@ -1,0 +1,211 @@
+.roses-shop {
+  width: 100%;
+}
+
+.roses-hero {
+  background: linear-gradient(140deg, #6f1126 0%, #b72742 45%, #f2c7d5 100%);
+  color: #fff;
+  padding: 5rem 0 4rem;
+}
+
+.roses-hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.roses-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-top: 0.75rem;
+}
+
+.hero-copy {
+  margin-top: 1rem;
+  max-width: 620px;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+.back-link {
+  margin-top: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.roses-controls {
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.controls-wrap {
+  padding: 1.2rem 20px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-pill {
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  color: #333;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.filter-pill.active {
+  background: #b72742;
+  border-color: #b72742;
+  color: #fff;
+}
+
+.sort-control {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+}
+
+.sort-control select {
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.roses-grid-section {
+  padding: 2rem 0 3rem;
+}
+
+.results-count {
+  margin-bottom: 1rem;
+  color: #5b5b5b;
+  font-size: 0.95rem;
+}
+
+.roses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.rose-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rose-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.rose-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.rose-details {
+  padding: 1rem;
+}
+
+.rose-color {
+  display: inline-block;
+  background: #f8d4dc;
+  color: #7e1630;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.rose-details h2 {
+  font-size: 1.3rem;
+  margin: 0.7rem 0 0.35rem;
+}
+
+.rose-description {
+  color: #4f4f4f;
+  font-size: 0.95rem;
+}
+
+.rose-symbolism {
+  margin-top: 0.6rem;
+  color: #4d4d4d;
+  font-size: 0.92rem;
+}
+
+.rose-footer {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rose-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #b72742;
+}
+
+.view-rose-button {
+  border: none;
+  background: #b72742;
+  color: #fff;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.view-rose-button:hover {
+  background: #8f1d34;
+}
+
+@media (max-width: 768px) {
+  .roses-hero {
+    padding: 4rem 0 3rem;
+  }
+
+  .controls-wrap {
+    padding: 1rem 15px;
+  }
+
+  .sort-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sort-control select {
+    flex: 1;
+    max-width: 220px;
+  }
+
+  .rose-image {
+    height: 200px;
+  }
+}

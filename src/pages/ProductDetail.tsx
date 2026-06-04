@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
 import { productImages, getProductImage } from '../data/images'
@@ -17,6 +17,7 @@ interface Product {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const location = useLocation()
   const { isAuthenticated, getRemainingFlowers } = useAuth()
   const { addToCart } = useCart()
   const [selectedColor, setSelectedColor] = useState<string>('')
@@ -107,17 +108,22 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (product && product.colors.length > 0) {
-      const firstColor = product.colors[0]
-      setSelectedColor(firstColor)
+      const colorParam = new URLSearchParams(location.search).get('color')
+      const preferredColor = product.colors.find(
+        (color) => colorParam && color.toLowerCase() === colorParam.toLowerCase()
+      )
+      const defaultColor = preferredColor || product.colors[0]
+
+      setSelectedColor(defaultColor)
       // Set initial image based on product and color
-      if (flowerColorImages[product.name] && flowerColorImages[product.name][firstColor]) {
-        setCurrentImage(flowerColorImages[product.name][firstColor])
+      if (flowerColorImages[product.name] && flowerColorImages[product.name][defaultColor]) {
+        setCurrentImage(flowerColorImages[product.name][defaultColor])
       } else {
         setCurrentImage(product.image)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id])
+  }, [id, location.search])
 
   // Update image when color changes
   useEffect(() => {

@@ -135,7 +135,8 @@ export const roseProducts: RoseProduct[] = [
       slug: 'enchanting-lavender-rose-subscription',
     },
     availability: {
-      inStock: true,
+
+       inStock: true,
       subscriptionOnly: false,
     },
     care: {

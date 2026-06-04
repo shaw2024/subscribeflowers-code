@@ -22,6 +22,14 @@ export interface RoseImage {
   };
 }
 
+export interface OfflineRoseApiResponse {
+  color: 'red';
+  name: 'Red Rose';
+  image: string;
+  alt: string;
+  seo: RoseImage['seo'];
+}
+
 // Rose images using local files
 export const roseImages: Record<string, RoseImage> = {
   red: {
@@ -89,6 +97,14 @@ export const roseImages: Record<string, RoseImage> = {
     }
   }
 };
+
+export const getOfflineRedRose = (): OfflineRoseApiResponse => ({
+  color: 'red',
+  name: 'Red Rose',
+  image: roseImages.red.path,
+  alt: roseImages.red.alt,
+  seo: roseImages.red.seo,
+});
 
 // Product images for Shop page
 export const productImages = {

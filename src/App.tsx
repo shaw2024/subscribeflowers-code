@@ -11,6 +11,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import FAQ from './pages/FAQ'
 import ProductDetail from './pages/ProductDetail'
+import RosesShop from './pages/RosesShop'
 import Checkout from './pages/Checkout'
 import Login from './pages/Login'
 import Account from './pages/Account'
@@ -34,6 +35,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />} />
+                <Route path="/shop/roses" element={<RosesShop />} />
                 <Route path="/product/:id" element={<ProductDetail />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/subscribe" element={<Subscribe />} />
