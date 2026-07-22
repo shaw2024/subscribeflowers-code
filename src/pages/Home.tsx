@@ -137,7 +137,6 @@ const Home = () => {
             {plans.map((plan, index) => (
               <div key={index} className="plan-card">
                 <h3>{plan.name}</h3>
-                <div className="price">{plan.price}</div>
                 <ul>
                   {plan.features.map((feature, idx) => (
                     <li key={idx}>{feature}</li>

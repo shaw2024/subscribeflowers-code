@@ -199,7 +199,7 @@ const Subscribe = () => {
       <div className="subscribe-container">
         <div className="subscribe-header">
           <h1>Complete Your Subscription</h1>
-          <p>Subscribe to {selectedPlan.name} - {selectedPlan.price}</p>
+          <p>Subscribe to {selectedPlan.name}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="subscribe-form">
@@ -408,7 +408,7 @@ const Subscribe = () => {
               </div>
               <div className="summary-row total">
                 <span>Total:</span>
-                <span>{selectedPlan.price}</span>
+                <span>Confirmed during checkout</span>
               </div>
             </div>
           </div>

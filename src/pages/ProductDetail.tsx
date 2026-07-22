@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
-import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/useAuth'
+import { useCart } from '../context/useCart'
 import { productImages, getProductImage } from '../data/images'
 import './ProductDetail.css'
 
@@ -252,7 +252,7 @@ const ProductDetail = () => {
                 <li>✓ Fresh flowers delivered</li>
                 <li>✓ Hand-arranged by experts</li>
                 <li>✓ Satisfaction guaranteed</li>
-                <li>✓ Free delivery on orders over $50</li>
+                <li>✓ Free delivery with subscription plans</li>
               </ul>
             </div>
           </div>

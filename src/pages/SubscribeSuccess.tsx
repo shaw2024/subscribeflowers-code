@@ -50,10 +50,6 @@ const SubscribeSuccess = () => {
                 <span className="value">{orderData.plan.name}</span>
               </div>
               <div className="detail-row">
-                <span className="label">Price:</span>
-                <span className="value">{orderData.plan.price}</span>
-              </div>
-              <div className="detail-row">
                 <span className="label">Payment Method:</span>
                 <span className="value">{orderData.payment.cardType} •••• {orderData.payment.last4}</span>
               </div>

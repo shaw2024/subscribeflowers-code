@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart, CartItem } from '../context/CartContext';
+import { CartItem } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import './Cart.css';
 
 const Cart: React.FC = () => {

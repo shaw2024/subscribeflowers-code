@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/useAuth';
+import { useCart } from '../context/useCart';
 import { getProductImage } from '../data/images';
 import './Account.css';
 
@@ -139,7 +139,6 @@ const Account: React.FC = () => {
             </div>
             <div className="card-content">
               <div className="plan-name">{customer.subscription.name}</div>
-              <div className="plan-price">${customer.subscription.pricePerMonth}/month</div>
               <div className="plan-details">
                 <p>Quarterly Allowance: <strong>{customer.subscription.quarterlyLimit} bouquets</strong></p>
                 <p>Current Quarter: <strong>{customer.currentQuarter}</strong></p>

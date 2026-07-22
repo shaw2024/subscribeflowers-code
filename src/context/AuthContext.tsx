@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
+import { AuthContext } from './AuthContextValue';
 
 export interface SubscriptionPlan {
   name: string;
@@ -23,7 +24,7 @@ export interface Customer {
   currentQuarter: string;
 }
 
-interface AuthContextType {
+export interface AuthContextType {
   customer: Customer | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<boolean>;
@@ -33,8 +34,6 @@ interface AuthContextType {
   canPurchase: (amount: number) => boolean;
   updateAddress: (address: Customer['shippingAddress']) => void;
 }
-
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Mock customer data - replace with actual API calls
 const mockCustomers: { [email: string]: { password: string; data: Customer } } = {
@@ -141,10 +140,3 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   );
 };
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
-  return context;
-};

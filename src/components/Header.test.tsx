@@ -8,12 +8,12 @@ vi.mock('./Cart', () => ({
   default: () => <div data-testid="cart-component">Cart</div>
 }));
 
-// Mock the AuthContext
-vi.mock('../context/AuthContext', () => ({
+// Mock the auth hook
+vi.mock('../context/useAuth', () => ({
   useAuth: vi.fn(),
 }));
 
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/useAuth';
 
 describe('Header Component', () => {
   const mockAuthContextValue = {

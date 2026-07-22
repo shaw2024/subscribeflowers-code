@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
+import { useCart } from '../context/useCart';
+import { useAuth } from '../context/useAuth';
 import './Checkout.css';
 
 interface CustomerInfo {
@@ -59,7 +59,7 @@ const Checkout: React.FC = () => {
   };
 
   const getGrandTotal = (): number => {
-    // For subscription customers, the total is always $0
+    // For subscription customers, the total is always 0
     if (isAuthenticated && customer) {
       return 0;
     }
@@ -110,13 +110,13 @@ const Checkout: React.FC = () => {
         console.log(`Subject: Order Confirmation - ${orderNumber}`);
         console.log(`Body: Thank you for your order! Your order number is ${orderNumber}. Your subscription flowers will be delivered on ${formData.deliveryDate}.`);
         
-        alert(`✅ Order placed successfully!\n\nOrder Number: ${orderNumber}\n\nA confirmation email has been sent to ${customer.email}\n\nTotal Charge: $${getGrandTotal().toFixed(2)} (Covered by subscription)`);
+        alert(`✅ Order placed successfully!\n\nOrder Number: ${orderNumber}\n\nA confirmation email has been sent to ${customer.email}\n\nCovered by subscription.`);
       } else {
         // For non-subscription customers, would redirect to Stripe
         console.log('=== EMAIL SENT ===');
         console.log(`To: ${formData.email}`);
         console.log(`Subject: Order Confirmation - ${orderNumber}`);
-        console.log(`Body: Thank you for your order! Your order number is ${orderNumber}. Total: $${getGrandTotal().toFixed(2)}`);
+        console.log(`Body: Thank you for your order! Your order number is ${orderNumber}.`);
         
         alert(`Payment gateway integration coming soon! This will connect to Stripe.\n\nOrder Number: ${orderNumber}`);
       }
@@ -320,9 +320,7 @@ const Checkout: React.FC = () => {
                       )}
                       <p className="quantity">Qty: {item.quantity}</p>
                     </div>
-                    <p className="item-price">
-                      ${(item.price * item.quantity).toFixed(2)}
-                    </p>
+                    <p className="item-price">Included in subscription</p>
                   </div>
                 ))}
               </div>
@@ -331,9 +329,9 @@ const Checkout: React.FC = () => {
                 <div className="summary-row">
                   <span>Subtotal</span>
                   {isAuthenticated && customer ? (
-                    <span className="strike-through">${getCartTotal().toFixed(2)}</span>
+                    <span className="strike-through">Included</span>
                   ) : (
-                    <span>${getCartTotal().toFixed(2)}</span>
+                    <span>Calculated during payment</span>
                   )}
                 </div>
                 <div className="summary-row">
@@ -341,7 +339,7 @@ const Checkout: React.FC = () => {
                   {calculateShipping() === 0 ? (
                     <span className="free-shipping">FREE ✓</span>
                   ) : (
-                    <span>${calculateShipping().toFixed(2)}</span>
+                    <span>Calculated during payment</span>
                   )}
                 </div>
                 {isAuthenticated && customer && (
@@ -361,13 +359,13 @@ const Checkout: React.FC = () => {
                 )}
                 {!isAuthenticated && calculateShipping() > 0 && formData.state && (
                   <div className="summary-note shipping-info">
-                    ℹ️ ${SHIPPING_COST.toFixed(2)} shipping fee applies for out-of-state deliveries
+                    ℹ️ Shipping fee applies for out-of-state deliveries
                   </div>
                 )}
                 <div className="summary-row total">
                   <span>Total</span>
                   <span className={isAuthenticated && customer ? 'zero-total' : ''}>
-                    ${getGrandTotal().toFixed(2)}
+                    {isAuthenticated && customer ? 'Covered by subscription' : 'Calculated during payment'}
                   </span>
                 </div>
               </div>

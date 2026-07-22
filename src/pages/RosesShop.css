@@ -163,14 +163,21 @@
   margin-top: 0.9rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
 }
 
-.rose-price {
-  font-size: 1.3rem;
-  font-weight: 700;
+.subscribe-rose-button {
+  border: 1px solid #b72742;
+  background: #fff;
   color: #b72742;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.subscribe-rose-button:hover {
+  background: #fce9ee;
 }
 
 .view-rose-button {

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { roseProducts } from '../data/roseProducts'
 import './RosesShop.css'
 
-type SortOption = 'featured' | 'price-low' | 'price-high' | 'name'
+type SortOption = 'featured' | 'name'
 
 const RosesShop = () => {
   const navigate = useNavigate()
@@ -23,11 +23,7 @@ const RosesShop = () => {
 
     const sorted = [...colorFiltered]
 
-    if (sortBy === 'price-low') {
-      sorted.sort((a, b) => a.price - b.price)
-    } else if (sortBy === 'price-high') {
-      sorted.sort((a, b) => b.price - a.price)
-    } else if (sortBy === 'name') {
+    if (sortBy === 'name') {
       sorted.sort((a, b) => a.name.localeCompare(b.name))
     }
 
@@ -68,8 +64,6 @@ const RosesShop = () => {
             Sort by
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortOption)}>
               <option value="featured">Featured</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
               <option value="name">Name</option>
             </select>
           </label>
@@ -91,7 +85,12 @@ const RosesShop = () => {
                     <strong>Meaning:</strong> {rose.symbolism}
                   </p>
                   <div className="rose-footer">
-                    <p className="rose-price">${rose.price.toFixed(2)}</p>
+                    <button
+                      className="subscribe-rose-button"
+                      onClick={() => navigate('/#plans')}
+                    >
+                      Subscribe
+                    </button>
                     <button
                       className="view-rose-button"
                       onClick={() =>

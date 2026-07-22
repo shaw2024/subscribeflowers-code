@@ -33,7 +33,7 @@ export interface OfflineRoseApiResponse {
 // Rose images using local files
 export const roseImages: Record<string, RoseImage> = {
   red: {
-    path: roseImg('rose-red.png'),
+    path: roseImg('rose-red.jpg'),
     alt: 'Red rose - premium quality flower subscription',
     seo: {
       title: 'Premium Red Roses - Fresh Flower Subscription',
@@ -49,7 +49,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   pink: {
-    path: roseImg('rose-pink.png'),
+    path: roseImg('rose-pink.jpg'),
     alt: 'Pink rose - elegant flower subscription',
     seo: {
       title: 'Premium Pink Roses - Elegant Flower Subscription',
@@ -65,7 +65,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   white: {
-    path: roseImg('rose-white.png'),
+    path: roseImg('rose-white.jpg'),
     alt: 'White rose - pure flower subscription',
     seo: {
       title: 'Premium White Roses - Pure Flower Subscription',
@@ -81,7 +81,7 @@ export const roseImages: Record<string, RoseImage> = {
     }
   },
   lavender: {
-    path: roseImg('rose-lavender.png'),
+    path: roseImg('rose-lavender.jpg'),
     alt: 'Lavender rose - enchanting flower subscription',
     seo: {
       title: 'Premium Lavender Roses - Enchanting Flower Subscription',

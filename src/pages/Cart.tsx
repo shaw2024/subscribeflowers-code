@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import './Cart.css';
 
 const Cart: React.FC = () => {
   const navigate = useNavigate();
-  const { cartItems, removeFromCart, updateQuantity, getCartTotal, clearCart } = useCart();
+  const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
 
   const handleCheckout = () => {
     navigate('/checkout');
@@ -42,7 +42,6 @@ const Cart: React.FC = () => {
                   {item.frequency && (
                     <p className="cart-item-frequency">Delivery: {item.frequency}</p>
                   )}
-                  <p className="cart-item-price">${item.price.toFixed(2)}</p>
                 </div>
                 <div className="cart-item-quantity">
                   <button
@@ -59,9 +58,7 @@ const Cart: React.FC = () => {
                     +
                   </button>
                 </div>
-                <div className="cart-item-total">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </div>
+                <div className="cart-item-total">Included in subscription</div>
                 <button
                   onClick={() => removeFromCart(item.id)}
                   className="remove-btn"
@@ -77,7 +74,7 @@ const Cart: React.FC = () => {
             <h2>Order Summary</h2>
             <div className="summary-row">
               <span>Subtotal</span>
-              <span>${getCartTotal().toFixed(2)}</span>
+              <span>Calculated at checkout</span>
             </div>
             <div className="summary-row">
               <span>Shipping</span>
@@ -85,7 +82,7 @@ const Cart: React.FC = () => {
             </div>
             <div className="summary-row total">
               <span>Total</span>
-              <span>${getCartTotal().toFixed(2)}</span>
+              <span>Calculated at checkout</span>
             </div>
             <button onClick={handleCheckout} className="btn-checkout">
               Proceed to Checkout
