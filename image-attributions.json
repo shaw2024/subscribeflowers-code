@@ -277,5 +277,14 @@
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Mrs._Herbert_Stevens_May_2008.jpg",
     "original": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Mrs._Herbert_Stevens_May_2008.jpg"
+  },
+  {
+    "file": "images/roses/rose-red.jpg",
+    "query": "single red rose",
+    "title": "Rose Single Red (cropped)",
+    "creator": "T.Kiya",
+    "license": "CC BY-SA 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rose_Single_Red_%E3%83%90%E3%83%A9_%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E3%83%AC%E3%83%83%E3%83%89_(7203332306)_(cropped).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Rose_Single_Red_%E3%83%90%E3%83%A9_%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%AB%E3%83%AC%E3%83%83%E3%83%89_%287203332306%29_%28cropped%29.jpg"
   }
 ]
