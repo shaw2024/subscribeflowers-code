@@ -231,15 +231,7 @@ const ProductDetail = () => {
               ) : (
                 <button 
                   className="subscribe-now-btn"
-                  onClick={() => {
-                    navigate('/');
-                    setTimeout(() => {
-                      const plansSection = document.querySelector('.plans-section');
-                      if (plansSection) {
-                        plansSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }, 100);
-                  }}
+                  onClick={() => navigate('/#plans')}
                 >
                   Subscribe Now
                 </button>
