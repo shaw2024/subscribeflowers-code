@@ -48,6 +48,22 @@ export const roseImages: Record<string, RoseImage> = {
       ]
     }
   },
+  white: {
+    path: roseImg('rose-white.jpg'),
+    alt: 'White rose - pure flower subscription',
+    seo: {
+      title: 'Premium White Roses - Pure Flower Subscription',
+      description:
+        'Elegant white roses symbolizing purity and new beginnings. Subscribe for weekly delivery of fresh premium white roses.',
+      keywords: [
+        'white roses',
+        'pure flowers',
+        'elegant roses',
+        'rose subscription',
+        'fresh white roses'
+      ]
+    }
+  },
   pink: {
     path: roseImg('rose-pink.jpg'),
     alt: 'Closed pale pink rosebud - flower subscription',
@@ -65,38 +81,6 @@ export const roseImages: Record<string, RoseImage> = {
       ]
     }
   },
-  white: {
-    path: roseImg('rose-white.jpg'),
-    alt: 'White rose - pure flower subscription',
-    seo: {
-      title: 'Premium White Roses - Pure Flower Subscription',
-      description:
-        'Elegant white roses symbolizing purity and new beginnings. Subscribe for weekly delivery of fresh premium white roses.',
-      keywords: [
-        'white roses',
-        'pure flowers',
-        'elegant roses',
-        'rose subscription',
-        'fresh white roses'
-      ]
-    }
-  },
-  lavender: {
-    path: roseImg('rose-lavender.jpg'),
-    alt: 'Lavender rose - enchanting flower subscription',
-    seo: {
-      title: 'Premium Lavender Roses - Enchanting Flower Subscription',
-      description:
-        'Enchanting lavender roses symbolizing love at first sight. Subscribe for weekly delivery of fresh premium lavender roses.',
-      keywords: [
-        'lavender roses',
-        'purple roses',
-        'enchanting flowers',
-        'rose subscription',
-        'fresh lavender roses'
-      ]
-    }
-  }
 };
 
 export const getOfflineRedRose = (): OfflineRoseApiResponse => ({
@@ -113,9 +97,8 @@ export const productImages = {
     main: roseImages.red.path,
     colors: {
       red: roseImages.red.path,
-      pink: roseImages.pink.path,
       white: roseImages.white.path,
-      lavender: roseImages.lavender.path
+      pink: roseImages.pink.path
     }
   },
   tulips: {

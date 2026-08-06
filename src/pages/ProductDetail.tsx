@@ -27,9 +27,7 @@ const ProductDetail = () => {
   const flowerColorImages: { [key: string]: { [key: string]: string } } = {
     'Roses': {
       'Red': productImages.roses.colors.red,
-      'Pink': productImages.roses.colors.pink,
       'White': productImages.roses.colors.white,
-      'Lavender': productImages.roses.colors.lavender
     },
     'Tulips': {
       'Red': productImages.tulips.colors.red,
