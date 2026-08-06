@@ -64,10 +64,10 @@ export const roseProducts: RoseProduct[] = [
   },
   {
     id: 'rose-pink-002',
-    name: 'Elegant Pink Rose',
+    name: 'Closed Pink Rose',
     color: 'Pink',
     price: 44.99,
-    description: 'Delicate pink roses symbolizing grace and admiration',
+    description: 'Closed pink rosebuds symbolizing appreciation, joy, and admiration',
     longDescription: 'Our elegant pink roses showcase soft, romantic hues that convey admiration and appreciation. Each bloom is selected for its perfect petal formation and graceful appearance. Ideal for expressing gratitude, celebrating new beginnings, or brightening someone\'s day.',
     category: 'Roses',
     image: roseImages.pink.path,
@@ -76,7 +76,7 @@ export const roseProducts: RoseProduct[] = [
       title: roseImages.pink.seo.title,
       metaDescription: roseImages.pink.seo.description,
       keywords: roseImages.pink.seo.keywords,
-      slug: 'elegant-pink-rose-subscription',
+      slug: 'closed-pink-rose-subscription',
     },
     availability: {
       inStock: true,
@@ -87,7 +87,7 @@ export const roseProducts: RoseProduct[] = [
       sunlight: 'Indirect sunlight',
       lifespan: '7-14 days with proper care',
     },
-    symbolism: 'Grace, Admiration, Joy',
+    symbolism: 'Appreciation, Joy, Admiration',
     occasions: ['Mother\'s Day', 'Thank You', 'New Baby', 'Get Well', 'Just Because'],
   },
   {

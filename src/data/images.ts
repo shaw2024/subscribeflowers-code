@@ -50,14 +50,15 @@ export const roseImages: Record<string, RoseImage> = {
   },
   pink: {
     path: roseImg('rose-pink.jpg'),
-    alt: 'Pink rose - elegant flower subscription',
+    alt: 'Closed pale pink rosebud - flower subscription',
     seo: {
-      title: 'Premium Pink Roses - Elegant Flower Subscription',
+      title: 'Premium Pink Rosebuds - Fresh Flower Subscription',
       description:
-        'Delicate pink roses symbolizing grace and admiration. Subscribe for weekly delivery of fresh premium pink roses.',
+        'Closed pink rosebuds symbolizing appreciation and joy. Subscribe for weekly delivery of fresh premium pink roses.',
       keywords: [
         'pink roses',
-        'elegant flowers',
+        'pink rosebuds',
+        'appreciation flowers',
         'graceful roses',
         'rose subscription',
         'fresh pink roses'
