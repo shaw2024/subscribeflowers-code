@@ -1,21 +1,21 @@
 [
   {
     "file": "images/flowers/sunflowers.jpg",
-    "query": "sunflower flower",
-    "title": "Sunflower flower bud",
-    "creator": "oddharmonic",
-    "license": "BY-SA 2.0",
-    "source": "https://www.flickr.com/photos/42528087@N00/7671458828",
-    "original": "https://live.staticflickr.com/7267/7671458828_1a4dd2b158_b.jpg"
+    "query": "Helianthus annuus flower",
+    "title": "Helianthus annuus",
+    "creator": "Jebulon",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Helianthus_annuusPFP.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/24/Helianthus_annuusPFP.jpg"
   },
   {
     "file": "images/flowers/lilies.jpg",
-    "query": "orange lily flower",
-    "title": "Orange Lily Flower",
-    "creator": "Image Catalog",
-    "license": "BY 2.0",
-    "source": "https://www.flickr.com/photos/27144723@N02/18027457696",
-    "original": "https://live.staticflickr.com/8796/18027457696_b0c06d26c2_b.jpg"
+    "query": "Madonna lily flower",
+    "title": "Lilium Candidum (Madonna Lily)",
+    "creator": "Bessi",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lilium_Candidum_(Madonna_Lily).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Lilium_Candidum_%28Madonna_Lily%29.jpg"
   },
   {
     "file": "images/flowers/orchids.jpg",
@@ -254,11 +254,11 @@
   {
     "file": "images/tulips/tulip-orange.jpg",
     "query": "orange tulip flower",
-    "title": "The orange tulip flower",
-    "creator": "aagay",
-    "license": "BY-SA 2.0",
-    "source": "https://www.flickr.com/photos/104082864@N04/52472751218",
-    "original": "https://live.staticflickr.com/65535/52472751218_7ff2aeefca_b.jpg"
+    "title": "Orange tulip close-up17",
+    "creator": "Beckwith-Zink (Diane)",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Orange_tulip_close-up17.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/08/Orange_tulip_close-up17.jpg"
   },
   {
     "file": "images/flowers/tulips.jpg",
