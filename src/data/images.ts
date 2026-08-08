@@ -113,7 +113,7 @@ export const productImages = {
     }
   },
   sunflowers: {
-    main: flowerImg('sunflowers.jpg')
+    main: flowerImg('sunflower-bloom.jpg')
   },
   lilies: {
     main: flowerImg('lilies.jpg')
