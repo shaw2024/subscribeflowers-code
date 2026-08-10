@@ -62,7 +62,7 @@ const Shop = () => {
                 <img 
                   src={product.image}
                   alt={product.name}
-                  className="product-image"
+                  className={`product-image${product.name === 'Sunflowers' ? ' sunflower-product-image' : ''}`}
                   onClick={() => navigate(getProductRoute(product.id))}
                   style={{ cursor: 'pointer' }}
                 />

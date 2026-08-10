@@ -161,7 +161,7 @@ const ProductDetail = () => {
             <img 
               src={currentImage || product.image} 
               alt={`${product.name} - ${selectedColor}`}
-              className="product-main-image"
+              className={`product-main-image${product.name === 'Sunflowers' ? ' sunflower-main-image' : ''}`}
             />
             <p className="color-preview-text">Selected Color: {selectedColor} {getFlowerEmoji()}</p>
           </div>

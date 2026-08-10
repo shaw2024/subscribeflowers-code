@@ -49,6 +49,13 @@
   animation: fadeIn 0.3s ease;
 }
 
+.sunflower-main-image {
+  background-color: #f7f4ea;
+  box-sizing: border-box;
+  object-fit: contain;
+  padding: 1rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
