@@ -30,7 +30,7 @@ const ProductDetail = () => {
       'White': productImages.roses.colors.white,
     },
     'Tulips': {
-      'Red': productImages.tulips.main,
+      'Red': productImages.tulips.colors.red,
       'Pink': productImages.tulips.colors.pink,
       'White': productImages.tulips.colors.white,
       'Yellow': productImages.tulips.colors.yellow,
