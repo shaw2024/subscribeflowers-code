@@ -116,7 +116,7 @@ export const productImages = {
     main: flowerImg('sunflower-bloom.jpg')
   },
   lilies: {
-    main: flowerImg('lilies.jpg')
+    main: flowerImg('lilies-bouquet.jpg')
   },
   orchids: {
     main: flowerImg('orchids.jpg')
