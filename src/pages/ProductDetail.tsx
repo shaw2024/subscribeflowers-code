@@ -42,7 +42,7 @@ const ProductDetail = () => {
   const allProducts: Product[] = [
     { id: 1, name: 'Roses', price: 45.00, image: getProductImage('Roses'), description: 'Classic roses, the symbol of love and beauty. Perfect for any romantic occasion.', colors: ['Red', 'Pink', 'White', 'Lavender'] },
     { id: 2, name: 'Tulips', price: 35.00, image: getProductImage('Tulips'), description: 'Elegant tulips representing perfect love. Ideal for spring celebrations.', colors: ['Red', 'Pink', 'White', 'Yellow', 'Purple', 'Orange'] },
-    { id: 3, name: 'Sunflowers', price: 32.00, image: getProductImage('Sunflowers'), description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow', 'Orange', 'Red'] },
+    { id: 3, name: 'Sunflowers', price: 32.00, image: getProductImage('Sunflowers'), description: 'Bright and cheerful sunflowers that bring warmth to any space.', colors: ['Yellow'] },
     { id: 4, name: 'Lilies', price: 42.00, image: getProductImage('Lilies'), description: 'Stunning lilies with a beautiful fragrance. Symbol of purity and refined beauty.', colors: ['White', 'Pink', 'Orange', 'Yellow', 'Red'] },
     { id: 5, name: 'Orchids', price: 55.00, image: getProductImage('Orchids'), description: 'Exotic orchids representing luxury and sophistication.', colors: ['White', 'Purple', 'Pink', 'Yellow', 'Blue'] },
     { id: 6, name: 'Peonies', price: 48.00, image: getProductImage('Peonies'), description: 'Lush peonies symbolizing romance and prosperity.', colors: ['Pink', 'White', 'Red', 'Coral'] },
@@ -70,7 +70,7 @@ const ProductDetail = () => {
   const colorEmojis: { [key: string]: { [key: string]: string } } = {
     'Roses': { 'Red': '🌹', 'Pink': '🌸', 'White': '🤍', 'Yellow': '💛', 'Orange': '🧡', 'Lavender': '💜' },
     'Tulips': { 'Red': '🌷', 'Pink': '🌸', 'White': '🤍', 'Yellow': '💛', 'Purple': '💜', 'Orange': '🧡' },
-    'Sunflowers': { 'Yellow': '🌻', 'Orange': '🧡', 'Red': '❤️' },
+    'Sunflowers': { 'Yellow': '🌻' },
     'Lilies': { 'White': '🤍', 'Pink': '🌸', 'Orange': '🧡', 'Yellow': '💛', 'Red': '❤️' },
     'Orchids': { 'White': '🤍', 'Purple': '💜', 'Pink': '🌸', 'Yellow': '💛', 'Blue': '💙' },
     'Peonies': { 'Pink': '🌸', 'White': '🤍', 'Red': '❤️', 'Coral': '🧡' },
