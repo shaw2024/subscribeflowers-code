@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
 import { useCart } from '../context/useCart'
-import { BASE_URL, productImages, getProductImage } from '../data/images'
+import { productImages, getProductImage } from '../data/images'
 import './ProductDetail.css'
 
 interface Product {
@@ -30,7 +30,7 @@ const ProductDetail = () => {
       'White': productImages.roses.colors.white,
     },
     'Tulips': {
-      'Red': `${BASE_URL}images/flowers/tulips.jpg`,
+      'Red': productImages.tulips.main,
       'Pink': productImages.tulips.colors.pink,
       'White': productImages.tulips.colors.white,
       'Yellow': productImages.tulips.colors.yellow,

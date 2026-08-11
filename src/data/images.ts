@@ -102,7 +102,7 @@ export const productImages = {
     }
   },
   tulips: {
-    main: flowerImg('tulips.jpg'),
+    main: tulipImg('tulips-vase.jpg'),
     colors: {
       red: tulipImg('tulip-red.jpg'),
       pink: tulipImg('tulip-pink.jpg'),
