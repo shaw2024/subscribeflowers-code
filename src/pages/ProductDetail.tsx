@@ -36,6 +36,11 @@ const ProductDetail = () => {
       'Yellow': productImages.tulips.colors.yellow,
       'Purple': productImages.tulips.colors.purple,
       'Orange': productImages.tulips.colors.orange
+    },
+    'Daisies': {
+      'White': productImages.daisies.colors.white,
+      'Yellow': productImages.daisies.colors.yellow,
+      'Pink': productImages.daisies.colors.pink
     }
   }
 

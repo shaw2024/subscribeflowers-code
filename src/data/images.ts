@@ -128,7 +128,12 @@ export const productImages = {
     main: flowerImg('carnations.jpg')
   },
   daisies: {
-    main: flowerImg('daisies.jpg')
+    main: flowerImg('daisies.jpg'),
+    colors: {
+      white: flowerImg('daisies.jpg'),
+      yellow: flowerImg('gerbera-yellow.jpg'),
+      pink: flowerImg('gerbera-pink.jpg')
+    }
   },
   hydrangeas: {
     main: flowerImg('hydrangeas.jpg')
