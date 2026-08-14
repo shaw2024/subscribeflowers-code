@@ -136,7 +136,7 @@ export const productImages = {
   lavender: {
     main: flowerImg('lavender.jpg')
   },
-  gerberaDaisies: {
+  gerberadaisies: {
     main: flowerImg('gerbera-daisies.jpg')
   },
   irises: {
@@ -169,7 +169,7 @@ export const productImages = {
   ranunculus: {
     main: flowerImg('ranunculus.jpg')
   },
-  callaLilies: {
+  callalilies: {
     main: flowerImg('calla-lilies.jpg')
   },
   zinnias: {
@@ -178,7 +178,7 @@ export const productImages = {
   dahlias: {
     main: flowerImg('dahlias.jpg')
   },
-  sweetPeas: {
+  sweetpeas: {
     main: flowerImg('sweet-peas.jpg')
   }
 };
