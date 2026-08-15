@@ -38,10 +38,10 @@ The landing page featuring:
 
 ### 🛍️ Shop Page (`/shop`)
 Browse and explore flowers:
-- **Product Grid** - 25 flower varieties including:
+- **Product Grid** - 24 flower varieties including:
   - Roses, Tulips, Sunflowers, Lilies, Orchids
   - Peonies, Carnations, Daisies, Hydrangeas
-  - Lavender, Gerbera Daisies, Irises, Chrysanthemums
+  - Lavender, Gerbera Daisies, Chrysanthemums
   - Daffodils, Poppies, Jasmine, Magnolias
   - Anemones, Gardenias, Freesias, Ranunculus
   - Calla Lilies, Zinnias, Dahlias, Sweet Peas

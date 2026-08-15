@@ -144,9 +144,6 @@ export const productImages = {
   gerberadaisies: {
     main: flowerImg('gerbera-daisies.jpg')
   },
-  irises: {
-    main: flowerImg('irises.jpg')
-  },
   chrysanthemums: {
     main: flowerImg('chrysanthemums.jpg')
   },

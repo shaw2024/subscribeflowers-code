@@ -31,7 +31,6 @@ const Account: React.FC = () => {
     { id: '9', name: 'Hydrangeas', price: 0, image: getProductImage('Hydrangeas') },
     { id: '10', name: 'Lavender', price: 0, image: getProductImage('Lavender') },
     { id: '11', name: 'Gerbera Daisies', price: 0, image: getProductImage('Gerbera Daisies') },
-    { id: '12', name: 'Irises', price: 0, image: getProductImage('Irises') },
   ];
 
   if (!isAuthenticated || !customer) {
