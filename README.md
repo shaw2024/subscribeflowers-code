@@ -20,6 +20,8 @@ npm install
 
 ## 🏃 Running the Application
 
+For Firebase authentication, customer profiles, and order storage, copy `.env.example` to `.env.local` and fill in the values from your Firebase project settings. The storefront can still be viewed without Firebase configuration, but account and checkout data features will be unavailable.
+
 Start the development server:
 
 ```bash

@@ -66,13 +66,21 @@ const getCurrentQuarter = (): string => {
   return `Q${quarter} ${now.getFullYear()}`;
 };
 
-const customerDocRef = (uid: string) => doc(db, 'customers', uid);
+const customerDocRef = (uid: string) => {
+  if (!db) return null;
+  return doc(db, 'customers', uid);
+};
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!auth || !db) {
+      setIsLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
       if (!firebaseUser) {
         setCustomer(null);
@@ -80,7 +88,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         return;
       }
 
-      const snapshot = await getDoc(customerDocRef(firebaseUser.uid));
+      const customerRef = customerDocRef(firebaseUser.uid);
+      if (!customerRef) {
+        setIsLoading(false);
+        return;
+      }
+
+      const snapshot = await getDoc(customerRef);
       if (snapshot.exists()) {
         setCustomer(snapshot.data() as Customer);
       } else {
@@ -95,7 +109,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           usedThisQuarter: 0,
           currentQuarter: getCurrentQuarter(),
         };
-        await setDoc(customerDocRef(firebaseUser.uid), fallback);
+        await setDoc(customerRef, fallback);
         setCustomer(fallback);
       }
       setIsLoading(false);
@@ -105,6 +119,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
+    if (!auth) return false;
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
       return true;
@@ -120,6 +136,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     firstName: string,
     lastName: string
   ): Promise<boolean> => {
+    if (!auth || !db) return false;
+
     try {
       const credential = await createUserWithEmailAndPassword(auth, email, password);
       const newCustomer: Customer = {
@@ -132,7 +150,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         usedThisQuarter: 0,
         currentQuarter: getCurrentQuarter(),
       };
-      await setDoc(customerDocRef(credential.user.uid), newCustomer);
+      const customerRef = customerDocRef(credential.user.uid);
+      if (!customerRef) return false;
+
+      await setDoc(customerRef, newCustomer);
       setCustomer(newCustomer);
       return true;
     } catch (error) {
@@ -142,14 +163,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const logout = async () => {
-    await signOut(auth);
+    if (auth) await signOut(auth);
   };
 
   const updateUsage = async (amount: number) => {
-    if (!customer) return;
+    if (!customer || !db) return;
     const usedThisQuarter = customer.usedThisQuarter + amount;
     setCustomer({ ...customer, usedThisQuarter });
-    await updateDoc(customerDocRef(customer.id), { usedThisQuarter });
+    const customerRef = customerDocRef(customer.id);
+    if (customerRef) await updateDoc(customerRef, { usedThisQuarter });
   };
 
   const getRemainingFlowers = (): number => {
@@ -162,9 +184,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const updateAddress = async (address: Customer['shippingAddress']) => {
-    if (!customer) return;
+    if (!customer || !db) return;
     setCustomer({ ...customer, shippingAddress: address });
-    await updateDoc(customerDocRef(customer.id), { shippingAddress: address });
+    const customerRef = customerDocRef(customer.id);
+    if (customerRef) await updateDoc(customerRef, { shippingAddress: address });
   };
 
   return (

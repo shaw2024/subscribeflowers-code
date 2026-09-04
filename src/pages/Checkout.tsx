@@ -98,6 +98,11 @@ const Checkout: React.FC = () => {
     };
 
     try {
+      if (!db) {
+        alert('Checkout is temporarily unavailable. Please try again later.');
+        return;
+      }
+
       await addDoc(collection(db, 'orders'), orderData);
 
       if (isAuthenticated && customer) {

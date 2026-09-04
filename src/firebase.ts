@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getAuth, type Auth } from 'firebase/auth';
+import { getFirestore, type Firestore } from 'firebase/firestore';
+import type { FirebaseApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,15 +12,17 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-if (!firebaseConfig.apiKey) {
+const isFirebaseConfigured = Object.values(firebaseConfig).every(Boolean);
+
+if (!isFirebaseConfigured) {
   // Helps catch a missing .env.local during local development
   console.warn(
     'Firebase config is missing. Copy .env.example to .env.local and fill in your Firebase project credentials.'
   );
 }
 
-const app = initializeApp(firebaseConfig);
+const app: FirebaseApp | null = isFirebaseConfigured ? initializeApp(firebaseConfig) : null;
 
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const auth: Auth | null = app ? getAuth(app) : null;
+export const db: Firestore | null = app ? getFirestore(app) : null;
 export default app;
