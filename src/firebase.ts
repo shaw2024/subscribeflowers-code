@@ -12,7 +12,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-const isFirebaseConfigured = Object.values(firebaseConfig).every(Boolean);
+export const isFirebaseConfigured = Object.values(firebaseConfig).every(Boolean);
 
 if (!isFirebaseConfigured) {
   // Helps catch a missing .env.local during local development

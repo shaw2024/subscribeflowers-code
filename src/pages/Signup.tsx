@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/useAuth';
+import { isFirebaseConfigured } from '../firebase';
 import './Login.css';
 
 const Signup: React.FC = () => {
@@ -35,7 +36,11 @@ const Signup: React.FC = () => {
       if (success) {
         navigate('/account');
       } else {
-        setError('Could not create account. The email may already be in use.');
+        setError(
+          isFirebaseConfigured
+            ? 'Could not create account. The email may already be in use.'
+            : 'Account signup is not configured yet. Please try again later.'
+        );
       }
     } finally {
       setIsLoading(false);
