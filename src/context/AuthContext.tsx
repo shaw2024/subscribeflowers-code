@@ -1,4 +1,13 @@
 import React, { useState, useEffect, ReactNode } from 'react';
+import {
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  type User as FirebaseUser,
+} from 'firebase/auth';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { auth, db } from '../firebase';
 import { AuthContext } from './AuthContextValue';
 
 export interface SubscriptionPlan {
@@ -27,81 +36,120 @@ export interface Customer {
 export interface AuthContextType {
   customer: Customer | null;
   isAuthenticated: boolean;
+  isLoading: boolean;
   login: (email: string, password: string) => Promise<boolean>;
-  logout: () => void;
-  updateUsage: (amount: number) => void;
+  register: (email: string, password: string, firstName: string, lastName: string) => Promise<boolean>;
+  logout: () => Promise<void>;
+  updateUsage: (amount: number) => Promise<void>;
   getRemainingFlowers: () => number;
   canPurchase: (amount: number) => boolean;
-  updateAddress: (address: Customer['shippingAddress']) => void;
+  updateAddress: (address: Customer['shippingAddress']) => Promise<void>;
 }
 
-// Mock customer data - replace with actual API calls
-const mockCustomers: { [email: string]: { password: string; data: Customer } } = {
-  'demo@example.com': {
-    password: 'password123',
-    data: {
-      id: '1',
-      email: 'demo@example.com',
-      firstName: 'John',
-      lastName: 'Doe',
-      shippingAddress: {
-        street: '123 Flower Street',
-        city: 'Garden City',
-        state: 'CA',
-        zipCode: '90210',
-        country: 'United States',
-      },
-      subscription: {
-        name: 'Premium Monthly',
-        quarterlyLimit: 12, // 12 bouquets per quarter
-        pricePerMonth: 49.99,
-      },
-      usedThisQuarter: 5,
-      currentQuarter: 'Q1 2025',
-    },
-  },
+const NO_ACTIVE_PLAN: SubscriptionPlan = {
+  name: 'No Active Plan',
+  quarterlyLimit: 0,
+  pricePerMonth: 0,
 };
 
+const EMPTY_ADDRESS: Customer['shippingAddress'] = {
+  street: '',
+  city: '',
+  state: '',
+  zipCode: '',
+  country: '',
+};
+
+const getCurrentQuarter = (): string => {
+  const now = new Date();
+  const quarter = Math.floor(now.getMonth() / 3) + 1;
+  return `Q${quarter} ${now.getFullYear()}`;
+};
+
+const customerDocRef = (uid: string) => doc(db, 'customers', uid);
+
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [customer, setCustomer] = useState<Customer | null>(() => {
-    const saved = localStorage.getItem('customer');
-    return saved ? JSON.parse(saved) : null;
-  });
+  const [customer, setCustomer] = useState<Customer | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (customer) {
-      localStorage.setItem('customer', JSON.stringify(customer));
-    } else {
-      localStorage.removeItem('customer');
-    }
-  }, [customer]);
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
+      if (!firebaseUser) {
+        setCustomer(null);
+        setIsLoading(false);
+        return;
+      }
+
+      const snapshot = await getDoc(customerDocRef(firebaseUser.uid));
+      if (snapshot.exists()) {
+        setCustomer(snapshot.data() as Customer);
+      } else {
+        // Auth account exists without a profile doc (e.g. created outside the app)
+        const fallback: Customer = {
+          id: firebaseUser.uid,
+          email: firebaseUser.email ?? '',
+          firstName: '',
+          lastName: '',
+          shippingAddress: EMPTY_ADDRESS,
+          subscription: NO_ACTIVE_PLAN,
+          usedThisQuarter: 0,
+          currentQuarter: getCurrentQuarter(),
+        };
+        await setDoc(customerDocRef(firebaseUser.uid), fallback);
+        setCustomer(fallback);
+      }
+      setIsLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simulate API call
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const mockUser = mockCustomers[email];
-        if (mockUser && mockUser.password === password) {
-          setCustomer(mockUser.data);
-          resolve(true);
-        } else {
-          resolve(false);
-        }
-      }, 500);
-    });
-  };
-
-  const logout = () => {
-    setCustomer(null);
-  };
-
-  const updateUsage = (amount: number) => {
-    if (customer) {
-      setCustomer({
-        ...customer,
-        usedThisQuarter: customer.usedThisQuarter + amount,
-      });
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      return true;
+    } catch (error) {
+      console.error('Login failed:', error);
+      return false;
     }
+  };
+
+  const register = async (
+    email: string,
+    password: string,
+    firstName: string,
+    lastName: string
+  ): Promise<boolean> => {
+    try {
+      const credential = await createUserWithEmailAndPassword(auth, email, password);
+      const newCustomer: Customer = {
+        id: credential.user.uid,
+        email,
+        firstName,
+        lastName,
+        shippingAddress: EMPTY_ADDRESS,
+        subscription: NO_ACTIVE_PLAN,
+        usedThisQuarter: 0,
+        currentQuarter: getCurrentQuarter(),
+      };
+      await setDoc(customerDocRef(credential.user.uid), newCustomer);
+      setCustomer(newCustomer);
+      return true;
+    } catch (error) {
+      console.error('Registration failed:', error);
+      return false;
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+  };
+
+  const updateUsage = async (amount: number) => {
+    if (!customer) return;
+    const usedThisQuarter = customer.usedThisQuarter + amount;
+    setCustomer({ ...customer, usedThisQuarter });
+    await updateDoc(customerDocRef(customer.id), { usedThisQuarter });
   };
 
   const getRemainingFlowers = (): number => {
@@ -113,13 +161,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return getRemainingFlowers() >= amount;
   };
 
-  const updateAddress = (address: Customer['shippingAddress']) => {
-    if (customer) {
-      setCustomer({
-        ...customer,
-        shippingAddress: address,
-      });
-    }
+  const updateAddress = async (address: Customer['shippingAddress']) => {
+    if (!customer) return;
+    setCustomer({ ...customer, shippingAddress: address });
+    await updateDoc(customerDocRef(customer.id), { shippingAddress: address });
   };
 
   return (
@@ -127,7 +172,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       value={{
         customer,
         isAuthenticated: !!customer,
+        isLoading,
         login,
+        register,
         logout,
         updateUsage,
         getRemainingFlowers,

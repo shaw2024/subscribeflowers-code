@@ -25,6 +25,7 @@ const Shop = () => {
     { id: 11, name: 'Gerbera Daisies', image: getProductImage('GerberaDaisies') },
     { id: 13, name: 'Chrysanthemums', image: getProductImage('Chrysanthemums') },
     { id: 14, name: 'Daffodils', image: getProductImage('Daffodils') },
+    { id: 15, name: 'Poppies', image: getProductImage('Poppies') },
     { id: 16, name: 'Jasmine', image: getProductImage('Jasmine') },
     { id: 17, name: 'Magnolias', image: getProductImage('Magnolias') },
     { id: 18, name: 'Anemones', image: getProductImage('Anemones') },

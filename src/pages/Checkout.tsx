@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 import { useCart } from '../context/useCart';
 import { useAuth } from '../context/useAuth';
 import './Checkout.css';
@@ -78,7 +80,7 @@ const Checkout: React.FC = () => {
     // Generate unique order number
     const orderNumber = `ORD-${Date.now()}-${Math.random().toString(36).substring(2, 9).toUpperCase()}`;
     
-    // Prepare order data
+    // Prepare order data (never include payment card details in this document)
     const orderData = {
       orderNumber,
       customerInfo: formData,
@@ -86,45 +88,36 @@ const Checkout: React.FC = () => {
       subtotal: getCartTotal(),
       shipping: calculateShipping(),
       total: getGrandTotal(),
-      isSubscriptionOrder: isAuthenticated && customer,
-      timestamp: new Date().toISOString(),
+      isSubscriptionOrder: isAuthenticated && !!customer,
+      status: isAuthenticated && customer ? 'confirmed' : 'pending_payment',
+      createdAt: serverTimestamp(),
       ...(isAuthenticated && customer && {
         customerId: customer.id,
         customerEmail: customer.email,
-      })
+      }),
     };
 
-    // Simulate API call to save order to database
-    setTimeout(() => {
-      console.log('=== ORDER SUBMITTED TO DATABASE ===');
-      console.log('Order Data:', orderData);
-      
-      // Update subscription usage if customer is logged in
+    try {
+      await addDoc(collection(db, 'orders'), orderData);
+
       if (isAuthenticated && customer) {
         const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-        updateUsage(totalItems);
-        
-        // Simulate sending email with order number
-        console.log('=== EMAIL SENT ===');
-        console.log(`To: ${customer.email}`);
-        console.log(`Subject: Order Confirmation - ${orderNumber}`);
-        console.log(`Body: Thank you for your order! Your order number is ${orderNumber}. Your subscription flowers will be delivered on ${formData.deliveryDate}.`);
-        
+        await updateUsage(totalItems);
+
         alert(`✅ Order placed successfully!\n\nOrder Number: ${orderNumber}\n\nA confirmation email has been sent to ${customer.email}\n\nCovered by subscription.`);
       } else {
-        // For non-subscription customers, would redirect to Stripe
-        console.log('=== EMAIL SENT ===');
-        console.log(`To: ${formData.email}`);
-        console.log(`Subject: Order Confirmation - ${orderNumber}`);
-        console.log(`Body: Thank you for your order! Your order number is ${orderNumber}.`);
-        
+        // For non-subscription customers, would redirect to Stripe next
         alert(`Payment gateway integration coming soon! This will connect to Stripe.\n\nOrder Number: ${orderNumber}`);
       }
-      
+
       clearCart();
       navigate(isAuthenticated ? '/account' : '/');
+    } catch (error) {
+      console.error('Failed to save order:', error);
+      alert('Something went wrong placing your order. Please try again.');
+    } finally {
       setIsProcessing(false);
-    }, 2000);
+    }
   };
 
   if (cartItems.length === 0) {

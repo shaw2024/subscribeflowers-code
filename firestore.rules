@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Each customer can only read/write their own profile document.
+    match /customers/{userId} {
+      allow read, update: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Anyone (including guest checkout) can create an order, but orders
+    // cannot be read, listed, updated, or deleted from the client. Use the
+    // Firebase console or an admin backend (Cloud Function) to manage orders.
+    match /orders/{orderId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+  }
+}

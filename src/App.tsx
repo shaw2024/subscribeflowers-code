@@ -14,6 +14,7 @@ import ProductDetail from './pages/ProductDetail'
 import RosesShop from './pages/RosesShop'
 import Checkout from './pages/Checkout'
 import Login from './pages/Login'
+import Signup from './pages/Signup'
 import Account from './pages/Account'
 import Subscribe from './pages/Subscribe'
 import SubscribeSuccess from './pages/SubscribeSuccess'
@@ -41,6 +42,7 @@ function App() {
                 <Route path="/subscribe" element={<Subscribe />} />
                 <Route path="/subscribe/success" element={<SubscribeSuccess />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
                 <Route path="/account" element={<Account />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />

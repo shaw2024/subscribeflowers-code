@@ -7,7 +7,7 @@ import './Account.css';
 
 const Account: React.FC = () => {
   const navigate = useNavigate();
-  const { customer, isAuthenticated, logout, getRemainingFlowers, updateAddress } = useAuth();
+  const { customer, isAuthenticated, isLoading, logout, getRemainingFlowers, updateAddress } = useAuth();
   const { addToCart } = useCart();
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [addressForm, setAddressForm] = useState({
@@ -33,6 +33,10 @@ const Account: React.FC = () => {
     { id: '11', name: 'Gerbera Daisies', price: 0, image: getProductImage('Gerbera Daisies') },
   ];
 
+  if (isLoading) {
+    return null;
+  }
+
   if (!isAuthenticated || !customer) {
     navigate('/login');
     return null;
@@ -41,8 +45,8 @@ const Account: React.FC = () => {
   const usagePercentage = (customer.usedThisQuarter / customer.subscription.quarterlyLimit) * 100;
   const remainingFlowers = getRemainingFlowers();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate('/');
   };
 
@@ -56,9 +60,9 @@ const Account: React.FC = () => {
     setAddressForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSaveAddress = (e: React.FormEvent) => {
+  const handleSaveAddress = async (e: React.FormEvent) => {
     e.preventDefault();
-    updateAddress(addressForm);
+    await updateAddress(addressForm);
     setIsEditingAddress(false);
   };
 

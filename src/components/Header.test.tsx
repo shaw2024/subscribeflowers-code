@@ -18,8 +18,10 @@ import { useAuth } from '../context/useAuth';
 describe('Header Component', () => {
   const mockAuthContextValue = {
     isAuthenticated: false,
+    isLoading: false,
     customer: null,
     login: vi.fn(),
+    register: vi.fn(),
     logout: vi.fn(),
     updateUsage: vi.fn(),
     getRemainingFlowers: vi.fn(),

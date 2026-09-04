@@ -51,9 +51,14 @@ const Header = () => {
               <Cart />
             </>
           ) : (
-            <Link to="/login" className="login-link" onClick={closeMenu}>
-              Login
-            </Link>
+            <>
+              <Link to="/login" className="login-link" onClick={closeMenu}>
+                Login
+              </Link>
+              <Link to="/signup" className="login-link" onClick={closeMenu}>
+                Sign up
+              </Link>
+            </>
           )}
         </div>
         <div 
