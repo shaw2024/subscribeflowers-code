@@ -131,8 +131,8 @@ export const productImages = {
     main: flowerImg('daisies.jpg'),
     colors: {
       white: flowerImg('daisies.jpg'),
-      yellow: flowerImg('gerbera-yellow.jpg'),
-      pink: flowerImg('gerbera-pink.jpg')
+      yellow: flowerImg('daisies.jpg'),
+      pink: flowerImg('daisies.jpg')
     }
   },
   hydrangeas: {
