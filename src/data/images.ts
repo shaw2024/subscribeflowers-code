@@ -7,7 +7,6 @@
 export const BASE_URL = import.meta.env.BASE_URL;
 
 const localImage = (folder: string, filename: string) => `${BASE_URL}images/${folder}/${filename}`;
-const remoteImage = (url: string) => url;
 const roseImg = (filename: string) => localImage('roses', filename);
 const flowerImg = (filename: string) => localImage('flowers', filename);
 const tulipImg = (filename: string) => localImage('tulips', filename);
@@ -129,11 +128,11 @@ export const productImages = {
     main: flowerImg('carnations.jpg')
   },
   daisies: {
-    main: remoteImage('https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80&v=20260906-1'),
+    main: flowerImg('daisies.jpg'),
     colors: {
-      white: remoteImage('https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80&v=20260906-1'),
-      yellow: remoteImage('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80&v=20260906-2'),
-      pink: remoteImage('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1200&q=80&v=20260906-3')
+      white: flowerImg('daisies.jpg'),
+      yellow: flowerImg('gerbera-yellow.jpg'),
+      pink: flowerImg('gerbera-pink.jpg')
     }
   },
   hydrangeas: {
@@ -143,7 +142,7 @@ export const productImages = {
     main: flowerImg('lavender.jpg')
   },
   gerberadaisies: {
-    main: remoteImage('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1200&q=80&v=20260906-3')
+    main: flowerImg('gerbera-daisies.jpg')
   },
   chrysanthemums: {
     main: flowerImg('chrysanthemums.jpg')
