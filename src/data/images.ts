@@ -129,11 +129,11 @@ export const productImages = {
     main: flowerImg('carnations.jpg')
   },
   daisies: {
-    main: remoteImage('https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80'),
+    main: remoteImage('https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80&v=20260906-1'),
     colors: {
-      white: remoteImage('https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80'),
-      yellow: remoteImage('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80'),
-      pink: remoteImage('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1200&q=80')
+      white: remoteImage('https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=1200&q=80&v=20260906-1'),
+      yellow: remoteImage('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80&v=20260906-2'),
+      pink: remoteImage('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1200&q=80&v=20260906-3')
     }
   },
   hydrangeas: {
@@ -143,7 +143,7 @@ export const productImages = {
     main: flowerImg('lavender.jpg')
   },
   gerberadaisies: {
-    main: remoteImage('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1200&q=80')
+    main: remoteImage('https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=1200&q=80&v=20260906-3')
   },
   chrysanthemums: {
     main: flowerImg('chrysanthemums.jpg')
