@@ -34,6 +34,9 @@ const Header = () => {
             <Link to="/shop" onClick={closeMenu}>Shop</Link>
           </li>
           <li>
+            <Link to="/faq" onClick={closeMenu}>FAQ</Link>
+          </li>
+          <li>
             <Link to="/contact" onClick={closeMenu}>Contact</Link>
           </li>
         </ul>

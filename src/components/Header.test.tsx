@@ -54,6 +54,7 @@ describe('Header Component', () => {
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /shop/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /faq/i })).toBeInTheDocument();
   });
 
   it('shows login link when not authenticated', () => {
